@@ -1,0 +1,1185 @@
+[
+  {
+    "id": "hu_entry.x_service_menu",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Verstecktes iDrive-Servicemenü (Freischaltung)",
+    "description_de": "Schaltet das versteckte Servicemenü der Headunit frei. Für Fahrzeuge ohne Navigation bzw. mit Business-Navi wird diese Sequenz beschrieben: Hauptmenü öffnen, Controller mindestens 10 s nach LINKS drücken, dann 3 Rasten rechts, 3 links, 1 rechts, 1 links, 1 rechts drehen und einmal drücken. Das Servicemenü erscheint dann als letzter Punkt unter 'Einstellungen'. Bei CIC/Navi Professional wird der Controller stattdessen nach oben/vorne gehalten. Inhalt laut Quellen (CIC): GPS/Navigation, Telefon/BMW Services, Gracenote, TV; laut einem Nutzer nur Anzeige, keine Änderungen möglich. Für HU_ENTRY gibt es keinen direkten Erfahrungsbericht. Passend dazu beschreibt BMW den Controller der Basic-Headunit als nur nach links/rechts kippbar, was zur 'links halten'-Variante passt.",
+    "function_names": [
+      "SERVICE_MENUE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "Servicemenü freigeschaltet (aktueller Wert)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Servicemenü gesperrt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine zusätzliche",
+    "software_requirements_de": "keine; der Parameter steht bereits auf aktiv, es ist also nur die Tastensequenz nötig",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://oemnavigations.com/blogs/news/idrive-hack-idrive-hidden-menu-in-your-bmw-a-step-by-step-guide",
+      "https://www.keepyourcarsafe.co.uk/blogs/coding-diagnostics/cic-equipped-vehicles-entering-the-service-menu",
+      "https://www.bimmerfest.com/threads/entering-in-the-hidden-idrive-menu-settings.594175/",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: aktiv. Zuerst ausprobieren (keine Codierung nötig). Im Menü nichts verstellen. Nicht verwechseln mit dem KOMBI-Testmenü (Reset-Taste, siehe Bericht 04). bimmerfest nur als Such-Snippet ausgewertet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_developer_menu",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Entwicklermenü (Build/Datum/Versionen)",
+    "description_de": "Bei HU_CIC (F30 2012, E-Sys) blendet der Parameter ein Entwicklermenü in den Einstellungen ein. Es zeigt Datum, Build und Softwareversionen. Er wird einfach codiert, eine Tastenkombination ist laut Quellen nicht nötig. Für HU_NBT (F020/F030) gibt es den gleichnamigen Eintrag 'Activation menu développeur'. Für HU_ENTRY wurde kein Bericht gefunden, also ist auch unbekannt, was das Menü dort enthält und ob es Testfunktionen mitbringt.",
+    "function_names": [
+      "ENTWICKLER_MENUE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein Entwicklermenü (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Entwicklermenü in den Einstellungen (laut HU_CIC-Quellen)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: nicht_aktiv. Risiko 'medium', weil der Inhalt auf HU_ENTRY unbekannt ist. Falls aktiviert: nur ansehen, nichts auslösen. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_sport_displays",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Sportanzeigen (Leistung/Drehmoment) und Einheiten",
+    "description_de": "EFF_DYN_SPORT_CID blendet unter Fahrzeuginfo das Menü 'Sportanzeigen' mit Leistungs- und Drehmomentanzeige ein. EFF_DYN_SPORT_UNIT ergänzt in den Einstellungen die Auswahl der Einheiten (kW/PS, Nm/lb-ft). Mehrere Nutzer mit HU_ENTRY ohne Navi berichten, dass das Menü erscheint, die Werte aber dauerhaft auf 0 stehen. Mit HU_ENTRYNAV soll es funktionieren. Ob Daten geliefert werden, hängt vom Motor ab: Ältere Motoren und manche Diesel liefern keine Daten. Für den N13 gibt es keinen Beleg. Im F020/F030-Cheat-Sheet für CAFD 000000F9 liegt EFF_DYN_SPORT_CID in Block 3000, Byte 47, Maske 0x10, und EFF_DYN_SPORT_UNIT in Byte 61, Maske 0x04.",
+    "function_names": [
+      "EFF_DYN_SPORT_CID",
+      "EFF_DYN_SPORT_UNIT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein Sportanzeigen-Menü bzw. keine Einheitenwahl (aktueller Wert beider Parameter)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Menü 'Sportanzeigen' bzw. Einheitenauswahl sichtbar"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "DME muss Leistungs-/Drehmomentdaten senden (für N13 unbelegt)",
+    "software_requirements_de": "BimmerCode-Standardoption 'Sport displays' nur für HU_NBT/HU_NBT_EVO; bei HU_ENTRY nur im Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.2addicts.com/forums/showthread.php?t=1083314",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1138487",
+      "https://www.bimmerfest.com/threads/power-and-torque-meters-in-sport-display.723339/",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/ekfxisid.xml",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: EFF_DYN_SPORT_CID = nicht_aktiv, EFF_DYN_SPORT_UNIT = nicht_aktiv. Gefahrlos testbar und rückgängig zu machen. Wahrscheinlichstes Ergebnis: Menü da, Werte 0. Forenquellen nur als Snippets ausgewertet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_m_digital_tacho",
+    "ecu": "HU_ENTRY",
+    "category": "kombi",
+    "title_de": "M-Digitaltacho (Auswahl in der Informationsanzeige)",
+    "description_de": "Laut Quellen soll M_DIGITAL_TACHO eine Checkbox für einen M-Digitaltacho in der Informationsanzeige einblenden. M_DIGITAL_TACHO_EINH soll die Einheitenwahl ergänzen. Ergebnis auf einem F30 2012 mit HU_CIC: Die Checkbox erschien, aber ohne Funktion; die Einheiten waren nicht wählbar. Ein M2-Nutzer berichtet, die Option sei an die EfficientDynamics-Anzeige gekoppelt. Den in BimmerCode dokumentierten Digitaltacho im Bordcomputer liefert dagegen der KOMBI-Parameter BC_DIGITAL_V (siehe Bericht 04).",
+    "function_names": [
+      "M_DIGITAL_TACHO",
+      "M_DIGITAL_TACHO_EINH"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus (aktueller Wert beider Parameter)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Checkbox bzw. Einheitenwahl im iDrive (ohne bestätigte Funktion)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "vermutlich M-Fahrzeug/M-Kombi; nicht belegt",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://f87.bimmerpost.com/forums/showthread/1723947/enabling-m1-m2-buttons-on-og-m2"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: M_DIGITAL_TACHO = nicht_aktiv, M_DIGITAL_TACHO_EINH = nicht_aktiv. Für einen Digitaltacho lieber KOMBI BC_DIGITAL_V nutzen (dokumentiert). f87-Quelle nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_mdrive_menu",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "M-Drive-Menü und M-Tasten-Einstellungen",
+    "description_de": "MDRIVE blendet laut HU_CIC-Test (F30 2012) ein M-Drive-Menü ein; dort ließ sich aber nichts auswählen. MDRIVE_CONFIG legt 1 oder 2 M-Drive-Belegungen fest (1_menu/2_menu); auf einem M2 lieferte 2_menu die Optionen M1/M2. M_KEY_SETTINGS wurde in der F30-Tabelle als 'unklar, Tests nötig' geführt. Das Menü setzt M-Fahrzeuge voraus (M-Drive-Taste im Lenkrad, M-spezifische DSC/EDC/EGS-Konfiguration). Beim 116i fehlt das.",
+    "function_names": [
+      "MDRIVE",
+      "MDRIVE_CONFIG",
+      "M_KEY_SETTINGS"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "1_menu",
+        "meaning_de": "MDRIVE_CONFIG: eine M-Drive-Belegung (aktueller Wert)"
+      },
+      {
+        "name": "2_menu",
+        "meaning_de": "MDRIVE_CONFIG: zwei Belegungen M1/M2 (M-Fahrzeuge)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "M_KEY_SETTINGS: aus (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "MDRIVE/M_KEY_SETTINGS: Menü eingeblendet (ohne bestätigte Funktion)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "M-Fahrzeug mit M-Drive-Taste und M-spezifischen Steuergeräten",
+    "software_requirements_de": "M-Konfiguration in weiteren Steuergeräten (nicht vorhanden)",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://f87.bimmerpost.com/forums/showthread/1723947/enabling-m1-m2-buttons-on-og-m2"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: MDRIVE = im Auftrag nicht angegeben (in BimmerCode ablesen), MDRIVE_CONFIG = 1_menu, M_KEY_SETTINGS = nicht_aktiv. Ohne M-Hardware kein sinnvoller Nutzen. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_sport_mode_configurable",
+    "ecu": "HU_ENTRY",
+    "category": "drivetrain",
+    "title_de": "SPORT-Modus konfigurierbar (Fahrwerk/Lenkung vs. Antrieb)",
+    "description_de": "MACRO_FDS = popup_and_config: Beim Wechsel in SPORT erscheint ein Pop-up mit Konfigurationsmöglichkeit. Wählbar sind laut Foren 'Fahrwerk/Lenkung', 'Antrieb' oder beides. Für HU_CIC als funktionierend gelistet; der Eintrag in der bmw-syndikat-Datenbank (F20 gelistet) nennt ICM + HU_NBT. Wichtig: Laut BimmerCode und Foren sind zwei Teile nötig. Teil 1 ist die Headunit (MACRO_FDS). Teil 2 ist das ICM: IcmKod_B_SportIndividualisierbar = ein/01, in BimmerCode 'SPORT driving mode configurable (2 of 2)' im ICMQL. Nur mit MACRO_FDS erscheint das Menü zwar, die Auswahl lässt sich aber nicht treffen (Bericht von NBT). Der Halter hat im ICM nur Sportlenkung und InitEco gesetzt, nicht SportIndividualisierbar. Bytevergleich: Die Änderung im Backup (Block 3000, Byte 7: 0x5B → 0x6B, Bits 4–5 von 01 auf 10) passt genau zur Lage von MACRO_FDS im F020/F030-Cheat-Sheet für CAFD 000000F9 (Byte 7, Maske 0x30).",
+    "function_names": [
+      "MACRO_FDS"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein Pop-up beim Moduswechsel"
+      },
+      {
+        "name": "only_popup",
+        "meaning_de": "nur Pop-up (Originalwert des Fahrzeugs)"
+      },
+      {
+        "name": "popup_and_config",
+        "meaning_de": "Pop-up plus Konfigurationsmenü für SPORT (aktueller Wert, vom Halter gesetzt)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Fahrerlebnisschalter (F20 Serie). Ohne adaptive Dämpfer bzw. Variable Sportlenkung wirkt 'Fahrwerk/Lenkung' vermutlich nur auf die EPS-Kennlinie (nicht belegt).",
+    "software_requirements_de": "ICM: IcmKod_B_SportIndividualisierbar = ein (BimmerCode ICMQL 'SPORT driving mode configurable (2 of 2)'). Die BimmerCode-Standardoption für Teil 1 gibt es nur bei HU_NBT/HU_NBT_EVO.",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "medium",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=140",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Transmission/Sport-Mode.md",
+      "https://www.bimmerfest.com/threads/configuring-sport-mode-tight-steering.837758/",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1086229",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/ekfxisid.xml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: popup_and_config (vom Halter von only_popup geändert). Für HU_ENTRY kein Erfahrungsbericht gefunden. Wer es testen will, codiert zusätzlich im ICM 'SPORT driving mode configurable (2 of 2)'. Sonst MACRO_FDS auf only_popup zurücksetzen. Risiko 'medium', weil Teil 2 ins ICM (Fahrdynamik) eingreift. bimmerfest/bimmerpost nur als Snippets. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_fds_popup",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Pop-up beim Fahrmoduswechsel (Checkbox) und ECO-PRO-Pop-up",
+    "description_de": "FDS_POPUP_DEACTIVATE steuert laut einer Codier-Referenz (nur als Such-Snippet gesehen), ob in den Einstellungen eine Checkbox zum Abschalten des Fahrmodus-Pop-ups angeboten wird; Standard: aktiv. Ein Nutzer bestätigt, dass es in den Einstellungen einen Schalter für das FDS-Pop-up gibt. ECO_FDS_POPUP steht in einer X3-F25-Liste (HU_CIC 3000) als Teil der manuellen ECO-PRO-Nachrüstung (→ aktiv). Was genau es bewirkt, ist nicht beschrieben. Ein Nutzer berichtet, dass mit codiertem ECO-PRO-Verbrauchshistogramm das Pop-up beim Moduswechsel wegfiel.",
+    "function_names": [
+      "FDS_POPUP_DEACTIVATE",
+      "ECO_FDS_POPUP"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "FDS_POPUP_DEACTIVATE: Checkbox zum Abschalten des Pop-ups angeboten (aktueller Wert; Deutung laut Snippet)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "FDS_POPUP_DEACTIVATE: keine Checkbox; ECO_FDS_POPUP: aus (aktueller Wert von ECO_FDS_POPUP)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://f87.bimmerpost.com/forums/showthread/1723947/enabling-m1-m2-buttons-on-og-m2",
+      "https://www.bimmerfest.com/threads/what-coding-brings-back-the-graphics-of-mode-selection.762239/",
+      "https://x3.xbimmers.com/forums/showthread.php?t=715297&page=36",
+      "https://www.2addicts.com/forums/showthread.php?t=997749&page=20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: FDS_POPUP_DEACTIVATE = aktiv, ECO_FDS_POPUP = nicht_aktiv. Alle Quellen nur als Snippets; die genaue Herkunft der Aussage zu FDS_POPUP_DEACTIVATE ließ sich nicht eindeutig einer der Seiten zuordnen. Kein Änderungsbedarf erkennbar. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_consumption_history",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Verbrauchshistorie (Grafik im iDrive)",
+    "description_de": "HIST_GAS_CONSUMP taucht in einer HU_NBT-Liste (X1, HMI 3000) mit Wert 'aktiv' auf, aber ohne Funktionsbeschreibung. In einem HU_CIC-ECO-PRO-Bericht heißt es nach Codierung mehrerer ECO-Parameter: 'Fuel Consumption Graphs worked in all modes'. Welcher Parameter dafür verantwortlich war, bleibt offen. Für HIST_CONSUMP_AVERAGE und HIST_GAS_CONSUMP_SCALE_1..4 wurde keine Quelle gefunden. Der Name legt Durchschnittslinie und Skalenwerte der Grafik nahe (unbelegt). Ob HU_ENTRY eine Verbrauchsgrafik überhaupt darstellen kann, ist unbekannt.",
+    "function_names": [
+      "HIST_GAS_CONSUMP",
+      "HIST_CONSUMP_AVERAGE",
+      "HIST_GAS_CONSUMP_SCALE_1",
+      "HIST_GAS_CONSUMP_SCALE_2",
+      "HIST_GAS_CONSUMP_SCALE_3",
+      "HIST_GAS_CONSUMP_SCALE_4"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "HIST_GAS_CONSUMP: keine Verbrauchshistorie (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "HIST_GAS_CONSUMP: Verbrauchshistorie eingeblendet (Wirkung auf HU_ENTRY unbekannt)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine zusätzliche erkennbar",
+    "software_requirements_de": "unbekannt; die Skalenparameter nicht ohne Kenntnis der Bedeutung ändern",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://f30.bimmerpost.com/forums/showthread/1512884/add-nav-directions-to-instrument-cluster?p=29760649",
+      "https://www.bimmerfest.com/forums/archive/index.php/t-642231.html"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: HIST_GAS_CONSUMP = nicht_aktiv. HIST_CONSUMP_AVERAGE und HIST_GAS_CONSUMP_SCALE_1..4 sind im Auftrag nicht angegeben (in BimmerCode ablesen). Ein Test von HIST_GAS_CONSUMP = aktiv ist risikoarm und rückgängig zu machen; Skalenwerte dabei unverändert lassen. Quellen nur als Snippets. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_efficient_dynamics_eco",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "EfficientDynamics/ECO-PRO-Menüs (Tipps, Limit)",
+    "description_de": "EFF_DYN_SYS_CID, ECO_TIPPS und ECO_MODE werden in einer HU_CIC-Liste als Teil der ECO-PRO-Nachrüstung auf 'aktiv' gesetzt; danach funktionierten laut Nutzer die ECO-Tipps in ECO PRO. ECO PRO ist beim F20 Serie, die Parameter bilden also vermutlich nur den vorhandenen Werksumfang ab. Was ECO_LIMIT bewirkt, ist nicht belegt; naheliegend ist die ECO-PRO-Geschwindigkeitsvorgabe (unbelegt). Die Nachrüstung erforderte laut Forum zusätzlich KOMBI/ICM/IHKA/JBBF und ggf. ein späteres Baudatum. Für dieses Auto ist das nicht nötig.",
+    "function_names": [
+      "EFF_DYN_SYS_CID",
+      "ECO_MODE",
+      "ECO_TIPPS",
+      "ECO_LIMIT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "EFF_DYN_SYS_CID: EfficientDynamics-Anzeige im CID aktiv (aktueller Wert)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "jeweilige Anzeige/Funktion aus"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Fahrerlebnisschalter mit ECO PRO (beim F20 Serie)",
+    "software_requirements_de": "keine; Werksfunktion",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.bimmerfest.com/forums/archive/index.php/t-642231.html",
+      "https://www.bimmerfest.com/threads/bmw-f10-eco-pro.1434888/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: EFF_DYN_SYS_CID = aktiv; ECO_MODE, ECO_TIPPS und ECO_LIMIT sind im Auftrag nicht angegeben (in BimmerCode ablesen). Kein Änderungsbedarf; nicht abschalten, wenn die Menüs genutzt werden. Quellen nur als Snippets. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_oil_level_menu",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Elektronische Ölstandsanzeige im iDrive (alte/neue Darstellung)",
+    "description_de": "Laut einem Forumsbeitrag (HU_CIC) aktiviert OELSTANDSMENUE das Ölstandsmenü. OELSTAND_OENS schaltet von der alten auf die neue Darstellung um. Auf einem älteren F10 funktionierte das nicht; der Nutzer vermutete eine Abhängigkeit von Baudatum/KOMBI. Im Fahrzeug ist OELSTAND_OENS bereits aktiv. Möglicherweise erfolgt die Anzeige also schon über die 'neue' Variante (unbelegt).",
+    "function_names": [
+      "OELSTANDSMENUE",
+      "OELSTAND_OENS"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "OELSTANDSMENUE: altes Ölstandsmenü aus (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "OELSTAND_OENS: neue Ölstandsdarstellung (aktueller Wert)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "elektronischer Ölstandssensor und passende DME/KOMBI-Daten (für N13 nicht geprüft)",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.bimmerfest.com/threads/oil-level-check-vehicle-information-in-idrive.644882/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: OELSTANDSMENUE = nicht_aktiv, OELSTAND_OENS = aktiv. Erst im iDrive prüfen (Fahrzeuginfo → Fahrzeugstatus → Motorölstand), ob die Messung schon angezeigt wird. Nur wenn sie fehlt, OELSTANDSMENUE testen. Quelle nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_colour_switch",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Farbschema/Design-Line-Umschaltung",
+    "description_de": "COLOUR_SWITCH_LINES ist in einem koreanischen Cheat-Sheet nur für HU_NBT_EVO (G11/G30) belegt: 01 Sport, 02 Urban, 03 Modern, 04 Luxury, beschrieben als 'Ambiente'-Umschaltung. COLOUR_SWITCH gehört in F25/G20-Foren zur Farbwahl der Ambientebeleuchtung. Für die F-Serie mit HU_ENTRY gibt es keinen Beleg, und eine farbige Ambientebeleuchtung hat der 2012er F20 nicht ab Werk. Die 6 Werte von COLOUR_SWITCH_LINES im CAFD des Halters sind nicht ausgewertet.",
+    "function_names": [
+      "COLOUR_SWITCH",
+      "COLOUR_SWITCH_LINES"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "COLOUR_SWITCH: aus (aktueller Wert)"
+      },
+      {
+        "name": "01",
+        "meaning_de": "COLOUR_SWITCH_LINES Sport (NBT_EVO-Quelle)"
+      },
+      {
+        "name": "02",
+        "meaning_de": "COLOUR_SWITCH_LINES Urban (NBT_EVO-Quelle)"
+      },
+      {
+        "name": "03",
+        "meaning_de": "COLOUR_SWITCH_LINES Modern (NBT_EVO-Quelle)"
+      },
+      {
+        "name": "04",
+        "meaning_de": "COLOUR_SWITCH_LINES Luxury (NBT_EVO-Quelle)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "vermutlich Ambientebeleuchtung bzw. Line-spezifische Ausstattung; nicht belegt",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Bundang_Thunder.xml",
+      "https://x3.xbimmers.com/forums/showthread.php?t=1718810"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: COLOUR_SWITCH = nicht_aktiv; COLOUR_SWITCH_LINES im Auftrag nicht angegeben (6 Optionen, Namen in BimmerCode ablesen). xbimmers nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_hifi_menus",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Zusätzliche Klangmenüs (B&O, Logic7, Surround-Regler)",
+    "description_de": "HIGH_END_AUDIO_MENUE = volle_insz ersetzt laut Foren die L7-Surround-Checkbox durch ein B&O-Menü (Studio/Erweitert). Es setzt passende Verstärker-Hardware voraus. L7_SURROUND_CONFIG zeigte auf HU_CIC (F30 2012) einen Surround-Schieberegler, der kaum mehr als Ein/Aus bewirkte. LOGIC7_SYMBOL blendet das L7-Symbol im Klangmenü ein (koreanische Quelle: für Fahrzeuge mit HiFi-Option). Logic7 ist eine Harman-Kardon-Signalverarbeitung. Ohne HK-Verstärker ist keine Klangwirkung zu erwarten.",
+    "function_names": [
+      "HIGH_END_AUDIO_MENUE",
+      "L7_SURROUND_CONFIG",
+      "LOGIC7_SYMBOL"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "kein_menue",
+        "meaning_de": "HIGH_END_AUDIO_MENUE: kein Zusatzmenü (aktueller Wert)"
+      },
+      {
+        "name": "volle_insz",
+        "meaning_de": "HIGH_END_AUDIO_MENUE: B&O-Menü (laut Foren)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "L7_SURROUND_CONFIG/LOGIC7_SYMBOL: Regler bzw. Symbol eingeblendet"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "HiFi-/Harman-Kardon-Verstärker (beim Stereo-System nicht vorhanden)",
+    "software_requirements_de": "keine",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Bundang_Thunder.xml",
+      "https://f15.bimmerpost.com/forums/showthread.php?t=1033991&page=40",
+      "https://www.bimmerfest.com/threads/bang-olufsen-menu.645805/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: HIGH_END_AUDIO_MENUE = kein_menue (4 Optionen; die übrigen zwei Namen sind nicht ausgewertet); L7_SURROUND_CONFIG und LOGIC7_SYMBOL im Auftrag nicht angegeben. Welches Soundsystem verbaut ist (Stereo oder HiFi), ist offen. Bestenfalls kosmetisch. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_drl_menu",
+    "ecu": "HU_ENTRY",
+    "category": "lighting",
+    "title_de": "Menüpunkt Tagfahrlicht ein/aus im iDrive",
+    "description_de": "DAYDRIVING_LIGHT: perm_off → standard blendet laut Community-Tabelle (HU_CIC, 'Yes') unter Einstellungen → Licht einen Menüpunkt zum Ein-/Ausschalten des Tagfahrlichts ein. Bei HU_NBT entspricht das Wert 02 ('standart'). Das TFL selbst schaltet das FEM (TFL_MODUS u. a.); die Headunit liefert nur den Menüpunkt. Für HU_ENTRY gibt es keinen Erfahrungsbericht. Die BimmerCode-Standardoption 'Checkbox daytime running light' gibt es nur für HU_NBT/NBT_EVO.",
+    "function_names": [
+      "DAYDRIVING_LIGHT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "perm_off",
+        "meaning_de": "kein Menüpunkt (aktueller Wert)"
+      },
+      {
+        "name": "standard",
+        "meaning_de": "Menüpunkt TFL ein/aus (HU_CIC-Quelle; bei HU_NBT werte=02)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "TFL-fähige Scheinwerfer (vorhanden); passende FEM-Codierung",
+    "software_requirements_de": "FEM_BODY: TFL-Codierung muss das Abschalten zulassen (siehe Bericht 05, fem_body.drl_mode)",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": "UN-ECE R48 (Rev. 12, Amend. 10, Abs. 6.19.7.1/6.19.7.2): Das TFL muss sich automatisch einschalten. Manuell abschalten ist nur zulässig, wenn es sich oberhalb von 15 km/h bzw. nach 100 m automatisch wieder einschaltet (ältere Fassung: 10 km/h). Ein dauerhaft abschaltbares TFL entspricht dem nicht. Welche Fassung für die Typgenehmigung 2012 galt und welche Folgen das für die Betriebserlaubnis hat, ist [UNBEKANNT]. Im Zweifel einen Sachverständigen fragen.",
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Lighting/Daytime-Running-Lights.md",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/ekfxisid.xml",
+      "https://bimmercode.app/cars/f20",
+      "https://www.marklines.com/statics/unece/pdf_202102/R048r12am10e.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: perm_off (3 Optionen; die dritte ist nicht ausgewertet, in BimmerCode ablesen). Bericht 05 bewertet die Kompatibilität mit 'unlikely'. Hier 'unknown', weil HU_ENTRY und HU_CIC dieselbe CAFD-ID nutzen und die Tabelle die Funktion für HU_CIC bestätigt. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_door_key_menu",
+    "ecu": "HU_ENTRY",
+    "category": "locking",
+    "title_de": "Menüpunkte Türen/Schlüssel (Komfortöffnung, Entriegeln, Verriegeln)",
+    "description_de": "Diese Parameter blenden laut Namen die Einstellungen unter 'Türen/Schlüssel' ein oder aus. Die eigentliche Funktion liegt im FEM. Belegt ist nur wenig: COMFORT_OPENING steht in einem französischen HU_NBT-Sheet als 'en cours de test' mit der Wirkung 'Doppelklick auf der Fernbedienung öffnet die Fenster zu 75 %'. Für KEY_CONF_COMFORT, KEY_CONF_UNLOCK_VEHICLE, SETTINGS_DOORLOCKING und DOOR_LOCKING_SELECTABLE wurden keine Quellen gefunden. Naheliegend: Menüpunkte für 'Komfortzugang', 'Fahrzeug entriegeln: Fahrertür/alle Türen' und 'Verriegeln nach Losfahren' (unbelegt).",
+    "function_names": [
+      "COMFORT_OPENING",
+      "KEY_CONF_COMFORT",
+      "KEY_CONF_UNLOCK_VEHICLE",
+      "SETTINGS_DOORLOCKING",
+      "DOOR_LOCKING_SELECTABLE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "Menüpunkt sichtbar (Annahme)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Menüpunkt ausgeblendet (Annahme)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Funktion muss im FEM vorhanden/codiert sein (z. B. Komfortzugang 322 für KEY_CONF_COMFORT – nicht belegt)",
+    "software_requirements_de": "passende FEM_BODY-Codierung",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: im Auftrag nicht angegeben (in BimmerCode ablesen). Werte sind Annahmen nach dem üblichen Muster aktiv/nicht_aktiv. Ein eingeblendeter Menüpunkt ohne FEM-Funktion bleibt wirkungslos. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_light_settings_menu",
+    "ecu": "HU_ENTRY",
+    "category": "lighting",
+    "title_de": "Menüpunkte Komfortblinken und Heimleuchten-Dauer",
+    "description_de": "Laut Namen blenden SETTINGS_TIP_BLINKING (Komfortblinken: 1x/3x) und SETTINGS_HOMELIGHT_PERIOD (Dauer des Heimleuchtens) die entsprechenden Einstellungen unter 'Licht' ein. Die Funktionen liegen im FEM (z. B. Pia_default_tippblinker, BLINKZYKLEN_ANZAHL_TIPP). Für diese HU-Parameter wurde keine Quelle gefunden. Verwandt ist KEY_CONF_COMFORT_HOMELIGHT (HU_NBT, Follow-me-home-Schlüsseleinstellung, mit FEM). Dieser Parameter steht nicht in der Liste des Halters.",
+    "function_names": [
+      "SETTINGS_TIP_BLINKING",
+      "SETTINGS_HOMELIGHT_PERIOD"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "Menüpunkt sichtbar (Annahme)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Menüpunkt ausgeblendet (Annahme)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine; die Funktion selbst liegt im FEM",
+    "software_requirements_de": "FEM_BODY-Codierung für Komfortblinken/Heimleuchten",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: im Auftrag nicht angegeben (in BimmerCode ablesen). Komfortblinken und Heimleuchten sind beim F20 meist ab Werk einstellbar, die Menüpunkte also wahrscheinlich schon aktiv. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_info_display_limit",
+    "ecu": "HU_ENTRY",
+    "category": "kombi",
+    "title_de": "Menü 'Informationsanzeige' (Kombi-Auswahl) und 'Limit'",
+    "description_de": "SETTINGS_INFO_DISPLAY gehört bei HU_NBT (EXBOX 3001, Standard aktiv) zur Auswahl der Bordcomputer-Inhalte im Kombi über das iDrive (Einstellungen → Informationsanzeige). Nach einer HUD-Nachrüstung waren dort laut Forum Einträge nicht mehr wählbar. Im Fahrzeug des Halters steht es in Block 3000 auf nicht_aktiv. Ob die Auswahl der Kombi-Inhalte dann am Kombi selbst (BC-Taste) erfolgt, ist unbelegt. SETTINGS_LIMIT ist ohne Quelle; der Name deutet auf die Geschwindigkeitswarnung ('Limit') hin.",
+    "function_names": [
+      "SETTINGS_INFO_DISPLAY",
+      "SETTINGS_LIMIT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "SETTINGS_INFO_DISPLAY: Menü 'Informationsanzeige' nicht angeboten (aktueller Wert; Deutung unbelegt)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Menü angeboten (HU_NBT-Standard)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "KOMBI muss die Auswahl über die HU unterstützen (unbekannt für Basis-Kombi)",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://f30.bimmerpost.com/forums/showthread/1512884/add-nav-directions-to-instrument-cluster?p=29760649"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: SETTINGS_INFO_DISPLAY = nicht_aktiv; SETTINGS_LIMIT im Auftrag nicht angegeben. Ein Test (aktiv) ist risikoarm. Bleibt das Menü leer oder nicht wählbar, zurücksetzen. Quelle nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_speedlock",
+    "ecu": "HU_ENTRY",
+    "category": "safety",
+    "title_de": "Geschwindigkeitssperre (Speedlock) von iDrive-Funktionen",
+    "description_de": "SPEEDLOCK_X_KMH_MIN/MAX legen die Geschwindigkeitsschwelle fest, ab der gesperrte Funktionen blockiert werden. Laut HU_CIC-Tabelle ist der Standard 3_kmh (bzw. 8_kmh); 'FF' hebt die Sperre auf. Die Liste SL01_VIDEO … SL21 sperrt einzelne Funktionen während der Fahrt; bei HU_NBT z. B. SL06_IBA_1/SL07_IBA_2/SL21_IBA_3 für die integrierte Bedienungsanleitung. SPEEDLOCK_FREISCHALTMENU ist nur für HU_MGU belegt: Freischaltmenü, das nach dem Codieren zusätzlich eine Tastenkombination braucht. HU_ENTRY unterstützt laut Sammlung kein Video in Motion, und Video-Quellen gibt es ohnehin nicht. Welche Funktionen SL02..SL21 auf HU_ENTRY sperren, ist unbekannt.",
+    "function_names": [
+      "SPEEDLOCK_X_KMH_MIN",
+      "SPEEDLOCK_X_KMH_MAX",
+      "SPEEDLOCK_FREISCHALTMENU",
+      "SL01_VIDEO"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "3_kmh",
+        "meaning_de": "Sperre ab 3 km/h (aktueller Wert MIN und MAX)"
+      },
+      {
+        "name": "8_kmh",
+        "meaning_de": "Sperre ab 8 km/h (laut HU_CIC-Tabelle möglicher Standard)"
+      },
+      {
+        "name": "FF",
+        "meaning_de": "keine Sperre (Video/Bedienung während der Fahrt)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "keine",
+    "effort": "low",
+    "risk": "high",
+    "benefit": "low",
+    "compatibility": "no",
+    "evidence": "incompatible",
+    "legal_note_de": "§ 23 Abs. 1a StVO: Ein Gerät mit Bildschirm darf während der Fahrt nur bedient oder genutzt werden, wenn dafür ein kurzer, den Verhältnissen angepasster Blick genügt. Video während der Fahrt im Sichtfeld des Fahrers ist unzulässig. Die OLG-Karlsruhe-Entscheidung zum fest eingebauten Touchscreen zeigt, dass auch Fahrzeugdisplays erfasst sind (200 €, 2 Punkte, 1 Monat Fahrverbot). Speedlock nicht aufheben.",
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/Video-in-Motion.md",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/jokinawa.xml",
+      "https://www.gesetze-im-internet.de/stvo_2013/__23.html",
+      "https://www.wbs.legal/verkehrsrecht/olg-karlsruhe-zu-tesla-achtung-vor-ablenkung-durch-touchscreen-50874/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: SPEEDLOCK_X_KMH_MIN = 3_kmh, SPEEDLOCK_X_KMH_MAX = 3_kmh; SPEEDLOCK_FREISCHALTMENU, SL01_VIDEO und SL02..SL21 im Auftrag nicht angegeben (genaue Namen von SL02..SL21 im CAFD ablesen). Empfehlung: unverändert lassen. Der Wortlaut des § 23 StVO wurde nicht direkt abgerufen (Server 503); er stützt sich auf Sekundärquellen. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_video_usb_media",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Video, USB-Audio, Albumcover",
+    "description_de": "CDMM_VIDEO/VIDEO_NUR_MIT_HANDBREMSE betreffen die Videowiedergabe. Laut Sammlung unterstützt HU_ENTRY kein Video in Motion, und Video über USB bietet BimmerCode nur bei NBT/NBT_EVO an. CDMM_USB/USB_AVAILABLE betreffen USB-Audio. Laut Foren braucht HU_ENTRY für USB-Musik ein FSC (AppID 0x81). Die USB-Buchse gehört zur SA 6NH ('Freisprecheinrichtung mit USB-Schnittstelle'). CDMM_USB_COVER_ART/PICTURE_ALBUM_ARTS (Albumcover) sind laut BMW-Schulungsunterlage F30 eine Combox-Funktion.",
+    "function_names": [
+      "CDMM_VIDEO",
+      "VIDEO_NUR_MIT_HANDBREMSE",
+      "CDMM_USB",
+      "USB_AVAILABLE",
+      "CDMM_USB_COVER_ART",
+      "PICTURE_ALBUM_ARTS"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "USB_AVAILABLE: kein USB (aktueller Wert, passt zu fehlender 6NH)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Funktion freigegeben (ohne Hardware/FSC wirkungslos)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "USB-Buchse/Kabelsatz (6NH), FSC 0x81 für USB; Combox für Albumcover; keine Video-Quelle vorhanden",
+    "software_requirements_de": "FSC von BMW (fahrgestellnummergebunden), VO-Codierung",
+    "effort": "high",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "no",
+    "evidence": "incompatible",
+    "legal_note_de": "Video während der Fahrt: § 23 Abs. 1a StVO (siehe hu_entry.x_speedlock).",
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/Video-in-Motion.md",
+      "https://bimmercode.app/cars/f20",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1038266",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: USB_AVAILABLE = nicht_aktiv; die übrigen Werte sind im Auftrag nicht angegeben. bimmerpost nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_fas_inszenierung",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "FAS-Inszenierung (Fahrerassistenz-Darstellung)",
+    "description_de": "Zu FAS_INSZENIERUNG wurde keine Quelle gefunden. Der Name deutet auf eine Animation/Darstellung von Fahrerassistenzsystemen hin (FAS = Fahrerassistenzsysteme); das ist unbelegt.",
+    "function_names": [
+      "FAS_INSZENIERUNG"
+    ],
+    "cafd_block": "3000",
+    "values": [],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt (vermutlich Fahrerassistenz-Hardware, die beim 116i weitgehend fehlt)",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: im Auftrag nicht angegeben. Nicht ändern, solange die Bedeutung unbekannt ist. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_legal_disclaimer",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Rechtshinweis beim Start (Legal Disclaimer)",
+    "description_de": "LEGAL_DISCLAIMER_TIME = kein_ld unterdrückt den Rechtshinweis beim Start; ld_mit_timeout zeigt ihn mit Zeitablauf. Bei HU_CIC/HU_NBT liegt der Parameter in 3001 EXBOX, bei HU_MGU in 3000. Im Fahrzeug des Halters steht bereits kein_ld. Es gibt also nichts zu tun.",
+    "function_names": [
+      "LEGAL_DISCLAIMER_TIME"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "kein_ld",
+        "meaning_de": "kein Rechtshinweis (aktueller Wert)"
+      },
+      {
+        "name": "ld_mit_timeout",
+        "meaning_de": "Rechtshinweis mit Zeitablauf"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "keine",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Almaretto.xml",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: kein_ld. Der Wert ist schon optimal; BimmerCode bietet 'Warning at startup' nur für HU_NBT/NBT_EVO an. Ob er Werksstand ist oder früher geändert wurde, lässt sich aus den Backups nicht ableiten (keine Änderung im Diff). Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_mode_hardkey",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Verhalten der MODE-Taste",
+    "description_de": "Zu MODE_HARDKEY wurde keine Quelle gefunden. Der Wert 'more_sources' lässt vermuten, dass die MODE-Taste zusätzliche Quellen durchschaltet bzw. eine Quellenliste zeigt (unbelegt).",
+    "function_names": [
+      "MODE_HARDKEY"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "more_sources",
+        "meaning_de": "aktueller Wert; Bedeutung unbelegt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: more_sources. Die Alternativwerte sind nicht ausgewertet (in BimmerCode ablesen). Vorsichtiger Test möglich, Original notieren. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_onboard_computer_cc",
+    "ecu": "HU_ENTRY",
+    "category": "kombi",
+    "title_de": "Bordcomputer-/Check-Control-Darstellung im iDrive",
+    "description_de": "Zu ONBOARDCOMPUTER_DATE, TRAVEL_BC und EXTENDED_CC_MESSAGES wurden keine Quellen gefunden. Die Namen deuten auf Datum im Bordcomputer, Reisebordcomputer und erweiterte Check-Control-Meldungen hin; das ist unbelegt. Der dokumentierte Weg zu 'Datum im BC' ist die KOMBI-Option in BimmerCode (nur KOMBI L7_BASIS/L7_MID, siehe Bericht 04).",
+    "function_names": [
+      "ONBOARDCOMPUTER_DATE",
+      "TRAVEL_BC",
+      "EXTENDED_CC_MESSAGES"
+    ],
+    "cafd_block": "3000",
+    "values": [],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: im Auftrag nicht angegeben. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_service_history",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Servicehistorie im iDrive",
+    "description_de": "SERVICE_HISTORY = aktiv zeigt die vom Händler eingetragene Servicehistorie im iDrive. Belegt für HU_NBT/HU_CIC (Sammlungen). Ein französisches Sheet nennt für HU_NBT aktiv als Standard. BimmerCode bietet 'Service history' nur für HU_NBT/HU_NBT_EVO an. Für HU_ENTRY gibt es keinen Bericht.",
+    "function_names": [
+      "SERVICE_HISTORY"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "keine Servicehistorie"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Servicehistorie unter Fahrzeuginfo"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine; Einträge entstehen nur bei Händlerservice mit Fahrzeugdaten-Rückschreiben",
+    "software_requirements_de": "unbekannt",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: im Auftrag nicht angegeben (in BimmerCode ablesen). Gefahrlos testbar. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_bluetooth_audio",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Bluetooth-Modul, BT-Audio-Streaming, Player, Basis-Sprachsteuerung",
+    "description_de": "Die vier Schalter gibt der CAFD vor. Laut Quellen ersetzen sie aber keine Hardware und keine Freischaltung. (1) BMW-Schulungsunterlage F30 (US): Bei 6NH ist die Telefonfunktion in der Basic-Headunit realisiert. Eine Combox gibt es nur mit 6NL bzw. Navi; BT-Audio-Streaming, Albumcover usw. sind Combox-Funktionen. (2) Foren: HU_ENTRY braucht für Bluetooth-Freisprechen ein FSC (AppID 0x82) und für USB ein FSC (0x81). Beide sind an die Fahrgestellnummer gebunden und nur von BMW erhältlich. (3) Foren: Bei CHAMP2/ENTRY-Headunits braucht A2DP-Streaming eine separate Combox. HU_ENTRY mit 6NH lässt sich nicht auf Streaming codieren; erst die spätere HU_ENTRYNAV hat Combox-Funktionen integriert. Ein Versuch (F30, HU_ENTRY + 6NH, 6NH→6NK) endete damit, dass sich die HU nicht mehr codieren ließ. (4) Eigene Codierung: PHONE_TYPE = no_phone, MICROPHONE = no_microphone und USB_AVAILABLE = nicht_aktiv sind aus dem Fahrzeugauftrag abgeleitet. Sie sprechen dafür, dass keine 6NH ab Werk verbaut ist. Ob das BT-Funkteil in einer HU_ENTRY ohne 6NH physisch bestückt ist, ist unbekannt.",
+    "function_names": [
+      "CDMM_BLUETOOTH_AUDIO",
+      "BT_MODUL_ON_OFF",
+      "AUDIO_PLAYER_ON_OFF",
+      "BASIC_VR_ON_OFF"
+    ],
+    "cafd_block": "3003",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "vom Halter gesetzt (aktueller Wert aller vier)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Originalwert vor der Änderung (laut Backup-Diff Block 3003, Bytes 1/5/6)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Freisprechen: 6NH-Hardware (Headunit-Variante mit BT, Mikrofon im Dachbereich, USB-Kabelsatz) plus FSC 0x82. Streaming: zusätzlich Combox Media (CMB_MEDIA) bzw. FA 6NK/6NL/6NS gemäß Foren; bei HU_ENTRY (2012) nicht ohne Combox.",
+    "software_requirements_de": "FSC von BMW (VIN-gebunden), FA-Änderung + VO-Codierung mit E-Sys; mit BimmerCode allein nicht erreichbar",
+    "effort": "high",
+    "risk": "medium",
+    "benefit": "high",
+    "compatibility": "no",
+    "evidence": "incompatible",
+    "legal_note_de": null,
+    "sources": [
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1038266",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1138857",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=851042",
+      "https://www.digital-kaos.co.uk/forums/showthread.php/1073089-BMW-F30-enhanced-bluetooth-coding-using-combox-Telematik-and-HU-ENTRY",
+      "https://www.bmw-syndikat.de/bmwsyndikatforum/topic385314_F21_-_BJ_2013_-_Bluetooth_Streaming_moeglich__1er_BMW_-_F20___F21___F22___F23.html",
+      "https://www.motor-talk.de/forum/neues-radio-professional-ohne-bluetooth-audio-t4896587.html",
+      "https://www.1erforum.de/threads/bmw-6nh-freisprecheinrichtung-mit-usb-schnittstelle.162412/",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: CDMM_BLUETOOTH_AUDIO/BT_MODUL_ON_OFF/AUDIO_PLAYER_ON_OFF/BASIC_VR_ON_OFF = aktiv (vom Halter gesetzt). Empfehlung: auf die Backup-Werte zurücksetzen, weil sie ohne Hardware/FSC wirkungslos sind und einen inkonsistenten Zustand erzeugen können. Prüfen: iDrive-Hauptmenü (gibt es 'Telefon'?), USB-Buchse in Mittelkonsole/Armlehne, Mikrofon am Dachhimmel/an der Innenleuchte, FA (E-Sys) auf 6NH/6NS/6NK/6NL, FSC-Liste der HU (E-Sys FSC Extended: AppID 0x81/0x82), Steuergeräteliste (CMB_MEDIA?), Teilenummer auf dem HU-Etikett. Was 6FL und 6VC bedeuten, wurde nicht belegt. Alternative: Nachrüst-Freisprechanlage (FISCON Pro nennt F20 Radio Professional mit LWL-Schnittstelle inkl. A2DP; Herstellerangabe, nicht geprüft) oder AUX. bimmerpost/motor-talk/1erforum/digital-kaos nur als Snippets. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_phone_config",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Telefonkonfiguration (Telefontyp, Mikrofon, Klingelton)",
+    "description_de": "PHONE_TYPE und MICROPHONE beschreiben die verbaute Telefonie. Sie werden üblicherweise per VO aus dem Fahrzeugauftrag berechnet. no_phone/no_microphone bedeuten wahrscheinlich: keine Freisprecheinrichtung, kein Mikrofon. INBAND_RINGING = aktiv spielt den Klingelton des Telefons über die Lautsprecher (laut Quellen nur iPhone; bei HU_CIC Block 3003, bei Combox 3001). RINGTONE wählt den BMW-Klingelton, wenn Inband aus ist. Ohne Telefonhardware haben diese Werte keine Wirkung. Das Umstellen von PHONE_TYPE/MICROPHONE ersetzt weder Mikrofon noch FSC.",
+    "function_names": [
+      "PHONE_TYPE",
+      "MICROPHONE",
+      "INBAND_RINGING",
+      "RINGTONE"
+    ],
+    "cafd_block": "3003",
+    "values": [
+      {
+        "name": "no_phone",
+        "meaning_de": "PHONE_TYPE: kein Telefon (aktueller Wert)"
+      },
+      {
+        "name": "no_microphone",
+        "meaning_de": "MICROPHONE: kein Mikrofon (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "INBAND_RINGING: Klingelton vom Telefon (iPhone)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "INBAND_RINGING: BMW-Klingelton gemäß RINGTONE"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Freisprecheinrichtung (6NH) mit Mikrofon; FSC 0x82",
+    "software_requirements_de": "FA/VO-konsistente Codierung",
+    "effort": "high",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "no",
+    "evidence": "likely",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Almaretto.xml",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: PHONE_TYPE = no_phone, MICROPHONE = no_microphone; INBAND_RINGING und RINGTONE im Auftrag nicht angegeben. Diese beiden Werte sind der stärkste Hinweis aus der eigenen Codierung, dass keine 6NH verbaut ist. PHONE_TYPE/MICROPHONE nicht von Hand ändern. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_dab",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "DAB/DAB+-Empfang",
+    "description_de": "RADIO_DAB schaltet den DAB-Empfang frei. Laut allen gefundenen Quellen braucht das einen DAB-Tuner in der Headunit (SA 654). Erkennbar sind DAB-Anschlüsse an der Rückseite (Band III, gelb). Dazu kommen DAB-Antenne/Antennenverstärker und Leitungen; das FA wird um 654 ergänzt, dann wird VO-codiert. Bei HU_CIC war die Codierung allein nur 'teilweise' erfolgreich (mehr FM-Sender, keine DAB-Sender). Ohne Tuner bringt die Freischaltung nichts.",
+    "function_names": [
+      "RADIO_DAB"
+    ],
+    "cafd_block": "3002",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein DAB (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "DAB-Menü/Empfang freigegeben (nur mit Tuner)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Headunit-Variante mit DAB-Tuner, DAB-Antenne/Diversity, Leitungen",
+    "software_requirements_de": "FA + 654, VO-Codierung; bei Gebraucht-HU ggf. FSC/VIN",
+    "effort": "high",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "unlikely",
+    "evidence": "likely",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://www.bimmerfest.com/threads/coding-dab-radio.749171/",
+      "https://www.1erforum.de/threads/dab-nachruestung.108629/",
+      "https://www.f10-forum.de/forum/thread/6268-dab-nachr%C3%BCsten/",
+      "https://www.motor-talk.de/forum/entry-hu-durch-eine-neue-gebrauchte-ersetzen-wie-programmieren-t7469542.html"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: nicht_aktiv. Ein Test ist harmlos, ohne Tuner aber zwecklos. Rückseite der HU auf DAB-Buchsen prüfen (Ausbau nötig). Quellen nur als Snippets. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_volume_gong",
+    "ecu": "HU_ENTRY",
+    "category": "audio",
+    "title_de": "Maximale Einschaltlautstärke und Gong-Timeout",
+    "description_de": "VOL_MAX_ON (Block 3002) begrenzt die Lautstärke beim Einschalten. Standard ist hex 19 (laut Quellen 25 %); 1E ≈ 30 %, 28 ≈ 40 %. Für hex 32 widersprechen sich die Quellen: 50 % (HU_NBT) bzw. 100 % (HU_CICHB/NBT_EVO). Belegt ist das für HU_CIC/HU_CICHB/HU_NBT; HU_ENTRY nutzt dieselbe CAFD-ID wie HU_CICHB. Zu TIME_OUT_GONG wurde keine Quelle gefunden (vermutlich Zeitablauf eines Hinweistons, unbelegt).",
+    "function_names": [
+      "VOL_MAX_ON",
+      "TIME_OUT_GONG"
+    ],
+    "cafd_block": "3002",
+    "values": [
+      {
+        "name": "19",
+        "meaning_de": "VOL_MAX_ON hex 19 ≈ 25 % (Standard laut Quellen)"
+      },
+      {
+        "name": "1E",
+        "meaning_de": "≈ 30 %"
+      },
+      {
+        "name": "28",
+        "meaning_de": "≈ 40 %"
+      },
+      {
+        "name": "32",
+        "meaning_de": "50 % bzw. 100 % (Quellen widersprüchlich)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "keine",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "likely",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Almaretto.xml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: VOL_MAX_ON und TIME_OUT_GONG im Auftrag nicht angegeben (Wert in BimmerCode ablesen). Moderat erhöhen (z. B. 1E/28); 32 wegen möglicher 100 % meiden (Hörschutz beim Start). BimmerCode-Standardoption 'Maximum volume at startup' nur für HU_NBT/NBT_EVO. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "hu_entry.x_display_dimming",
+    "ecu": "HU_ENTRY",
+    "category": "idrive",
+    "title_de": "Dimmkurve und Überblendung des CID",
+    "description_de": "DIM_CURVE_* bildet die Helligkeitskennlinie des Zentraldisplays in Abhängigkeit vom Lichtsensor ab (Stützpunkte X/Y). DIM_FADE_* steuert vermutlich die Überblendzeiten (unbelegt). Einziger gefundener Erfahrungsbericht: G05 (HU_MGU), Block 3005 APIX_CID_UND_ZIN, DIM_CURVE_X2 von 0x1F,0xC0 auf 0x00,0x00 gesetzt. Danach dimmte das Display tagsüber nicht mehr ab. Für die F-Serie/HU_ENTRY gibt es keine dokumentierte sichere Einstellung.",
+    "function_names": [
+      "DIM_CURVE_X1",
+      "DIM_CURVE_X2",
+      "DIM_CURVE_X3",
+      "DIM_CURVE_Y1",
+      "DIM_CURVE_Y2",
+      "DIM_CURVE_Y3"
+    ],
+    "cafd_block": "3005",
+    "values": [],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "keine",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": "Zu helles Display bei Nacht kann blenden und ablenken; kein spezifischer Rechtsnachweis gefunden.",
+    "sources": [
+      "https://g05.bimmerpost.com/beta/showthread?p=28546502"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (HU_ENTRY, CAFD_000000F9_007_007_001), aktueller Wert: Werte im Auftrag nicht angegeben. Die Liste nennt 'DIM_CURVE_X1..Y3' und 'DIM_FADE_*'. Die Einzelnamen X1–X3/Y1–Y3 sind daraus abgeleitet und müssen im CAFD geprüft werden; die DIM_FADE_*-Namen sind nicht ausgewertet. Wenn überhaupt, nur einen Stützpunkt ändern, Originalbytes notieren und bei Nacht testen. G05-Quelle nur als Snippet. Hinweis: Dieselbe CAFD-ID 000000F9 ist in mehreren Community-Cheat-Sheets dem HU_CIC/HU_CICHB zugeordnet (u. a. ekfxisid F020/F030). Der HU_ENTRY nutzt also sehr wahrscheinlich den CIC-Parameterkatalog. Dass ein Parameter vorhanden ist, beweist aber nicht, dass die Funktion ohne passende Hardware/Software wirkt."
+  },
+  {
+    "id": "icm.x_sportlenkung_flag",
+    "ecu": "ICM",
+    "category": "drivetrain",
+    "title_de": "ICM-Kennung 'Sportlenkung verbaut' (als SPORT+-Freischaltung genutzt)",
+    "description_de": "IcmKod_B_Sportlenkung meldet dem ICM laut Namen, dass die Variable Sportlenkung (SA 2VL) verbaut ist. Ab Werk ist SPORT+ beim F20 an Ausstattungen wie Sport Line + Variable Sportlenkung bzw. Sportautomatik gebunden. In der Community wird der Parameter als 'Teil 1' der SPORT+-Freischaltung benutzt: koreanisches Cheat-Sheet 'Sport+ mode activation → KOMBI', Dauxdu 'Sport+ mode'. Das Cheat-Sheet für ICMQL CAFD 0000067B (F020/F030) verortet ihn in Block 3000, Byte 28 (Maske 0xFF). Genau dieses Byte hat der Halter von 00 auf 01 geändert. Wahrscheinlich entspricht das BimmerCode 'SPORT+ driving mode (1 of 2)' (ICMQL). Teil 2 liegt im KOMBI (FDS_MENUE-Liste). Ohne Teil 2 erscheint SPORT+ laut Forum nicht oder ist nicht wählbar. Der Halter hat seine KOMBI-Änderungen zurückgesetzt. Gemeldete Nebenwirkungen (Foren): RPA/DSC-Fehlermeldungen, die sich nach einem Neustart löschen ließen; 'viele Fehler'; der Hinweis, dann auch im DSC 'Sportlenkung' zu codieren. Ein Hardwareschaden ist nirgends dokumentiert. Ob ICM/DSC die Kennung auch für Lenkübersetzung oder Lenkwinkelberechnung nutzen, ist nicht öffentlich belegt.",
+    "function_names": [
+      "IcmKod_B_Sportlenkung"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_verbaut",
+        "meaning_de": "keine Sportlenkung (Originalwert, Byte 28 = 00)"
+      },
+      {
+        "name": "verbaut",
+        "meaning_de": "Sportlenkung gemeldet / SPORT+ Teil 1 (aktueller Wert, Byte 28 = 01)"
+      }
+    ],
+    "bimmercode_label": "SPORT+ driving mode (1 of 2) (Zuordnung wahrscheinlich, nicht bestätigt)",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "ab Werk Variable Sportlenkung (2VL) bzw. SPORT+-Ausstattung; hier nicht vorhanden",
+    "software_requirements_de": "für sichtbares SPORT+ zusätzlich KOMBI 'SPORT+ driving mode (2 of 2)'; laut Forum evtl. DSC-Konsistenz",
+    "effort": "low",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": "Eingriff in die Fahrdynamikregelung (SPORT+ = DSC im Traktionsmodus). Abweichung vom Auslieferungszustand kann Betriebserlaubnis/Versicherung berühren; nicht abschließend geprüft.",
+    "sources": [
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/ekfxisid.xml",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Transmission/Sport-Mode.md",
+      "https://bimmercode.app/cars/f20",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=920617",
+      "https://f30.bimmerpost.com/forums/showthread.php?t=1086229",
+      "https://www.bimmerfest.com/threads/sport-in-manual-transmission.1376579/",
+      "https://www.bimmerfest.com/threads/code-sport-for-f20.1306289/",
+      "https://www.1erforum.de/threads/sport-plus-sport.128486/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (ICM, CAFD_0000067B_002_003_139), aktueller Wert: verbaut (Byte 28: 00 → 01, vom Halter am 27./28.06.2025 gesetzt). Empfehlung: auf nicht_verbaut zurücksetzen (Backup-Wert), weil ohne KOMBI-Teil kein Nutzen erkennbar ist und Nebenwirkungen gemeldet wurden. Danach Fehlerspeicher von ICM/DSC/RPA prüfen (BimmerLink/ISTA). bimmerpost/bimmerfest/1erforum nur als Snippets."
+  },
+  {
+    "id": "icm.x_init_eco",
+    "ecu": "ICM",
+    "category": "drivetrain",
+    "title_de": "ICM: Start immer in ECO PRO",
+    "description_de": "IcmKod_B_InitEco = verbaut: Das Fahrzeug startet nach jedem Motorstart im Modus ECO PRO statt COMFORT. Mehrfach dokumentiert: BimmerCode ICMQL 'Start in ECO mode'; Cheat-Sheets für ICMQL CAFD 0000067B mit Block 3000, Byte 36, Maske 0x08. Genau dieses Bit hat der Halter gesetzt (Byte 36: 00 → 08). ECO PRO ist beim F20 Serie.",
+    "function_names": [
+      "IcmKod_B_InitEco"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_verbaut",
+        "meaning_de": "Start in COMFORT (Originalwert)"
+      },
+      {
+        "name": "verbaut",
+        "meaning_de": "Start in ECO PRO (aktueller Wert)"
+      }
+    ],
+    "bimmercode_label": "Start in ECO mode",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Fahrerlebnisschalter mit ECO PRO (Serie)",
+    "software_requirements_de": "keine",
+    "effort": "low",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "yes",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/ekfxisid.xml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Almaretto.xml",
+      "https://raw.githubusercontent.com/shamair28/OpenCAFDMap/HEAD/definitions/community-cheatsheets/Botho.xml",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Transmission/Sport-Mode.md"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden (ICM, CAFD_0000067B_002_003_139), aktueller Wert: verbaut (Byte 36: 00 → 08, vom Halter gesetzt). Funktion dokumentiert und rückgängig zu machen. Risiko 'medium' nur, weil das ICM ein Fahrdynamik-Steuergerät ist (konsistent mit Bericht 05). Wer lieber in COMFORT startet: auf nicht_verbaut zurücksetzen."
+  }
+]
