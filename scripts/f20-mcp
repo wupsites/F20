@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Startet den lesenden MCP-Server von F20 Intelligence mit der Projekt-venv.
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [ -x "$DIR/.venv/bin/python" ]; then PY="$DIR/.venv/bin/python"; else PY="python3"; fi
+export PYTHONPATH="$DIR/src${PYTHONPATH:+:$PYTHONPATH}"
+exec "$PY" -m f20.mcp_server "$@"

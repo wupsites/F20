@@ -248,7 +248,8 @@ class Elm327:
         await self._at_cached("cra", f"ATCRA{BMW_RESPONSE_BASE + ecu:03X}")
         if self.raw_mode:
             await self._at_cached("caf", "ATCAF0")
-            await self._at_cached("cea", "ATCEA")
+            if self.info.supports_cea:
+                await self._at_cached("cea", "ATCEA")
         else:
             await self._at_cached("caf", "ATCAF1")
             await self._at_cached("cea", f"ATCEA{ecu:02X}")

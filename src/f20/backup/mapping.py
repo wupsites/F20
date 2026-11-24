@@ -44,8 +44,7 @@ class Function:
             # Wert auf niederwertigstes Bit der Maske verschieben
             shift = (self.mask & -self.mask).bit_length() - 1 if self.mask else 0
             return f"{v >> shift:02X}"
-        if self.mask != 0xFF:
-            raw = bytearray(b & self.mask for b in raw)
+        # Mehrbyte-Funktionen: Rohbytes unmaskiert (Konvention wie OpenCAFDMap defdb.extract)
         return raw.hex().upper()
 
     def label(self, value_hex: str | None) -> str | None:

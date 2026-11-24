@@ -34,4 +34,5 @@ f20 = ["web/static/*", "web/static/**/*", "data/*.json", "data/**/*.json"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 addopts = "-q"
