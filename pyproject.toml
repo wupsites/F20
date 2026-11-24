@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "f20-intelligence"
+version = "0.1.0"
+description = "F20 Intelligence – persönliche, read-only Diagnose-, Backup- und Codierungsanalyse für einen BMW F20 (privates Projekt)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Private use – see README" }
+authors = [{ name = "F20 owner (private project)" }]
+# Der Kern kommt bewusst ohne Laufzeitabhängigkeiten aus (nur Python-Standardbibliothek).
+dependencies = []
+
+[project.optional-dependencies]
+ble = ["bleak>=0.22"]          # Bluetooth Low Energy (CoreBluetooth auf macOS), MIT
+serial = ["pyserial>=3.5"]     # Bluetooth-Classic-SPP (/dev/cu.*) und USB, BSD-3
+mcp = ["mcp>=1.20"]            # Model Context Protocol SDK für Claude Code, MIT
+app = ["pywebview>=5.0"]       # Natives macOS-Fenster (WKWebView), BSD-3
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+all = ["bleak>=0.22", "pyserial>=3.5", "mcp>=1.20", "pywebview>=5.0"]
+
+[project.scripts]
+f20 = "f20.cli:main"
+f20-mcp = "f20.mcp_server.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+f20 = ["web/static/*", "web/static/**/*", "data/*.json", "data/**/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q"

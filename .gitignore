@@ -1,0 +1,39 @@
+# --- Datenschutz: Dieses Repository ist ÖFFENTLICH auf GitHub. ---
+# Fahrzeugdaten (FIN/VIN, Backups, Diagnoseprotokolle) gehören NIEMALS ins Repository.
+# Sie liegen lokal unter $F20_HOME (Standard macOS: ~/Library/Application Support/F20 Intelligence).
+*.cod
+*.COD
+*.ncd
+*.NCD
+*.caf
+*.CAF
+*.cafd
+vault/
+local/
+private/
+backups/
+workcopies/
+f20_home/
+*.sqlite
+*.sqlite3
+*.db
+vehicle.local.json
+mcp_consent.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Node / Tests
+node_modules/
+test-results/
+playwright-report/
+
+# macOS
+.DS_Store

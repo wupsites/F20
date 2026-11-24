@@ -1,0 +1,1681 @@
+{
+ "_meta": {
+  "generated_from": "docs/research/raw/04_hu_entry_kombi.json",
+  "count": 49,
+  "note": "Automatisch erzeugt – nicht von Hand bearbeiten; Rohdaten in docs/research/raw ändern."
+ },
+ "entries": [
+  {
+   "id": "hu_entry.platform_identification",
+   "ecu": "HU_ENTRY",
+   "category": "other",
+   "title_de": "Hardware-Identifikation HU_ENTRY (Radio Professional / HU-B)",
+   "description_de": "Informationseintrag, keine Codierung. BMW nennt für SA663 Radio Professional CD im F30 (SOP bis 7/2013) die 'ENTRY CONTI – Entry Media by Continental'. Die spätere 'ENTRY HU-B1' (Entry Media/Entry Navigation) stammt von Magneti Marelli (u. a. F22/F30 ab 7/2014). Die BMW-Schulungsunterlage beschreibt die Basic Headunit (HU-B) so: 6,5\"-CID über APIX, Controller mit nur fünf Funktionstasten, AM/FM-Doppeltuner, Telefon (6NH) in der Headunit, kein SD-Slot, nicht reparierbar, Ethernet FEM→HU nur für Software-Updates.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "Radio Professional (SA663), HU_ENTRY",
+   "software_requirements_de": "keine",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10154755-9999.pdf",
+    "https://static.nhtsa.gov/odi/tsbs/2013/MC-10149314-9999.pdf",
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf"
+   ],
+   "notes_de": "Die Herstellerangabe (Continental) gilt laut SI für den F30 (US-Markt). Für den F20 aus 01/2012 ist sie wahrscheinlich, aber nicht belegt. Betriebssystem und SoC sind nicht öffentlich dokumentiert."
+  },
+  {
+   "id": "hu_entry.istufe_update_cid_no_signal",
+   "ecu": "HU_ENTRY",
+   "category": "other",
+   "title_de": "Software-Update gegen 'NO SIGNAL' am CID (I-Stufe)",
+   "description_de": "BMW SI B65 10 12: Bei HU-B ('also called Radio Professional or ENTRY head unit') im F30 aus SOP bis 07/2012 bleibt das CID sporadisch dunkel und zeigt 'NO SIGNAL' (Fehler B7F8C3). Abhilfe: Fahrzeugtest mit ISTA, ggf. Headunit tauschen, dann mit ISTA/P programmieren auf I-Stufe F020-12-11-504 oder höher.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU-B/HU_ENTRY, frühe Produktion",
+   "software_requirements_de": "ISTA/P (Werkstatt) bzw. Programmierung; nicht mit BimmerCode",
+   "effort": "high",
+   "risk": "medium",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://static.nhtsa.gov/odi/tsbs/2013/MC-10149314-9999.pdf"
+   ],
+   "notes_de": "Das SI gilt für den F30. Der F20 läuft auf derselben F020-Baureihen-Plattform (I-Stufe F020-...). Relevanz daher wahrscheinlich, aber nicht für den F20 belegt. Nur bei Symptomen relevant. Vorher die aktuelle I-Stufe auslesen."
+  },
+  {
+   "id": "hu_entry.fsc_enable_codes",
+   "ecu": "HU_ENTRY",
+   "category": "other",
+   "title_de": "Freischaltcodes (FSC/SWT) der Headunit",
+   "description_de": "Laut BMW SI B65 09 16 benötigt die ENTRY-Headunit Freischaltcodes ('REQUIRES ENABLE CODES FSC/SWT'). Relevant bei Tausch, Nachrüstung oder Programmierung, nicht für normales Codieren.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_ENTRY",
+   "software_requirements_de": "ISTA/E-Sys bzw. Werkstatt bei Tausch/Programmierung",
+   "effort": "high",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "yes",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://static.nhtsa.gov/odi/tsbs/2018/MC-10154755-9999.pdf"
+   ],
+   "notes_de": "Informationseintrag. Relevant vor allem für einen späteren Headunit-Retrofit (z. B. NBT), der hier nicht untersucht wurde."
+  },
+  {
+   "id": "hu_entry.sport_displays",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Sportanzeigen (Leistung/Drehmoment) im iDrive",
+   "description_de": "Schaltet das Menü 'Sportanzeigen' unter Fahrzeuginfo frei. Laut Forum-Snippet erzeugt EFF_DYN_SPORT_CID=aktiv im HU_ENTRY-Block 3000 das Menü. Ein Nutzer mit HU_ENTRY ohne Navi berichtet, dass Leistung und Drehmoment im Betrieb auf 0 bleiben. Andere melden Erfolg (X3 ohne Navi, HU_ENTRYNAV). Die Anzeige hängt davon ab, ob die DME die Daten liefert (bei einigen Dieseln nicht).",
+   "function_names": [
+    "EFF_DYN_SPORT_CID"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Sportanzeigen aus (Standard)"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Menü Sportanzeigen sichtbar"
+    }
+   ],
+   "bimmercode_label": "Sport displays",
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "HU_ENTRY (für HU_ENTRY nur per Forum belegt); DME muss Leistungs-/Drehmomentdaten liefern",
+   "software_requirements_de": "BimmerCode-Expertenmodus, falls HU_ENTRY dort codierbar ist. Die BimmerCode-Standardoption gilt nur für HU_NBT/HU_NBT_EVO.",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://www.2addicts.com/forums/showthread.php?t=1083314",
+    "https://f30.bimmerpost.com/forums/showthread.php?t=1138487",
+    "https://www.bimmerfest.com/threads/power-and-torque-meters-in-sport-display.723339/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Forenseiten waren blockiert, Auswertung nur über Suchmaschinen-Snippets. Für HU_CIC ist Block 3000 dokumentiert. Für den N13 gibt es keinen Beleg, dass die Werte geliefert werden. Vorher prüfen, ob der Parameter im eigenen CAFD existiert."
+  },
+  {
+   "id": "hu_entry.sport_displays_unit",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Einheitenwahl für Sportanzeigen (kW/PS, Nm/lb-ft)",
+   "description_de": "Bei HU_CIC dokumentiert: EFF_DYN_SPORT_UNIT=aktiv blendet in den iDrive-Einstellungen die Einheitenwahl für die Sportanzeige ein. Laut Forum-Snippets blieb die Anzeige bei manchen trotzdem in kW/Nm.",
+   "function_names": [
+    "EFF_DYN_SPORT_UNIT"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "keine Einheitenwahl"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Einheitenwahl im Einstellungsmenü"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Sportanzeigen müssen funktionieren (siehe hu_entry.sport_displays)",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit"
+   ],
+   "notes_de": "Nur für HU_CIC belegt. Für HU_ENTRY unbekannt."
+  },
+  {
+   "id": "hu_entry.sport_displays_color",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Farbe der Sportanzeigen (orange → rot/silber)",
+   "description_de": "Bei HU_NBT dokumentiert: M_VEHICLE=aktiv ändert die Farbe der Sportanzeige. BimmerCode bietet 'Sport displays color' nur für HU_NBT/HU_NBT_EVO an.",
+   "function_names": [
+    "M_VEHICLE"
+   ],
+   "cafd_block": "3000 HMI",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standardfarbe orange"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "rot/silber (M-Darstellung)"
+    }
+   ],
+   "bimmercode_label": "Sport displays color",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "laut BimmerCode HU_NBT oder HU_NBT_EVO",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. Ohne funktionierende Sportanzeigen ohnehin ohne Nutzen."
+  },
+  {
+   "id": "hu_entry.legal_disclaimer",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Rechtshinweis beim iDrive-Start abschalten",
+   "description_de": "Bei HU_CIC und HU_NBT dokumentiert: LEGAL_DISCLAIMER_TIME (3001 EXBOX) von ld_mit_timeout auf kein_ld entfernt den Rechtshinweis beim Start. BimmerCode 'Warning at startup' gibt es nur für HU_NBT/HU_NBT_EVO. Ob HU_ENTRY ohne Navi überhaupt einen solchen Hinweis zeigt und den Parameter hat, ist nicht belegt.",
+   "function_names": [
+    "LEGAL_DISCLAIMER_TIME"
+   ],
+   "cafd_block": "3001 EXBOX",
+   "values": [
+    {
+     "name": "ld_mit_timeout",
+     "meaning_de": "Hinweis mit Timeout (Standard bei CIC/NBT)"
+    },
+    {
+     "name": "kein_ld",
+     "meaning_de": "kein Rechtshinweis"
+    }
+   ],
+   "bimmercode_label": "Warning at startup",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "belegt nur für HU_CIC/HU_NBT",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY unbelegt. Nur anfassen, wenn der Parameter im eigenen CAFD vorhanden ist."
+  },
+  {
+   "id": "hu_entry.startup_animation",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Startanimation / Logo der Headunit",
+   "description_de": "STARTUP_EMBLEM ist für HU_NBT dokumentiert (Knoten 3001, variant_00 bis variant_09). Laut bmw-syndikat funktioniert es nur mit HU_NBT, nicht mit HU_CIC. Ein zweiter Datenbankeintrag nennt STARTUP_EMBLEM für die 'Headunit Entrynav' (spätere ENTRY-Navigation), ohne Werte. BimmerCode bietet 'Start animation' nur für HU_NBT/HU_NBT_EVO an.",
+   "function_names": [
+    "STARTUP_EMBLEM"
+   ],
+   "cafd_block": "3001",
+   "values": [
+    {
+     "name": "variant_00",
+     "meaning_de": "BMW ConnectedDrive (Standard; ebenso 02–06)"
+    },
+    {
+     "name": "variant_01",
+     "meaning_de": "BMW M"
+    },
+    {
+     "name": "variant_07",
+     "meaning_de": "weißes BMW-Logo"
+    },
+    {
+     "name": "variant_08",
+     "meaning_de": "braunes BMW-Logo (wie HU_CIC)"
+    },
+    {
+     "name": "variant_09",
+     "meaning_de": "'Merry XMas'"
+    }
+   ],
+   "bimmercode_label": "Start animation",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "belegt für HU_NBT; Hinweis auf HU_ENTRYNAV; nicht für HU_ENTRY (2012, ohne Navi)",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=83",
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Die Werte gelten für HU_NBT. Für die 2012er HU_ENTRY gibt es keinen Beleg. Methoden zum Austausch von Boot-Logos per USB beziehen sich auf NBT/EVO."
+  },
+  {
+   "id": "hu_entry.video_in_motion",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Video in Motion (Video-Sperre während der Fahrt)",
+   "description_de": "Dokumentiert für HU_CIC/HU_NBT: SPEEDLOCK_X_KMH_MIN/MAX auf FF, VIDEO_NUR_MIT_HANDBREMSE (CIC) usw. Laut Sammlung unterstützt HU_ENTRY kein Video in Motion. Radio Professional hat ohnehin keine Video-Quelle.",
+   "function_names": [
+    "SPEEDLOCK_X_KMH_MIN",
+    "SPEEDLOCK_X_KMH_MAX",
+    "VIDEO_NUR_MIT_HANDBREMSE"
+   ],
+   "cafd_block": "3000 HMI",
+   "values": [
+    {
+     "name": "werte=FF",
+     "meaning_de": "Geschwindigkeitssperre aufgehoben (CIC/NBT)"
+    }
+   ],
+   "bimmercode_label": "Video in motion",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_CIC/HU_NBT mit Videoquelle",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "no",
+   "evidence": "incompatible",
+   "legal_note_de": "Video während der Fahrt im Sichtbereich des Fahrers ist in Deutschland unzulässig (§ 23 Abs. 1a StVO).",
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/Video-in-Motion.md",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Die Aussage 'HU_ENTRY does not support Video in Motion' stammt aus einer nicht verifizierten GitHub-Sammlung. Sie ist plausibel, weil die Hardware kein Video abspielt."
+  },
+  {
+   "id": "hu_entry.speedlock_office_service_messages",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Office- und Servicemeldungen während der Fahrt lesbar",
+   "description_de": "Für HU_NBT dokumentiert: SERVICES_MESSAGES_SPEEDLOCK_CONDITION und OFFICE_MESSAGES_SPEEDLOCK_CONDITION auf 'none'. Office-Funktionen setzen laut BMW-Doku eine Combox voraus.",
+   "function_names": [
+    "SERVICES_MESSAGES_SPEEDLOCK_CONDITION",
+    "OFFICE_MESSAGES_SPEEDLOCK_CONDITION"
+   ],
+   "cafd_block": "3000 HMI",
+   "values": [
+    {
+     "name": "none",
+     "meaning_de": "keine Sperre während der Fahrt"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_NBT; Office nur mit Combox (6NL o. Ä.)",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": "Bedienen und Lesen während der Fahrt kann gegen § 23 Abs. 1a StVO verstoßen.",
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf"
+   ],
+   "notes_de": "Für HU_ENTRY nicht belegt."
+  },
+  {
+   "id": "hu_entry.full_text_messages",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "SMS vollständig anzeigen",
+   "description_de": "Für HU_NBT dokumentiert: PIM_Driving_Text von up_to_three_lines auf whole_text. Die BimmerCode-Option 'Display full text messages' gibt es nur für HU_NBT/HU_NBT_EVO.",
+   "function_names": [
+    "PIM_Driving_Text"
+   ],
+   "cafd_block": "3003",
+   "values": [
+    {
+     "name": "up_to_three_lines",
+     "meaning_de": "max. drei Zeilen während der Fahrt"
+    },
+    {
+     "name": "whole_text",
+     "meaning_de": "vollständiger Text"
+    }
+   ],
+   "bimmercode_label": "Display full text messages",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "laut BimmerCode HU_NBT/HU_NBT_EVO; Nachrichtenfunktion",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": "Lesen während der Fahrt kann gegen § 23 Abs. 1a StVO verstoßen.",
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg."
+  },
+  {
+   "id": "hu_entry.bluetooth_audio_streaming",
+   "ecu": "HU_ENTRY",
+   "category": "audio",
+   "title_de": "Bluetooth-Audio-Streaming",
+   "description_de": "BimmerCode: 'Bluetooth audio streaming' (1 von 2) benötigt HU_NBT/HU_NBT_EVO, (2 von 2) Combox_Media. Laut BMW-Doku (F30) ist der Anschluss externer Audioplayer per Bluetooth eine Combox-Funktion. Bei 6NH ist das Telefon in der Headunit realisiert. Forenaussagen zu 6NH ohne Combox widersprechen sich (nur Snippets).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": "Bluetooth audio streaming",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "laut BimmerCode HU_NBT/HU_NBT_EVO + Combox_Media; mit Combox ab Werk vorhanden (wahrscheinlich)",
+   "software_requirements_de": "-",
+   "effort": "high",
+   "risk": "low",
+   "benefit": "high",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf",
+    "https://www.motor-talk.de/forum/audio-streaming-ueber-bluetooth-nachruesten-codieren-t6554084.html",
+    "https://www.motor-talk.de/forum/radio-bmw-professional-audio-streaming-t5102516.html",
+    "https://www.motor-talk.de/forum/bluetooth-audio-streaming-t5135224.html"
+   ],
+   "notes_de": "'documented' bezieht sich auf die Voraussetzung (Combox bzw. NBT), nicht auf eine HU_ENTRY-Codierung. Erst FA prüfen: ob 6NH, 6NS, 6NL oder eine Combox verbaut ist. Ohne Combox ist kein dokumentierter Codierweg bekannt."
+  },
+  {
+   "id": "hu_entry.inband_ringing",
+   "ecu": "HU_ENTRY",
+   "category": "audio",
+   "title_de": "Klingelton des Telefons (Inband Ringing) / Klingeltonwahl",
+   "description_de": "Für HU_CIC (3003) dokumentiert: Inband_ringing=aktiv nutzt den Klingelton des Telefons. Eine Sammlung nennt INBAND_RINGING und RINGTONE im CMB_MEDIA (3001). BimmerCode 'Ringtone' gibt es für Combox_Media bzw. HU_NBT/HU_NBT_EVO.",
+   "function_names": [
+    "Inband_ringing",
+    "INBAND_RINGING"
+   ],
+   "cafd_block": "3003 (HU_CIC) / 3001 (CMB_MEDIA)",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Fahrzeug-Klingelton"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Klingelton des Smartphones"
+    }
+   ],
+   "bimmercode_label": "Ringtone",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_CIC oder Combox_Media bzw. HU_NBT; für HU_ENTRY mit 6NH unbelegt",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. Funktioniert laut einer Sammlung mit iPhone, nicht mit Android (nicht verifiziert)."
+  },
+  {
+   "id": "hu_entry.max_volume_startup",
+   "ecu": "HU_ENTRY",
+   "category": "audio",
+   "title_de": "Maximale Einschaltlautstärke",
+   "description_de": "BimmerCode 'Maximum volume at startup' (10–50 %) gibt es nur für HU_NBT/HU_NBT_EVO. Eine nicht verifizierte Sammlung nennt für HU_CIC VOL_MAX_ON in Block 3002 (Standard 19 = 25 %).",
+   "function_names": [
+    "VOL_MAX_ON"
+   ],
+   "cafd_block": "3002",
+   "values": [
+    {
+     "name": "19",
+     "meaning_de": "25 % (Standard laut Sammlung, HU_CIC)"
+    },
+    {
+     "name": "32",
+     "meaning_de": "bis 100 % (laut Sammlung, HU_CIC)"
+    }
+   ],
+   "bimmercode_label": "Maximum volume at startup",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "belegt für HU_CIC (Sammlung) und HU_NBT/EVO (BimmerCode)",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. Hohe Einschaltlautstärke kann das Gehör gefährden bzw. erschrecken."
+  },
+  {
+   "id": "hu_entry.warning_chime_volume_popup",
+   "ecu": "HU_ENTRY",
+   "category": "audio",
+   "title_de": "Warngong-Variante und Lautstärke-Popup",
+   "description_de": "Die BimmerCode-Optionen 'Warning chime' (BMW/BMW i/Mini/Rolls-Royce) und 'Volume popup' gibt es nur für HU_NBT/HU_NBT_EVO. Für HU_ENTRY sind keine Parameter dokumentiert.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": "Warning chime / Volume popup",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "laut BimmerCode HU_NBT/HU_NBT_EVO",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Auch für geschwindigkeitsabhängige Lautstärke und Gong-/PDC-Lautstärke wurden für HU_ENTRY keine Parameter gefunden."
+  },
+  {
+   "id": "hu_entry.tpms_display",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Reifendruck/-temperatur im iDrive",
+   "description_de": "Für HU_CIC/HU_NBT dokumentiert: RDC_SAFETY (3001) aktiv zeigt Druck und Temperatur. Eine Sammlung nennt für HU_NBT RDC_DRUCK_TEMP (druck → druck_und_temperatur). BimmerCode 'Tire pressure control' gibt es nur für HU_NBT/HU_NBT_EVO. Voraussetzung sind RDC-Sensoren.",
+   "function_names": [
+    "RDC_SAFETY",
+    "RDC_DRUCK_TEMP"
+   ],
+   "cafd_block": "3001",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "RDC_SAFETY: Druck und Temperatur anzeigen (CIC/NBT)"
+    },
+    {
+     "name": "druck_und_temperatur",
+     "meaning_de": "RDC_DRUCK_TEMP: Druck + Temperatur (NBT, laut Sammlung)"
+    }
+   ],
+   "bimmercode_label": "Tire pressure control",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "RDC-Sensoren (nicht nur Reifenpannenanzeige); HU_CIC/HU_NBT",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit",
+    "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Erst prüfen, ob das Auto RDC-Sensoren hat. Für HU_ENTRY kein Beleg."
+  },
+  {
+   "id": "hu_entry.dab_radio",
+   "ecu": "HU_ENTRY",
+   "category": "audio",
+   "title_de": "DAB-Radio aktivieren",
+   "description_de": "Für HU_CIC (3002) mit 'partly' funktionierend dokumentiert: Radio_dab, Dab_laendervarianten, dab_standard, following_available, following_dab_fm. Voraussetzung ist ein DAB-Tuner. Laut Forum-Snippet muss bei vorhandener, aber inaktiver DAB-Hardware ggf. DAB in den VO. Ein Snippet berichtet Erfolg bei HU_ENTRYNAV mit DAB.",
+   "function_names": [
+    "Radio_dab",
+    "Dab_laendervarianten",
+    "dab_standard",
+    "following_available",
+    "following_dab_fm"
+   ],
+   "cafd_block": "3002",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Radio_dab/following_available aktiv"
+    },
+    {
+     "name": "ece",
+     "meaning_de": "Dab_laendervarianten Europa"
+    },
+    {
+     "name": "dab",
+     "meaning_de": "dab_standard"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "DAB-Tuner-Hardware zwingend",
+   "software_requirements_de": "ggf. VO-Änderung (E-Sys)",
+   "effort": "high",
+   "risk": "medium",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://f30.bimmerpost.com/forums/showthread.php?t=939303"
+   ],
+   "notes_de": "Die BMW-Doku erwähnt für die HU-B nur einen AM/FM-Doppeltuner. Ohne DAB-Hardware nicht möglich. In der Tabelle bei HU_CIC mit Nebenwirkungen (Senderspeicher). Für HU_ENTRY unbelegt."
+  },
+  {
+   "id": "hu_entry.developer_menu",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Entwicklermenü (Build/Datum/Versionen)",
+   "description_de": "Für HU_CIC dokumentiert: ENTWICKLER_MENUE=aktiv zeigt ein Entwicklermenü mit Datum, Build und Versionen im iDrive.",
+   "function_names": [
+    "ENTWICKLER_MENUE"
+   ],
+   "cafd_block": "3000 HMI",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Entwicklermenü sichtbar"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "belegt nur für HU_CIC",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. Für versteckte Tastenkombinationen der HU_ENTRY wurde ebenfalls kein Beleg gefunden."
+  },
+  {
+   "id": "hu_entry.service_history",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Servicehistorie im iDrive",
+   "description_de": "BimmerCode 'Service history' gibt es nur für HU_NBT/HU_NBT_EVO. Eine nicht verifizierte Sammlung nennt SERVICE_HISTORY (3000) für HU_NBT/HU_CIC.",
+   "function_names": [
+    "SERVICE_HISTORY"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Servicehistorie anzeigen"
+    }
+   ],
+   "bimmercode_label": "Service history",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "laut BimmerCode HU_NBT/HU_NBT_EVO",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg."
+  },
+  {
+   "id": "hu_entry.drl_checkbox",
+   "ecu": "HU_ENTRY",
+   "category": "lighting",
+   "title_de": "Tagfahrlicht-Ein/Aus im iDrive-Menü",
+   "description_de": "Für HU_CIC dokumentiert: Daydriving_light (3000), Perm_off ↔ standard, fügt die Tagfahrlicht-Option im iDrive hinzu. BimmerCode 'Checkbox daytime running light (head unit)' gibt es nur für HU_NBT/HU_NBT_EVO.",
+   "function_names": [
+    "Daydriving_light"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "Perm_off",
+     "meaning_de": "laut Tabelle Standardwert"
+    },
+    {
+     "name": "standard",
+     "meaning_de": "laut Tabelle geänderter Wert (Option im iDrive)"
+    }
+   ],
+   "bimmercode_label": "Checkbox daytime running light (head unit)",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_CIC bzw. HU_NBT; zusätzlich Lichtcodierung im FEM",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": "Tagfahrlicht ist für Neufahrzeuge in der EU vorgeschrieben (ECE-R48). Das Abschalten kann die Betriebserlaubnis berühren.",
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. Die eigentliche Lichtlogik liegt im FEM (eigenes Dossier)."
+  },
+  {
+   "id": "hu_entry.acoustic_lock_checkbox",
+   "ecu": "HU_ENTRY",
+   "category": "locking",
+   "title_de": "Checkbox akustische Verriegelungsbestätigung im iDrive",
+   "description_de": "Für HU_CIC dokumentiert: Acoustical_lock_confirm (3000) aktiv bietet im iDrive die akustische Bestätigung beim Ver-/Entriegeln an (Werks-Alarmanlage nötig). BimmerCode-Checkbox nur für HU_NBT/HU_NBT_EVO.",
+   "function_names": [
+    "Acoustical_lock_confirm"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "keine Checkbox"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Checkbox im iDrive"
+    }
+   ],
+   "bimmercode_label": "Checkbox acoustical lock confirmation (head unit)",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "Werks-Alarmanlage; HU_CIC bzw. HU_NBT",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Für HU_ENTRY kein Beleg. BimmerCode bietet zusätzlich 'Acoustical lock/unlock confirmation' (nicht Headunit) an. Das gehört ins Dossier Verriegelung."
+  },
+  {
+   "id": "hu_entry.sport_mode_configurable",
+   "ecu": "HU_ENTRY",
+   "category": "drivetrain",
+   "title_de": "SPORT-Modus im iDrive konfigurierbar",
+   "description_de": "Für HU_CIC dokumentiert: Macro_fds (3000) popup_only → popup_and_config. bmw-syndikat führt für F20/F21 MAKRO_FDS / Icmkod_b_sportsindividualisierbar ('Sportmodus konfigurierbar machen'). BimmerCode bietet 'SPORT driving mode configurable' (1 von 2, 2 von 2 im ICMQL) an.",
+   "function_names": [
+    "Macro_fds",
+    "MAKRO_FDS"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "popup_only",
+     "meaning_de": "nur Popup"
+    },
+    {
+     "name": "popup_and_config",
+     "meaning_de": "Popup + Konfiguration im iDrive"
+    }
+   ],
+   "bimmercode_label": "SPORT driving mode configurable",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "Fahrerlebnisschalter; Teil 2 im ICMQL",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=83",
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Die BimmerCode-Liste zeigt für Teil 1 kein Steuergerät an. Ob Teil 1 HU_ENTRY betrifft, ist unklar. Bei einem 116i ohne adaptive Dämpfer/Lenkung ist der Nutzen gering."
+  },
+  {
+   "id": "hu_entry.video_usb_codecs",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Video über USB und zusätzliche Codecs",
+   "description_de": "Für HU_NBT dokumentiert: ENT_CODEC_OGG, ENT_CODEC_XVID, ENT_CODEC_VCD aktiv, API_USB_VIDEO none → both. BimmerCode 'Video via USB' und 'Additional video codecs and formats' gibt es nur für HU_NBT/HU_NBT_EVO.",
+   "function_names": [
+    "ENT_CODEC_OGG",
+    "ENT_CODEC_XVID",
+    "ENT_CODEC_VCD",
+    "API_USB_VIDEO"
+   ],
+   "cafd_block": "3000 HMI",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Codec aktiv (NBT)"
+    },
+    {
+     "name": "both",
+     "meaning_de": "API_USB_VIDEO: Video über USB (NBT)"
+    }
+   ],
+   "bimmercode_label": "Video via USB",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_NBT/HU_NBT_EVO",
+   "software_requirements_de": "-",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "no",
+   "evidence": "incompatible",
+   "legal_note_de": "Videowiedergabe während der Fahrt ist unzulässig (§ 23 Abs. 1a StVO).",
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit"
+   ],
+   "notes_de": "HU_ENTRY wird bei BimmerCode nicht als Voraussetzung genannt. Die HU-B hat laut BMW-Doku keine Videofunktion beschrieben."
+  },
+  {
+   "id": "hu_entry.carplay",
+   "ecu": "HU_ENTRY",
+   "category": "idrive",
+   "title_de": "Apple CarPlay",
+   "description_de": "BimmerCode 'CarPlay fullscreen mode' gibt es nur für HU_NBT_EVO, und zwar abhängig von der iDrive-Softwareversion. Für HU_ENTRY gibt es keinen Codierweg. Das NBT-EVO-Toolkit schließt HU_ENTRY aus ('different SoC').",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": "CarPlay fullscreen mode",
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "HU_NBT_EVO",
+   "software_requirements_de": "-",
+   "effort": "high",
+   "risk": "low",
+   "benefit": "high",
+   "compatibility": "no",
+   "evidence": "incompatible",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://raw.githubusercontent.com/vandelayautollc/nbt-evo-toolkit/HEAD/docs/00-platform-overview.md"
+   ],
+   "notes_de": "Nur per Headunit-Tausch bzw. Nachrüstlösung denkbar. Das wurde hier nicht untersucht."
+  },
+  {
+   "id": "hu_entry.custom_software_apps",
+   "ecu": "HU_ENTRY",
+   "category": "other",
+   "title_de": "Eigene Software / Apps auf HU_ENTRY",
+   "description_de": "(1) Normales Codieren ändert nur vorhandene Parameter. (2) Software lässt sich laut BMW-Doku nur über Ethernet FEM→HU per Update flashen (BMW-Software via ISTA/P). Ein öffentlich dokumentierter Weg für eigene Software existiert nicht. (3) Gezeigte Methoden: keine öffentliche Evidenz gefunden. Ein NBT-EVO-Toolkit nennt HU_ENTRY als 'different SoC', auf das seine Methoden nicht passen.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "-",
+   "software_requirements_de": "-",
+   "effort": "high",
+   "risk": "high",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/07_F30_Entertainment_and_Communication1.pdf",
+    "https://raw.githubusercontent.com/vandelayautollc/nbt-evo-toolkit/HEAD/docs/00-platform-overview.md"
+   ],
+   "notes_de": "Klare Aussage: Für die 2012er HU_ENTRY ist keine öffentliche Methode bekannt, eigene Software oder Apps zu installieren. Betriebssystem und SoC sind nicht öffentlich dokumentiert."
+  },
+  {
+   "id": "kombi.digital_speed",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Digitale Geschwindigkeit im Bordcomputer",
+   "description_de": "Fügt der BC-Liste im Kombi-Display die aktuelle Geschwindigkeit als Zahl hinzu. Parameter BC_DIGITAL_V (Block 3000) von nicht_aktiv auf aktiv. In BimmerCode als Standardoption 'Digital speed in board computer'.",
+   "function_names": [
+    "BC_DIGITAL_V"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "keine Digitalanzeige (Standard)"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Geschwindigkeit als Zahl im BC"
+    }
+   ],
+   "bimmercode_label": "Digital speed in board computer",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode (Standard) oder Expertenmodus",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md",
+    "https://www.scribd.com/doc/314263744/F30-Coding-Reference-Guide-v1-7"
+   ],
+   "notes_de": "Die Community-Tabelle schreibt 'BC_Digital_V'. Die übrigen Quellen schreiben BC_DIGITAL_V. 'likely', weil die KOMBI-Variante des 2012er F20 nicht bestätigt ist."
+  },
+  {
+   "id": "kombi.speed_correction",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Tachokorrektur (Vorlauf) der Anzeige",
+   "description_de": "Eine nicht verifizierte Sammlung (F-Serie) nennt BC_V_KORREKTUR in KOMBI 3000: nicht_aktiv zeigt die reale Geschwindigkeit ohne Korrektur. Aus der E-Serie sind BC_V_KORREKTUR und BC_DIGITAL_V_KORREKTUR bekannt. Laut Forum hatte BC_V_KORREKTUR bei US-Fahrzeugen keine Wirkung.",
+   "function_names": [
+    "BC_V_KORREKTUR",
+    "BC_DIGITAL_V_KORREKTUR"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "korrigierte (vorlaufende) Anzeige"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "reale Geschwindigkeit (laut Sammlung)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "KOMBI",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": "Der Tacho darf nach UN-ECE-R39 nie weniger als die tatsächliche Geschwindigkeit anzeigen. Analog-Tachowerte (z. B. K_ZAHL_TACHO) nicht verändern.",
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md",
+    "https://5series.net/forums/e60-discussion-2/true-speed-150479"
+   ],
+   "notes_de": "F-Serien-Beleg nur aus nicht verifizierter Sammlung. Nicht empfohlen."
+  },
+  {
+   "id": "kombi.start_logo",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Start-Logo im Kombiinstrument",
+   "description_de": "Ändert das Logo beim Hochfahren des Kombis. Community-Tabelle: BMW_LOGO (3000) AG → MPM (M Performance). bmw-syndikat (F20/F21 gelistet): BMW_LOGO, MPM_ENABLE, MPM_LOGO. BimmerCode 'Start logo' bietet die Werte 50d, 135i, 140i, 235i, 240i, 340i, AG, M Performance, M2, M3, M4, M4 GTS und PHEV.",
+   "function_names": [
+    "BMW_LOGO",
+    "MPM_ENABLE",
+    "MPM_LOGO"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "AG",
+     "meaning_de": "Standardwert laut Community-Tabelle (vermutlich Standard-Logo; eine Sammlung behauptet 'Alpina' – widersprüchlich)"
+    },
+    {
+     "name": "MPM",
+     "meaning_de": "M-Performance-Logo"
+    }
+   ],
+   "bimmercode_label": "Start logo",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=83",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Hängt von der KOMBI-Variante ab (BimmerCode nennt L6 BO hier nicht). Werte für MPM_ENABLE/MPM_LOGO wurden nicht gefunden."
+  },
+  {
+   "id": "kombi.m_performance_logo",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "M-Performance-Logo unten rechts im Kombi",
+   "description_de": "BimmerCode 'M Performance logo': modellspezifisches Logo unten rechts. Werte: Not active, 135i, 140i, 235i, 240i, 340i, 50d, 550d, PHEV.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Not active",
+     "meaning_de": "kein Logo"
+    },
+    {
+     "name": "135i",
+     "meaning_de": "Beispielwert (Modellschriftzug)"
+    }
+   ],
+   "bimmercode_label": "M Performance logo",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode nur KOMBI L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Die KOMBI-Variante L7_MID ist für einen 2012er F20 ohne 6WA eher unwahrscheinlich (nicht belegt). Ein falscher Modellschriftzug ist optisch irreführend."
+  },
+  {
+   "id": "kombi.date_in_bc",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Datum im Bordcomputer",
+   "description_de": "BimmerCode 'Date in board computer' aktiviert bzw. deaktiviert die Datumsanzeige im BC. Laut F30-Doku gehört 'Date' zur BC-Liste.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Active",
+     "meaning_de": "Datum im BC"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "kein Datum"
+    }
+   ],
+   "bimmercode_label": "Date in board computer",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+   ],
+   "notes_de": "Hängt von der KOMBI-Variante ab."
+  },
+  {
+   "id": "kombi.empty_menu_item",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Leerer Menüpunkt im Bordcomputer",
+   "description_de": "BimmerCode 'Empty menu item in board computer' fügt eine leere BC-Seite hinzu (ruhiges Display).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Active",
+     "meaning_de": "leere Seite vorhanden"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "keine leere Seite"
+    }
+   ],
+   "bimmercode_label": "Empty menu item in board computer",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Den FDL-Parameternamen hat BimmerCode nicht veröffentlicht."
+  },
+  {
+   "id": "kombi.average_values_reset",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Automatischer Reset der Durchschnittswerte",
+   "description_de": "BimmerCode 'Average values reset': Durchschnittsgeschwindigkeit und -verbrauch werden nach der eingestellten Zeit automatisch zurückgesetzt. Eine nicht verifizierte Sammlung nennt BC_AUTORESET_ZEIT (3000), Hex-Stunden (04 = 4 h, FF = nie).",
+   "function_names": [
+    "BC_AUTORESET_ZEIT"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "After 4 hours",
+     "meaning_de": "Reset nach 4 h Standzeit (BimmerCode; laut Sammlung werte=04)"
+    },
+    {
+     "name": "After 8 hours",
+     "meaning_de": "Reset nach 8 h"
+    },
+    {
+     "name": "After every ride",
+     "meaning_de": "Reset nach jeder Fahrt"
+    },
+    {
+     "name": "Never",
+     "meaning_de": "kein automatischer Reset (laut Sammlung werte=FF)"
+    }
+   ],
+   "bimmercode_label": "Average values reset",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Die BimmerCode-Option ist dokumentiert. Der Parametername BC_AUTORESET_ZEIT stammt nur aus der nicht verifizierten Sammlung."
+  },
+  {
+   "id": "kombi.low_fuel_warning_1",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Reservewarnung 1 (dauerhaft)",
+   "description_de": "BimmerCode 'Low fuel warning 1': Restreichweite, ab der die dauerhafte Reservewarnung erscheint.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "10 kilometers",
+     "meaning_de": "ab 10 km Restreichweite"
+    },
+    {
+     "name": "20 kilometers",
+     "meaning_de": "ab 20 km"
+    },
+    {
+     "name": "30 kilometers",
+     "meaning_de": "ab 30 km"
+    },
+    {
+     "name": "40 kilometers",
+     "meaning_de": "ab 40 km"
+    },
+    {
+     "name": "50 kilometers",
+     "meaning_de": "ab 50 km"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "keine dauerhafte Warnung"
+    }
+   ],
+   "bimmercode_label": "Low fuel warning 1",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "'Not active' oder sehr kleine Werte erhöhen das Risiko, mit leerem Tank liegenzubleiben. Auch Meilenwerte (10/20/30 mi) sind wählbar."
+  },
+  {
+   "id": "kombi.low_fuel_warning_2",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Reservewarnung 2 (temporär)",
+   "description_de": "BimmerCode 'Low fuel warning 2': Restreichweite, ab der die temporäre Reservewarnung erscheint.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "50 kilometers",
+     "meaning_de": "ab 50 km"
+    },
+    {
+     "name": "60 kilometers",
+     "meaning_de": "ab 60 km"
+    },
+    {
+     "name": "70 kilometers",
+     "meaning_de": "ab 70 km"
+    },
+    {
+     "name": "80 kilometers",
+     "meaning_de": "ab 80 km"
+    },
+    {
+     "name": "90 kilometers",
+     "meaning_de": "ab 90 km"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "keine temporäre Warnung"
+    }
+   ],
+   "bimmercode_label": "Low fuel warning 2",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Auch Meilenwerte (40/50 mi) sind wählbar."
+  },
+  {
+   "id": "kombi.fuel_consumption_display_max",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Maximalwert der Verbrauchsanzeige",
+   "description_de": "BimmerCode 'Fuel consumption display maximum value': Skalenendwert der Momentanverbrauchsanzeige.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "20 l/100km",
+     "meaning_de": "Skalenende 20 l/100 km"
+    },
+    {
+     "name": "30 l/100km",
+     "meaning_de": "Skalenende 30 l/100 km"
+    }
+   ],
+   "bimmercode_label": "Fuel consumption display maximum value",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode nur KOMBI L7_MID",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20"
+   ],
+   "notes_de": "Hängt von der KOMBI-Variante ab."
+  },
+  {
+   "id": "kombi.sport_plus",
+   "ecu": "KOMBI",
+   "category": "drivetrain",
+   "title_de": "SPORT+ als zusätzlicher Fahrmodus",
+   "description_de": "BimmerCode 'SPORT+ driving mode (2 von 2)' im KOMBI fügt SPORT+ hinzu. Teil 1 muss im ICMQL aktiviert werden. Eine nicht verifizierte Sammlung nennt für die Kombi-Anzeige FDS_MENUE_TEXT_1…4 und FDS_MENUE_SIGNAL_1…4 (menue_4 → menue_3).",
+   "function_names": [
+    "FDS_MENUE_TEXT_1",
+    "FDS_MENUE_TEXT_2",
+    "FDS_MENUE_TEXT_3",
+    "FDS_MENUE_TEXT_4",
+    "FDS_MENUE_SIGNAL_1",
+    "FDS_MENUE_SIGNAL_2",
+    "FDS_MENUE_SIGNAL_3",
+    "FDS_MENUE_SIGNAL_4"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "menue_4",
+     "meaning_de": "Standard laut Sammlung"
+    },
+    {
+     "name": "menue_3",
+     "meaning_de": "SPORT+-Symbol/-Signal laut Sammlung"
+    },
+    {
+     "name": "Active",
+     "meaning_de": "BimmerCode-Wert (2 von 2)"
+    }
+   ],
+   "bimmercode_label": "SPORT+ driving mode (2 of 2)",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID + ICMQL (Teil 1)",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": "SPORT+ verändert u. a. die DSC-Eingriffsschwellen. Fahrsicherheit beachten.",
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "'documented' bezieht sich auf die BimmerCode-Option. Die FDS_MENUE_*-Namen sind nicht verifiziert. Ob das ICM des Autos als ICMQL erkannt wird, ist offen."
+  },
+  {
+   "id": "kombi.white_night_illumination",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Kombi nachts weiß statt orange",
+   "description_de": "Community-Tabelle: DIM_NACHT_EIN (Block 3007) von werte 32 auf FF. Das Kombi bleibt nachts weiß. Laut Tabelle wird damit auch die Nachtumschaltung des Navis deaktiviert.",
+   "function_names": [
+    "DIM_NACHT_EIN"
+   ],
+   "cafd_block": "3007",
+   "values": [
+    {
+     "name": "werte=32",
+     "meaning_de": "Standard (laut Tabelle)"
+    },
+    {
+     "name": "werte=FF",
+     "meaning_de": "weiß bei Nacht"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "KOMBI mit TFT; Fahrzeug der Tabelle nicht genannt (F-Serie)",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Für den 2012er F20-KOMBI nicht belegt. Eine helle Anzeige kann nachts blenden."
+  },
+  {
+   "id": "kombi.background_color",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Hintergrundfarbe der Skalen (Orange/Grau)",
+   "description_de": "Community-Tabelle: HINTERGRUND_FARBE_TAG und HINTERGRUND_FARBE_NACHT (Block 3001), Orange → Orange/Grau. Laut Tabelle 'Only for instrument cluster high'. bmw-syndikat führt das für den F10 mit Kombi 6WA.",
+   "function_names": [
+    "HINTERGRUND_FARBE_TAG",
+    "HINTERGRUND_FARBE_NACHT"
+   ],
+   "cafd_block": "3001",
+   "values": [
+    {
+     "name": "Orange",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "Orange/Grau",
+     "meaning_de": "hell-orange/graue Hintergrundlinien"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Kombi High (6WA)",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://www.bmw-syndikat.de/bmwsyndikatforum/bmw_codieren_datenbank.asp?goto=83"
+   ],
+   "notes_de": "Nur relevant, falls das Auto 6WA hat."
+  },
+  {
+   "id": "kombi.test_functions",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Kombi-Testmenü (verstecktes Testmenü)",
+   "description_de": "Offiziell dokumentiert (BMW ST1113, F30): Klemme 15 EIN, Reset-Taste im Kombi 10 s halten. Frei zugänglich sind nur die Funktionen 01–04. Die Entsperrung erfolgt über Testfunktion 04 mit der Quersumme der letzten fünf FIN-Stellen. Funktionen: 01 Identifikation, 02 Systemtest, 03 Testende, 04 Entsperren, 05 Momentanverbrauch, 06 Reichweite/Verbrauch, 07 Tankgeber, 08 Kühlmittel/Außen/Motoröl-Temperatur, 09 BC-Mittelwerte, 10 Tacho/Drehzahlmesser, 11 Bordnetzspannung, 12 Akustik, 13 Fehlerspeicher, 14 LCD dimmen, 15 PWM dimmen, 16 CBS, 17 Check-Control, 18 Korrekturfaktor Verbrauch, 19 Software-Reset/RAM reload.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "04",
+     "meaning_de": "Entsperren mit Quersumme der letzten 5 FIN-Stellen"
+    },
+    {
+     "name": "08",
+     "meaning_de": "Kühlmittel-, Außen-, Motoröltemperatur"
+    },
+    {
+     "name": "18",
+     "meaning_de": "Korrekturfaktor Verbrauch (verändert Werte – Vorsicht)"
+    },
+    {
+     "name": "19",
+     "meaning_de": "Software-Reset/RAM reload"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "F-Serien-Kombi mit Reset-Taste",
+   "software_requirements_de": "keine (Bedienung am Kombi)",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+   ],
+   "notes_de": "Belegt für den F30. Für den F20 (gleiche Kombi-Generation) wahrscheinlich, aber nicht verifiziert. Beenden: Kl. 15 aus, Taste > 10 s, Testfunktion 03 und dann 19. Beim Verlassen wird wieder gesperrt. Die E-Serien-Nummerierung aus Drittquellen gilt nicht."
+  },
+  {
+   "id": "kombi.oil_temperature",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Motoröltemperatur anzeigen",
+   "description_de": "Laut BMW F30-Doku zeigen beim F30 die kleinen Rundinstrumente die Öltemperatur, und Testfunktion 08 zeigt 'Coolant temperature, ambient temperature, engine oil temperature'. Eine Codierung für eine dauerhafte Öltemperaturanzeige beim F20 wurde nicht gefunden.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "F-Serien-Kombi; Öltemperatursignal der DME",
+   "software_requirements_de": "keine (Testmenü)",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+   ],
+   "notes_de": "'documented' bezieht sich auf den F30. Ob das F20-Kombi eine Öltemperaturanzeige hat und ob der N13 den Wert liefert, ist unbekannt."
+  },
+  {
+   "id": "kombi.bc_information_display_selection",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Auswahl der BC-Anzeigen über iDrive",
+   "description_de": "Laut BMW F30-Doku: BC-Liste mit Reichweite, Durchschnittsverbrauch, Durchschnittsgeschwindigkeit, (mit Navi) Entfernung/Ankunft/Pfeil, Datum, Speed-Limit-Info und ECO-PRO-Bonusreichweite. Was angezeigt wird, wählt man im iDrive unter 'Settings → Information Display'. Das ist eine Benutzereinstellung, keine Codierung.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "keine",
+   "software_requirements_de": "keine",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+   ],
+   "notes_de": "Belegt für den F30. Ohne Navi entfallen die Navi-Einträge. Ob das Menü bei HU_ENTRY identisch heißt, ist nicht verifiziert."
+  },
+  {
+   "id": "kombi.eco_pro_display",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "ECO-PRO-Anzeigen (Bonusreichweite) im Kombi",
+   "description_de": "Laut BMW F30-Doku zeigt das Kombi mit erweitertem Funktionsumfang (6WA) im ECO-PRO-Modus u. a. die Bonusreichweite an. 'ECO PRO bonus range' ist Teil der BC-Liste. Codierparameter wurden nicht gefunden.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "ECO-PRO-Modus (Fahrerlebnisschalter); Darstellung in der Doku für 6WA beschrieben",
+   "software_requirements_de": "keine",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+   ],
+   "notes_de": "Der Umfang beim Basis-Kombi des F20 ist unbekannt. Keine Codieroption."
+  },
+  {
+   "id": "kombi.seatbelt_reminder",
+   "ecu": "KOMBI",
+   "category": "safety",
+   "title_de": "Gurtwarnung (nur Dokumentation)",
+   "description_de": "Die Anzeige erfolgt im Kombi. Laut BimmerCode liegt die Codierung aber im Airbag-Steuergerät ACSM (ACSM_4B/ACSM_4C): Initial seat belt reminder after start, Seat belt indicator (Fahrer/Beifahrer/Fond), Seat belt reminder distance/driver/duration/passenger/speed. Eine Community-Tabelle (F30 2012, E-Sys) nennt im ACSM (3000 Ausstattungsflags) SeatBeltReminder_SBR_Fahrer und SeatBeltReminder_SBR_Beifahrer (aktiv → nicht_aktiv).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": "Seat belt reminder driver seat",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "ACSM_4B oder ACSM_4C (nicht KOMBI)",
+   "software_requirements_de": "BimmerCode",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": "Sicherheitsfunktion. Das Abschalten wird nicht empfohlen und kann Betriebserlaubnis und Versicherungsschutz berühren. Die Gurtpflicht nach § 21a StVO bleibt unberührt.",
+   "sources": [
+    "https://bimmercode.app/cars/f20",
+    "https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit"
+   ],
+   "notes_de": "Nur zur Dokumentation. Die exakten Parameter gehören zum ACSM und stehen deshalb hier im Text statt in function_names. Ob das ACSM des 2012er F20 als ACSM_4B/4C erkannt wird, ist offen."
+  },
+  {
+   "id": "kombi.speed_warning",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Geschwindigkeitswarnung (Benutzereinstellung)",
+   "description_de": "In BMW-Handbüchern anderer Modelle (z. B. X3) ist die Geschwindigkeitswarnung eine iDrive-Benutzereinstellung (Fahrzeugeinstellungen → Geschwindigkeitswarnung → 'Warnen bei'). Keine Codierung nötig.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "keine",
+   "software_requirements_de": "keine",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "likely",
+   "legal_note_de": null,
+   "sources": [
+    "https://www.manualslib.com/manual/2549622/Bmw-X3.html?page=148"
+   ],
+   "notes_de": "Für F20/HU_ENTRY nicht direkt belegt. Im Bordhandbuch des Autos prüfen."
+  },
+  {
+   "id": "kombi.shift_point_and_gear_display",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Schaltpunktanzeige / Ganganzeige (Schaltgetriebe)",
+   "description_de": "Für den F20 mit Schaltgetriebe wurden keine Codierparameter für Schaltpunkt- oder Ganganzeige gefunden. BMW-Handbücher anderer Modelle führen eine 'Schaltpunktanzeige' als Werksfunktion.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "Schaltgetriebe",
+   "software_requirements_de": "-",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [],
+   "notes_de": "Keine Quelle für Codieroptionen. Nicht codieren, ohne einen Parameter im eigenen CAFD zu identifizieren."
+  },
+  {
+   "id": "kombi.needle_sweep",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Zeigertest / 'Needle Sweep' beim Start",
+   "description_de": "Für das F-Serien-KOMBI wurde keine Codierung für einen Zeigertest beim Start gefunden. Das einzige dokumentierte Selbsttest-Element ist Testfunktion 02 'Systemtest' im Testmenü (Inhalt nicht beschrieben).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "-",
+   "software_requirements_de": "-",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [],
+   "notes_de": "Keine Quelle gefunden."
+  },
+  {
+   "id": "kombi.msa_status_display",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "MSA-Hinweis 'Auto Start-Stop aus' im Kombi ausblenden",
+   "description_de": "Eine nicht verifizierte Sammlung (F-Serie) nennt MSA_VERFUEGBARANZEIGE_ENABLE (KOMBI 3000), aktiv → nicht_aktiv, um den MSA-Hinweis zu entfernen.",
+   "function_names": [
+    "MSA_VERFUEGBARANZEIGE_ENABLE"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard laut Sammlung"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Hinweis ausgeblendet"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Auto Start-Stop (MSA)",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Nur eine, nicht verifizierte Quelle. Die MSA-Abschaltung selbst ist eine FEM-/DME-Codierung (BimmerCode: FEM_01) und gehört ins andere Dossier."
+  },
+  {
+   "id": "kombi.reverse_gear_chime",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Gong beim Einlegen des Rückwärtsgangs",
+   "description_de": "Eine nicht verifizierte Sammlung nennt R_GANG_AKUSTIK_ENABLE (KOMBI 3000), aktiv → nicht_aktiv.",
+   "function_names": [
+    "R_GANG_AKUSTIK_ENABLE"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Gong aktiv (Standard laut Sammlung)"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "kein Gong"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "-",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Ob ein Schaltgetriebe-F20 überhaupt einen R-Gang-Gong hat, ist nicht belegt."
+  },
+  {
+   "id": "kombi.speed_limiter_lim",
+   "ecu": "KOMBI",
+   "category": "drivetrain",
+   "title_de": "Geschwindigkeitsbegrenzer (LIM) über Tempomat",
+   "description_de": "Eine nicht verifizierte Sammlung nennt KOMBI 3003 SLD_ENABLE=aktiv plus im ICM SLD_Funktion=aktiv, C_Umschaltung_ACC_DCC=zugelassen und LDM_SET_Taste=nur_SET__O (alle vier nötig). Die 'Set'-Taste arbeitet dann als LIM-Taste.",
+   "function_names": [
+    "SLD_ENABLE"
+   ],
+   "cafd_block": "3003",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "LIM-Funktion Teil 1 (KOMBI)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Tempomat; ICM-Codierung zusätzlich nötig",
+   "software_requirements_de": "BimmerCode-Expertenmodus / E-Sys (KOMBI + ICM)",
+   "effort": "high",
+   "risk": "high",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": "Eingriff in eine Fahrerassistenzfunktion. Fehlfunktion kann sicherheitsrelevant sein.",
+   "sources": [
+    "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+   ],
+   "notes_de": "Die ICM-Parameter (SLD_Funktion, C_Umschaltung_ACC_DCC, LDM_SET_Taste) stehen hier nur im Text. Einzige Quelle ist nicht verifiziert. Ausstattung mit Tempomat am Auto prüfen."
+  }
+ ]
+}

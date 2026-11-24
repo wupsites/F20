@@ -1,0 +1,3260 @@
+{
+ "_meta": {
+  "generated_from": "docs/research/raw/05_karosserie_komfort_antrieb.json",
+  "count": 82,
+  "note": "Automatisch erzeugt – nicht von Hand bearbeiten; Rohdaten in docs/research/raw ändern."
+ },
+ "entries": [
+  {
+   "id": "fem_body.welcome_light_activation",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light: Aktivierung (Lichtschalterstellung)",
+   "description_de": "Legt fest, in welcher Lichtschalterstellung das Welcome Light beim Entriegeln aktiv ist (nur AUTO oder AUTO bzw. Stellung 2) bzw. schaltet es ab.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Light switch on auto",
+     "meaning_de": "nur bei Lichtschalter in AUTO"
+    },
+    {
+     "name": "Light switch on auto or 2",
+     "meaning_de": "bei AUTO oder Abblendlicht-Stellung"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "Welcome Light aus"
+    }
+   ],
+   "bimmercode_label": "Welcome Light activation",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine zusätzliche Hardware.",
+   "software_requirements_de": "FEM_01 (BimmerCode-Bezeichnung des FEM_BODY).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "E-Sys-Parametername in den gefundenen Quellen nicht eindeutig zugeordnet; nur als BimmerCode-Option belegt."
+  },
+  {
+   "id": "fem_body.welcome_light_duration",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light: Leuchtdauer",
+   "description_de": "Dauer, wie lange das Welcome Light nach dem Entriegeln leuchtet.",
+   "function_names": [
+    "WL_TIMEOUT"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "14 (hex)",
+     "meaning_de": "20 s – Standard laut Botho.xml"
+    },
+    {
+     "name": "3C (hex)",
+     "meaning_de": "60 s"
+    },
+    {
+     "name": "5/10/15/20/30/45/60 seconds",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Welcome Light lighting duration",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Wert in Sekunden (hex)."
+  },
+  {
+   "id": "fem_body.welcome_light_darkness_only",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light nur bei Dunkelheit",
+   "description_de": "Welcome Light nur aktivieren, wenn der Lichtsensor Dunkelheit meldet.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Active",
+     "meaning_de": "nur bei Dunkelheit"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "immer"
+    }
+   ],
+   "bimmercode_label": "Welcome Light in darkness only",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Regen-/Lichtsensor (laut Fahrzeugbeschreibung vorhanden).",
+   "software_requirements_de": "FEM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "Nur als BimmerCode-Option belegt."
+  },
+  {
+   "id": "fem_body.welcome_light_brightness",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light: Helligkeit",
+   "description_de": "Helligkeit (PWM) der Welcome-Light-Leuchten.",
+   "function_names": [
+    "WL_HELLIGKEIT"
+   ],
+   "cafd_block": "3070",
+   "values": [
+    {
+     "name": "64 (hex)",
+     "meaning_de": "100 % – Standard laut Botho.xml"
+    },
+    {
+     "name": "32 (hex)",
+     "meaning_de": "50 %"
+    },
+    {
+     "name": "10 % … 100 %",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Welcome Lights brightness",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "BimmerCode: wirkt nur bei Halogen- oder Xenon-Scheinwerfern (Halogen vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "Spreadsheet 'Coding BMW F3x' nennt Standard 0,64 → 0,94."
+  },
+  {
+   "id": "fem_body.welcome_light_fog",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light: Nebelscheinwerfer einbeziehen",
+   "description_de": "Nebelscheinwerfer leuchten als Teil des Welcome Lights (sanft oder hart eingeschaltet).",
+   "function_names": [
+    "MAPPING_NEBELSCHW_L_PART_OF_WL",
+    "MAPPING_NEBELSCHW_R_PART_OF_WL"
+   ],
+   "cafd_block": "3063",
+   "values": [
+    {
+     "name": "nicht_aktiv / 00",
+     "meaning_de": "Standard – Nebelscheinwerfer nicht Teil des Welcome Lights"
+    },
+    {
+     "name": "soft_On",
+     "meaning_de": "sanft einblenden"
+    },
+    {
+     "name": "hard_On",
+     "meaning_de": "hart einschalten"
+    }
+   ],
+   "bimmercode_label": "Welcome Lights fog lights",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nebelscheinwerfer vorne (vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Nur im Stand beim Entriegeln aktiv. § 17 Abs. 3 StVO beschränkt die Benutzung von Nebelscheinwerfern beim Fahren auf Sichtbehinderung durch Nebel, Schnee oder Regen; während der Fahrt nicht relevant, da Welcome Light endet.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://www.gesetze-im-internet.de/stvo_2013/__17.html"
+   ],
+   "notes_de": "Beide Seiten (L/R) gleich codieren."
+  },
+  {
+   "id": "fem_body.welcome_light_components",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Welcome Light: weitere Leuchten (Abblend-/Fernlicht, Standlicht, TFL, Blinker, Abbiegelicht, Sidemarker)",
+   "description_de": "BimmerCode bietet je Leuchtenfunktion die Einbindung ins Welcome Light: low beam, high beam 1/2, parking lights, daytime running light, front/central turn signals, cornering lights, design lights, sidemarkers.",
+   "function_names": [],
+   "cafd_block": "3063 (vermutlich, analog MAPPING_*_PART_OF_WL)",
+   "values": [
+    {
+     "name": "Hard on",
+     "meaning_de": "hart einschalten"
+    },
+    {
+     "name": "Soft on",
+     "meaning_de": "sanft einblenden"
+    },
+    {
+     "name": "Not active",
+     "meaning_de": "nicht Teil des Welcome Lights"
+    }
+   ],
+   "bimmercode_label": "Welcome Lights low beam / high beam 1 / high beam 2 / parking lights / daytime running light / front turn signals / cornering lights / sidemarkers",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Laut BimmerCode nur für Halogen-/Xenon-Scheinwerfer.",
+   "software_requirements_de": "FEM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Blinker dauerhaft als Welcome-Light-Bestandteil: Funktion nur im Stand; für den Fahrbetrieb nicht relevant. Rechtliche Bewertung nicht gefunden.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "E-Sys-Namen außer für Nebelscheinwerfer nicht in den Quellen belegt; 'cafd_block' daher nur Vermutung."
+  },
+  {
+   "id": "fem_body.coming_home_duration",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Coming Home (Heimleuchten): Standarddauer",
+   "description_de": "Vorgabewert der Heimleuchten-Dauer (Follow-me-home), die nach dem Abstellen per Lichthupe ausgelöst wird.",
+   "function_names": [
+    "PIA_DEFAULT_FMH"
+   ],
+   "cafd_block": "3064",
+   "values": [
+    {
+     "name": "14 (hex)",
+     "meaning_de": "20 s – Standard laut Botho.xml"
+    },
+    {
+     "name": "1E (hex)",
+     "meaning_de": "30 s"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. 'PIA'-Werte sind Vorgaben für das Fahrerprofil; die Dauer ist bei vielen F-Modellen auch im iDrive-Menü einstellbar (für HU_ENTRY nicht verifiziert).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Nicht in der offiziellen BimmerCode-F20-Liste → nur über Expert Mode."
+  },
+  {
+   "id": "fem_body.follow_me_home_remote",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Heimleuchten über Funkschlüssel auslösen",
+   "description_de": "Follow-me-home-Licht per Taste der Fernbedienung starten (Botho: 4. Taste bzw. kurzer Druck auf 3. Taste; dazu Belegung der 3. Taste in 30D0).",
+   "function_names": [
+    "FOLLOWMEHOME_VIA_FFB",
+    "RC_DEFAULT_IDG_3RD_BUTTON_SHORT"
+   ],
+   "cafd_block": "3060, 30D0",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Auslösung per Fernbedienung"
+    },
+    {
+     "name": "RC_DEFAULT_IDG_3RD_BUTTON_SHORT = 04",
+     "meaning_de": "Kurzdruck 3. Taste = Follow-me-home (Botho, zusammen mit Panic-Alarm-Konfiguration)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Schlüssel mit passender Tastenbelegung; EU-Schlüssel hat i. d. R. 3 Tasten (Heckklappe auf 3. Taste).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Quelle beschreibt Kombination mit RC_PANIC_ALARM (setzt Alarmanlage voraus). Ohne Panic-Belegung auf EU-Schlüssel ungetestet → experimentell."
+  },
+  {
+   "id": "fem_body.drl_mode",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Tagfahrlicht (TFL): Modus",
+   "description_de": "Grundmodus des Tagfahrlichts (aktiv / aktiv auch mit Standlicht / aus). In E-Sys-Cheats auch Variante 'TFL_S' (TFL inkl. Rückleuchten).",
+   "function_names": [
+    "TFL_MODUS"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "02",
+     "meaning_de": "Standard laut Botho.xml (Wertbedeutung nicht erläutert)"
+    },
+    {
+     "name": "TFL_S",
+     "meaning_de": "TFL inkl. Rückleuchten (Almaretto/Kip/FDLCodes, Teil 1 von 2 mit REM)"
+    },
+    {
+     "name": "Active / Active also with parking lights / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Daytime running light mode",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine (TFL ab Werk vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 (Rev. 7, Abs. 6.19.7) verlangt bei typgenehmigten Fahrzeugen automatisches Einschalten des TFL; manuelles Abschalten nur unter 10 km/h zulässig. In DE besteht laut ADAC keine Pflicht, TFL zu benutzen (Neufahrzeuge müssen aber ausgerüstet sein). Dauerhaftes Wegcodieren = Abweichung vom Typgenehmigungszustand → rechtliche Grauzone.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf",
+    "https://www.adac.de/rund-ums-fahrzeug/ausstattung-technik-zubehoer/ausstattung/tagfahrlicht/"
+   ],
+   "notes_de": "Wertebezeichnungen unterscheiden sich zwischen Quellen (02 vs. TFL_S) → vor Änderung Ist-Wert/Auswahlliste prüfen."
+  },
+  {
+   "id": "fem_body.drl_brightness",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Tagfahrlicht: Helligkeit",
+   "description_de": "PWM-Helligkeit der vorderen TFL-Leuchten links/rechts.",
+   "function_names": [
+    "MAPPING_TAGFAHRL_V_L_PWM_LEVEL_1",
+    "MAPPING_TAGFAHRL_V_R_PWM_LEVEL_1"
+   ],
+   "cafd_block": "3062",
+   "values": [
+    {
+     "name": "64 (hex)",
+     "meaning_de": "100 % – Standard laut Botho.xml"
+    },
+    {
+     "name": "32 (hex)",
+     "meaning_de": "50 %"
+    },
+    {
+     "name": "10 % … 100 %",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Daytime running light brightness",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Absenken unter die Lichtstärke-Mindestwerte der TFL-Genehmigung (ECE R87) könnte die Typkonformität verletzen; konkrete Grenzwerte hier nicht geprüft.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml"
+   ],
+   "notes_de": "Bei Halogen-F20 ist unklar, welche Leuchte (Lichtleiter/Ring) das TFL bildet → Wirkung am Fahrzeug prüfen."
+  },
+  {
+   "id": "hu_entry.drl_menu",
+   "ecu": "HU_ENTRY",
+   "category": "lighting",
+   "title_de": "TFL-Ein/Aus im iDrive-Menü",
+   "description_de": "Checkbox im Lichtmenü zum Ein-/Ausschalten des TFL. Belegt nur für HU_NBT/HU_NBT_EVO (BimmerCode) und HU_CIC (Parameter Daydriving_light).",
+   "function_names": [
+    "Daydriving_light"
+   ],
+   "cafd_block": "3000 (HU_CIC)",
+   "values": [
+    {
+     "name": "Perm_off",
+     "meaning_de": "Standard (kein Menüpunkt) – HU_CIC"
+    },
+    {
+     "name": "standard",
+     "meaning_de": "Menüpunkt verfügbar – HU_CIC"
+    }
+   ],
+   "bimmercode_label": "Checkbox daytime running light",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Head-Unit NBT/NBT EVO bzw. CIC; Fahrzeug hat Radio Professional (HU_ENTRY).",
+   "software_requirements_de": "Für HU_ENTRY kein Parameter dokumentiert.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": "Siehe fem_body.drl_mode (ECE R48 6.19.7).",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "BimmerCode-Standardoption setzt laut offizieller Liste HU_NBT/HU_NBT_EVO voraus; für HU_ENTRY (Radio Professional) keine Quelle gefunden → wahrscheinlich nicht verfügbar. Alternative: TFL direkt im FEM_BODY (TFL_MODUS). Siehe auch Katalog 04 (hu_entry.drl_checkbox)."
+  },
+  {
+   "id": "rem.drl_tail_lights",
+   "ecu": "REM",
+   "category": "lighting",
+   "title_de": "Rückleuchten mit Tagfahrlicht",
+   "description_de": "Äußere und/oder innere Rückleuchtenteile leuchten zusammen mit dem TFL.",
+   "function_names": [
+    "MAPPING_TAGFAHRL_H_L_OUTPUT",
+    "MAPPING_TAGFAHRL_H_R_OUTPUT",
+    "MAPPING_TAGFAHRL_H2_L_OUTPUT",
+    "MAPPING_TAGFAHRL_H2_R_OUTPUT"
+   ],
+   "cafd_block": "3062",
+   "values": [
+    {
+     "name": "00 / off",
+     "meaning_de": "Standard – aus"
+    },
+    {
+     "name": "sl_l / sl_r (14/15 hex)",
+     "meaning_de": "äußere Rückleuchten links/rechts"
+    },
+    {
+     "name": "sl_2_l / sl_2_r (16/17 hex)",
+     "meaning_de": "innere Rückleuchten (Heckklappe) links/rechts"
+    }
+   ],
+   "bimmercode_label": "Daytime running light tail lights outer part / inner part",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "REM_01; bei manchen Quellen zusätzlich FEM_BODY TFL_MODUS = TFL_S (Teil 1 von 2). Spreadsheet F3x nennt alternativ MAPPING_UNIVERSAL_6/7_OUTPUT (3063) samt PWM-Werten.",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.19 regelt nur das vordere TFL; rechtliche Bewertung beleuchteter Rückleuchten tagsüber nicht gefunden → [UNBEKANNT].",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "Pre-LCI-Rückleuchten des F20: Belegung (sl_l, sl_2_l) aus F20/F30-Quellen, am eigenen Fahrzeug prüfen."
+  },
+  {
+   "id": "fem_body.parking_light_brightness",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Stand-/Positionslicht ('Angel Eyes'): Helligkeit",
+   "description_de": "PWM-Helligkeit des vorderen Standlichts links/rechts (bei Abblendlicht bzw. Standlicht).",
+   "function_names": [
+    "MAPPING_STANDL_V_L_PWM_LEVEL_STANDARD",
+    "MAPPING_STANDL_V_R_PWM_LEVEL_STANDARD"
+   ],
+   "cafd_block": "3062",
+   "values": [
+    {
+     "name": "8",
+     "meaning_de": "Standard laut Botho.xml"
+    },
+    {
+     "name": "32 (hex)",
+     "meaning_de": "50 %"
+    },
+    {
+     "name": "64 (hex)",
+     "meaning_de": "100 %"
+    }
+   ],
+   "bimmercode_label": "Angel Eyes brightness low beam / Angel Eyes brightness parking lights",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Unklar, ob die Halogen-Scheinwerfer des F20 Pre-LCI eine dimmbare Ring-/Lichtleiter-Standlichtfunktion haben.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": "Positionsleuchten müssen die Werte ihrer Genehmigung einhalten (zu hell = Blendung, zu dunkel = nicht konform); nicht geprüft.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Botho beschreibt die Option für Xenon-Fahrzeuge."
+  },
+  {
+   "id": "fem_body.cornering_light_via_fog",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Abbiegelicht über Nebelscheinwerfer",
+   "description_de": "Nebelscheinwerfer leuchten beim Abbiegen/Lenkeinschlag kurveninnen als statisches Abbiegelicht.",
+   "function_names": [
+    "C_CLC_ENA",
+    "C_BLC_ENA",
+    "KL_ENABLE_LI",
+    "KL_ENABLE_RE",
+    "MAPPING_ABBIEGEL_L_OUTPUT",
+    "MAPPING_ABBIEGEL_R_OUTPUT"
+   ],
+   "cafd_block": "3073, 3066, 3062",
+   "values": [
+    {
+     "name": "C_CLC_ENA/C_BLC_ENA = F020_enable (01)",
+     "meaning_de": "aktiv"
+    },
+    {
+     "name": "C_CLC_ENA/C_BLC_ENA = F020_disable",
+     "meaning_de": "aus"
+    },
+    {
+     "name": "KL_ENABLE_LI/RE = KL_Ein / KL_Aus",
+     "meaning_de": "Abbiegelicht links/rechts ein/aus"
+    },
+    {
+     "name": "MAPPING_ABBIEGEL_L/R_OUTPUT = nsw_l / nsw_r (0B/0C)",
+     "meaning_de": "Ausgang = Nebelscheinwerfer links/rechts"
+    },
+    {
+     "name": "off",
+     "meaning_de": "kein Ausgang"
+    }
+   ],
+   "bimmercode_label": "Cornering lights activation / Cornering lights deactivation",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nebelscheinwerfer vorne (vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. Bei Botho ist 'F020_enable' als Standard angegeben → evtl. bereits ab Werk aktiv.",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.20 sieht Abbiegeleuchten nach ECE R119 vor; Nebelscheinwerfer (R19) dürfen nach R48 6.3.7 nur innerhalb eines AFS Teil einer anderen Lichtfunktion sein. Ist die Funktion für dieses Fahrzeug nicht ab Werk genehmigt, ist die Nachcodierung eine rechtliche Grauzone.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Alle sechs Parameter konsistent setzen (mehrteilige Codierung). BimmerCode fasst sie zu einer Option zusammen."
+  },
+  {
+   "id": "fem_body.cornering_fog_reverse",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Abbiegelicht (Nebel) beim Rückwärtsfahren",
+   "description_de": "Nebelscheinwerfer-Abbiegelicht beim Einlegen des Rückwärtsgangs (beidseitig).",
+   "function_names": [
+    "C_CLC_REV_ALWAYS_ON",
+    "C_CLC_REV_CURV_BOTH_ON"
+   ],
+   "cafd_block": "3073",
+   "values": [
+    {
+     "name": "01",
+     "meaning_de": "aktiv (Standard laut Botho.xml)"
+    },
+    {
+     "name": "00",
+     "meaning_de": "aus (abgeleitet, nicht explizit belegt)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Nebelscheinwerfer vorne; Abbiegelicht aktiv.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe fem_body.cornering_light_via_fog.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Nur eine Quelle (Botho.xml)."
+  },
+  {
+   "id": "fem_body.fog_off_with_high_beam",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Nebelscheinwerfer beim Fernlicht ausschalten",
+   "description_de": "Legt fest, ob die Nebelscheinwerfer beim Einschalten des Fernlichts automatisch erlöschen (US-Verhalten) oder anbleiben.",
+   "function_names": [
+    "NSW_AUS_BEI_FL"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "00",
+     "meaning_de": "Nebelscheinwerfer bleiben bei Fernlicht an (Botho: Standard 00)"
+    },
+    {
+     "name": "01",
+     "meaning_de": "Nebelscheinwerfer gehen bei Fernlicht aus (abgeleitet aus packetpilot 'Disable Hi-Beam Override' = 00)"
+    },
+    {
+     "name": "Active / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Fog lights off with high beam",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nebelscheinwerfer vorne (vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.3.7 verlangt, dass Nebelscheinwerfer unabhängig von Fern-/Abblendlicht schaltbar sind; Benutzung nach § 17 Abs. 3 StVO nur bei Nebel, Schneefall oder Regen.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf",
+    "https://www.gesetze-im-internet.de/stvo_2013/__17.html"
+   ],
+   "notes_de": "Bei EU-Fahrzeugen vermutlich bereits 'bleiben an' [WAHRSCHEINLICH]."
+  },
+  {
+   "id": "fem_body.fog_with_parking_lights",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Nebelscheinwerfer mit Standlicht",
+   "description_de": "Erlaubt das Einschalten der Nebelscheinwerfer bereits in Lichtschalterstellung Standlicht.",
+   "function_names": [
+    "NSW_EIN_AUF_LDS_STL"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "00",
+     "meaning_de": "Standard (laut Botho in Ländern wie USA)"
+    },
+    {
+     "name": "01",
+     "meaning_de": "Nebelscheinwerfer auch mit Standlicht"
+    }
+   ],
+   "bimmercode_label": "Fog lights with parking lights",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nebelscheinwerfer vorne.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Nebelscheinwerfer dürfen nach § 17 Abs. 3 StVO nur bei erheblicher Sichtbehinderung durch Nebel, Schnee oder Regen eingeschaltet sein; als Tagfahrlicht-Ersatz unzulässig (Verwarnungsgeld laut bussgeldkatalog.org). Codierung selbst ändert die Schaltlogik → Grauzone; Nutzung nur bestimmungsgemäß.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://www.gesetze-im-internet.de/stvo_2013/__17.html",
+    "https://www.bussgeldkatalog.org/tagfahrlicht-nebelscheinwerfer/"
+   ],
+   "notes_de": "Häufig als 'US-Feature' bezeichnet. Für den Alltag kein Mehrwert."
+  },
+  {
+   "id": "fem_body.comfort_turn_signal_count",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Komfortblinker: Anzahl Blinkzyklen (3 → 5)",
+   "description_de": "Anzahl der Blinkzyklen beim Antippen des Blinkerhebels.",
+   "function_names": [
+    "BLINKZYKLEN_ANZAHL_TIPP"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "02",
+     "meaning_de": "3 Blinkzyklen (Standard laut Spreadsheet F3x; Botho nennt 00)"
+    },
+    {
+     "name": "04",
+     "meaning_de": "5 Blinkzyklen (Wert = Anzahl − 1)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Laut Botho.xml und Almaretto.xml nur bis I-Stufe/Datenstand 3.61.x wirksam (ab 3.61.x stattdessen PIA_DEFAULT_TIPPBLINKEN, dort als 'Don't work' markiert). Ein Fahrzeug von 01/2012 ohne Software-Update hat sehr wahrscheinlich einen älteren Stand.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 (Rev. 7) enthält keine Vorgabe zur Zyklenzahl beim Tippblinken; keine Rechtsproblematik bekannt.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml"
+   ],
+   "notes_de": "Nicht in der offiziellen BimmerCode-F20-Liste → Expert Mode im FEM."
+  },
+  {
+   "id": "fem_body.comfort_turn_signal_default",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Komfortblinker: Profil-Standard (1x / 3x / 5x)",
+   "description_de": "Vorgabewert der Komfortblinker-Einstellung im Fahrerprofil (PIA).",
+   "function_names": [
+    "PIA_DEFAULT_TIPPBLINKEN"
+   ],
+   "cafd_block": "3064",
+   "values": [
+    {
+     "name": "00",
+     "meaning_de": "1 Zyklus"
+    },
+    {
+     "name": "01",
+     "meaning_de": "3 Zyklen (Standard laut Botho)"
+    },
+    {
+     "name": "02",
+     "meaning_de": "5 Zyklen – laut Botho 'Don't work'"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Relevant für neuere I-Stufen (ab 3.61.x laut Botho).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Spreadsheet F3x: Werte 'einfagblinken' → 'mehrfagblinken' (Schreibweise der Quelle)."
+  },
+  {
+   "id": "fem_body.lock_unlock_flash_count",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Optische Quittierung: Blinkanzahl beim Ver-/Entriegeln",
+   "description_de": "Anzahl der Blinkimpulse beim Verriegeln (Sichern) und Entriegeln (Entschärfen).",
+   "function_names": [
+    "QUITTBLK_SICHERN_ANZAHL",
+    "QUITTBLK_ENTSCHAERFEN_ANZAHL"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "QUITTBLK_SICHERN_ANZAHL = 01",
+     "meaning_de": "1x beim Verriegeln (Standard laut Botho)"
+    },
+    {
+     "name": "QUITTBLK_ENTSCHAERFEN_ANZAHL = 02",
+     "meaning_de": "2x beim Entriegeln (Standard laut Botho)"
+    },
+    {
+     "name": "1 time / 2 times / 3 times / Off",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Turn signals flashing on locking / Turn signals flashing on unlocking",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.ess_type",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Bremskraftanzeige / Notbremssignal: Art",
+   "description_de": "Art der Bremskraftanzeige bei starker Bremsung: Blinken (Notbremssignal) oder Flächenvergrößerung.",
+   "function_names": [
+    "ESS_AKTIVIERBARER_AUSGANG"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "bremslicht_blinkend",
+     "meaning_de": "Bremsleuchten blinken (Standard laut Botho.xml)"
+    },
+    {
+     "name": "flachenvergroesserung",
+     "meaning_de": "Flächenvergrößerung (Schreibweise laut F87-Spreadsheet)"
+    },
+    {
+     "name": "Area enlargement / Flashing / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Brake Force Display type",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. BimmerCode: zusätzlich REM 'Brake Force Display lights' = Brake lights.",
+   "effort": "medium",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Notbremssignal nach ECE R48 6.23: alle Leuchten blinken phasengleich mit 4,0 ± 1,0 Hz, Aktivierung nur über 50 km/h; Abweichungen verletzen die Typgenehmigung. 'Not active' entfernt eine Sicherheitsfunktion.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Sicherheitsrelevant – nur dokumentieren, Werkseinstellung belassen."
+  },
+  {
+   "id": "fem_body.ess_activation_speed",
+   "ecu": "FEM_BODY",
+   "category": "safety",
+   "title_de": "Notbremssignal: Aktivierungsgeschwindigkeit",
+   "description_de": "Mindestgeschwindigkeit, ab der das Notbremssignal ausgelöst wird.",
+   "function_names": [
+    "ESS_AKTIVIERUNG_GESCHW"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "32 (hex)",
+     "meaning_de": "50 km/h – Standard laut Botho.xml"
+    },
+    {
+     "name": "14 (hex)",
+     "meaning_de": "20 km/h (Beispiel Botho)"
+    },
+    {
+     "name": "0A (hex)",
+     "meaning_de": "10 km/h (Beispiel ekfxisid)"
+    },
+    {
+     "name": "5 … 50 km/h",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Brake Force Display activation speed",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.23.7.3.1: Aktivierung nur oberhalb 50 km/h. Absenken = Abweichung von der Typgenehmigung → in DE nicht zulässig.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Nicht empfehlen."
+  },
+  {
+   "id": "fem_body.ess_activation_decel",
+   "ecu": "FEM_BODY",
+   "category": "safety",
+   "title_de": "Notbremssignal: Verzögerungsschwelle",
+   "description_de": "Verzögerung, ab der das Notbremssignal aktiviert bzw. deaktiviert wird.",
+   "function_names": [
+    "ESS_AKTIVIERUNG_REALE_VERZ",
+    "ESS_DEAKTIVIERUNG_REALE_VERZ"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "0E (hex)",
+     "meaning_de": "7 m/s² – Standard laut Botho.xml (Einheit vermutlich 0,5 m/s²)"
+    },
+    {
+     "name": "06 (hex)",
+     "meaning_de": "3 m/s² (Beispiel Botho)"
+    },
+    {
+     "name": "Weak (5 m/s²) / Medium (7 m/s²) / Hard (8 m/s²)",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Brake Force Display activation brake force",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.23.7.3.1 knüpft die Aktivierung an das Notbrems-Logiksignal nach R13/R13-H; eine niedrigere Schwelle weicht davon ab → in DE nicht zulässig.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Nicht empfehlen."
+  },
+  {
+   "id": "rem.ess_lights_mapping",
+   "ecu": "REM",
+   "category": "lighting",
+   "title_de": "Bremskraftanzeige: verwendete Heckleuchten",
+   "description_de": "Ordnet die Bremskraftanzeige/das Notbremssignal den Bremsleuchten zu.",
+   "function_names": [
+    "MAPPING_BRAKEFORCED_L_OUTPUT",
+    "MAPPING_BRAKEFORCED_R_OUTPUT"
+   ],
+   "cafd_block": "3062",
+   "values": [
+    {
+     "name": "bl_l / bl_r",
+     "meaning_de": "Bremsleuchte links/rechts (Standard laut Botho)"
+    },
+    {
+     "name": "Brake lights / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Brake Force Display lights",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Almaretto/Kip: Blinken der äußeren Leuchten 'LED only'.",
+   "software_requirements_de": "REM_01.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe fem_body.ess_type (ECE R48 6.23).",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
+   ],
+   "notes_de": "Werkseinstellung belassen."
+  },
+  {
+   "id": "rem.ess_flash_frequency",
+   "ecu": "REM",
+   "category": "safety",
+   "title_de": "Notbremssignal: Blinkfrequenz",
+   "description_de": "Blinkfrequenz der Heckleuchten beim Notbremssignal.",
+   "function_names": [
+    "ESS_BLINKFREQ_1",
+    "ESS_BLINKFREQ_2"
+   ],
+   "cafd_block": "3064",
+   "values": [
+    {
+     "name": "03",
+     "meaning_de": "Standard laut Botho.xml (BimmerCode: 3 times per second)"
+    },
+    {
+     "name": "05",
+     "meaning_de": "erhöht (BimmerCode: 5 times per second)"
+    }
+   ],
+   "bimmercode_label": "Brake Force Display flashing frequency",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Laut Almaretto/Kip nur für LED-Leuchten.",
+   "software_requirements_de": "REM_01.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.23.7.1: 4,0 ± 1,0 Hz, bei Glühlampen 4,0 +0/−1 Hz. 5 Hz liegt an der Obergrenze bzw. bei Glühlampen außerhalb → in DE nicht empfehlenswert/unzulässig.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Ob die Bremsleuchten des F20 Pre-LCI Glühlampen oder LED sind, ist hier nicht verifiziert."
+  },
+  {
+   "id": "fem_body.hazard_after_emergency_braking",
+   "ecu": "FEM_BODY",
+   "category": "safety",
+   "title_de": "Warnblinker nach Notbremsung",
+   "description_de": "Warnblinkanlage schaltet nach einer Notbremsung (bis zum Stillstand) automatisch ein.",
+   "function_names": [
+    "WB_GB_ENABLE",
+    "WB_GB_GEFAHRENWERT_MIN"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "aktiv / 01",
+     "meaning_de": "Warnblinker nach Gefahrenbremsung"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    },
+    {
+     "name": "Active / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Hazard warning signal after emergency braking",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "ECE R48 6.6.7.2 erlaubt die automatische Aktivierung der Warnblinkanlage nach Deaktivierung des Notbremssignals (manuell abschaltbar) → grundsätzlich konform.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf"
+   ],
+   "notes_de": "Werkseinstellung für DE unbekannt; Ist-Wert auslesen."
+  },
+  {
+   "id": "fem_body.us_sidemarkers",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "US-Sidemarker (Blinker als Dauerlicht)",
+   "description_de": "Vordere Blinker bzw. Seitenblinker leuchten gedimmt als Seitenmarkierung mit Standlicht/TFL.",
+   "function_names": [
+    "MAPPING_SIDEMARKER_L_OUTPUT",
+    "MAPPING_SIDEMARKER_R_OUTPUT",
+    "MAPPING_SIDEMARKER_L_FUNCTION",
+    "MAPPING_SIDEMARKER_R_FUNCTION",
+    "MAPPING_SIDEMARKER_L_PWM_LEVEL_STANDARD"
+   ],
+   "cafd_block": "3063",
+   "values": [
+    {
+     "name": "OUTPUT = off",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "OUTPUT = fra_v_l / fra_v_r",
+     "meaning_de": "Blinker vorne links/rechts als Sidemarker"
+    },
+    {
+     "name": "FUNCTION 01 → 04",
+     "meaning_de": "Funktionszuordnung laut Botho"
+    },
+    {
+     "name": "Mirror turn signals / Off / Separate lights / Turn signals",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "US sidemarkers / US sidemarker brightness / US sidemarker light function",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine (nutzt vorhandene Blinker).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "medium",
+   "risk": "high",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "In DE unzulässig: ECE R48 6.5.7 verlangt, dass Fahrtrichtungsanzeiger unabhängig von anderen Leuchten schalten; dauerhaft leuchtende Blinker entsprechen nicht der EU-Genehmigung. Forum-Erfahrungen: 'in D offiziell nicht erlaubt'. Risiko: Mängel bei HU, Bußgeld, Erlöschen der Betriebserlaubnis.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://nsai.ie/images/uploads/certification-automotive/UNECE-R48-04.pdf",
+    "https://www.motor-talk.de/forum/programmierung-auf-us-tagfahrlicht-t829021.html"
+   ],
+   "notes_de": "NICHT empfehlen."
+  },
+  {
+   "id": "fem_body.lamp_monitoring_front",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Lampenüberwachung vorn (Kalt-/Warmüberwachung, LED-Kennung)",
+   "description_de": "Deaktiviert die Kalt- und Warmüberwachung bzw. kennzeichnet Ausgänge als LED, um Fehlermeldungen/Flackern bei LED-Nachrüstlampen zu verhindern (Blinker vorn, Nebelscheinwerfer u. a.).",
+   "function_names": [
+    "FRA_V_L_KALTUEBERWACHUNG",
+    "FRA_V_L_WARMUEBERWACHUNG",
+    "FRA_V_L_IS_LED",
+    "FRA_V_R_KALTUEBERWACHUNG",
+    "FRA_V_R_WARMUEBERWACHUNG",
+    "FRA_V_R_IS_LED",
+    "NSW_L_KALTUEBERWACHUNG",
+    "NSW_L_WARMUEBERWACHUNG",
+    "NSW_L_IS_LED",
+    "NSW_R_KALTUEBERWACHUNG",
+    "NSW_R_WARMUEBERWACHUNG",
+    "NSW_R_IS_LED"
+   ],
+   "cafd_block": "3061",
+   "values": [
+    {
+     "name": "*_KALTUEBERWACHUNG / *_WARMUEBERWACHUNG = aktiv",
+     "meaning_de": "Standard – Lampenausfallüberwachung"
+    },
+    {
+     "name": "= nicht_aktiv",
+     "meaning_de": "Überwachung aus"
+    },
+    {
+     "name": "*_IS_LED = aktiv",
+     "meaning_de": "Ausgang als LED kennzeichnen"
+    }
+   ],
+   "bimmercode_label": "LED conversion front turn signal / fog lights / low beam / high beam / position lights / daytime running lights / side turn signal",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nur sinnvoll nach Umbau auf LED-Leuchtmittel.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. BimmerCode: Rücknahme nur über Backup.",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "LED-Nachrüstlampen in Scheinwerfern sind in DE nur mit Genehmigung für das konkrete Fahrzeug zulässig; abgeschaltete Überwachung meldet defekte Lampen nicht mehr. Nur dokumentieren.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Fahrzeug hat laut Beschreibung Halogen ohne LED-Umbau → aktuell kein Bedarf."
+  },
+  {
+   "id": "rem.lamp_monitoring_rear",
+   "ecu": "REM",
+   "category": "lighting",
+   "title_de": "Lampenüberwachung hinten (Blinker, Brems-, Rückfahr-, Nebelschlussleuchte)",
+   "description_de": "Kalt-/Warmüberwachung und LED-Kennung der Heckleuchten-Ausgänge.",
+   "function_names": [
+    "FRA_H_L_KALTUEBERWACHUNG",
+    "FRA_H_L_WARMUEBERWACHUNG",
+    "FRA_H_L_IS_LED",
+    "FRA_H_R_KALTUEBERWACHUNG",
+    "FRA_H_R_IS_LED",
+    "BL_L_KALTUEBERWACHUNG",
+    "BL_L_WARMUEBERWACHUNG",
+    "BL_L_IS_LED",
+    "BL_R_KALTUEBERWACHUNG",
+    "BL_R_WARMUEBERWACHUNG",
+    "BL_R_IS_LED",
+    "RFS_L_KALTUEBERWACHUNG",
+    "RFS_L_WARMUEBERWACHUNG",
+    "RFS_L_IS_LED",
+    "RFS_R_KALTUEBERWACHUNG",
+    "RFS_R_WARMUEBERWACHUNG",
+    "RFS_R_IS_LED"
+   ],
+   "cafd_block": "3061",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard – Überwachung an"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Überwachung aus"
+    },
+    {
+     "name": "*_IS_LED = aktiv",
+     "meaning_de": "LED-Ausgang"
+    }
+   ],
+   "bimmercode_label": "LED conversion brake light / rear turn signals / reversing light / rear fog light / license plate light / inner tail lights / outer tail lights / center brake light",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nur nach LED-Umbau.",
+   "software_requirements_de": "REM_01.",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe fem_body.lamp_monitoring_front; LED-Leuchtmittel brauchen eine Genehmigung.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Nur dokumentieren. ekfxisid.xml enthält zusätzlich NSL_* (Schreibweise dort teils fehlerhaft)."
+  },
+  {
+   "id": "fem_body.interior_light_duration",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Innenlicht: Nachleuchtdauer beim Ver-/Entriegeln",
+   "description_de": "Einschaltbegrenzung der Innenbeleuchtung nach Verriegeln bzw. Entriegeln.",
+   "function_names": [
+    "IB_EINSCHALT_BEGR_LOK",
+    "IB_EINSCHALT_BEGR_ULOK"
+   ],
+   "cafd_block": "3070",
+   "values": [
+    {
+     "name": "IB_EINSCHALT_BEGR_LOK = 08",
+     "meaning_de": "8 s nach Verriegeln (Standard laut Botho)"
+    },
+    {
+     "name": "IB_EINSCHALT_BEGR_ULOK = 14 (hex)",
+     "meaning_de": "20 s nach Entriegeln (Standard laut Botho)"
+    },
+    {
+     "name": "3C (hex)",
+     "meaning_de": "60 s"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "Botho ordnet die Parameter der Ambientebeleuchtung zu, das Spreadsheet der Innenbeleuchtung ('IB'); Wirkung am Fahrzeug prüfen. Höhere Werte = mehr Ruhestrom."
+  },
+  {
+   "id": "fem_body.ambient_light_decoupling",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Ambientelicht: Helligkeit vom Kombi entkoppeln / Helligkeit / Welcome",
+   "description_de": "Ambientelicht-Helligkeit unabhängig von der Instrumentenhelligkeit; Grundhelligkeit; Ambientelicht beim Entriegeln.",
+   "function_names": [
+    "AMBIENTE_NACHFUEHRUNG",
+    "AMBIENTE_HELLIGKEIT",
+    "WELCOME_AMBIENTE"
+   ],
+   "cafd_block": "3070",
+   "values": [
+    {
+     "name": "AMBIENTE_NACHFUEHRUNG = aktiv",
+     "meaning_de": "Standard – folgt Kombi-Helligkeit"
+    },
+    {
+     "name": "AMBIENTE_NACHFUEHRUNG = nicht_aktiv",
+     "meaning_de": "entkoppelt"
+    },
+    {
+     "name": "WELCOME_AMBIENTE = aktiv",
+     "meaning_de": "Ambiente beim Entriegeln"
+    }
+   ],
+   "bimmercode_label": "Ambient lighting brightness / Ambient lighting brightness decoupling from instrument cluster",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Ambientebeleuchtung (Sonderausstattung) – für dieses Fahrzeug nicht angegeben.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
+   ],
+   "notes_de": "Ohne Ambientelicht wirkungslos."
+  },
+  {
+   "id": "fem_body.door_handle_light_reverse",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Türgriffbeleuchtung beim Rückwärtsgang",
+   "description_de": "Türgriff-LEDs leuchten beim Einlegen des Rückwärtsgangs.",
+   "function_names": [
+    "OVT_BEI_RUECKFAHRLICHT"
+   ],
+   "cafd_block": "3070",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "an"
+    }
+   ],
+   "bimmercode_label": "Door handle lights when reverse gear is engaged",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Türgriffbeleuchtung (Teil von Licht-/Ambientepaketen) – für dieses Fahrzeug nicht angegeben.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.rls_sensitivity",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Regen-/Lichtsensor: Empfindlichkeit (Lichtautomatik)",
+   "description_de": "Schwellwertsatz des Regen-Licht-Sensors für Fahrlicht-Automatik (BimmerCode: wirkt auf Wischer- und Lichtautomatik).",
+   "function_names": [
+    "RLS_DEF_FLC_SCHWELLWERT_SATZ"
+   ],
+   "cafd_block": "3130",
+   "values": [
+    {
+     "name": "00",
+     "meaning_de": "Standard laut Botho.xml"
+    },
+    {
+     "name": "03",
+     "meaning_de": "weniger empfindlich (Botho)"
+    },
+    {
+     "name": "unempfindlich",
+     "meaning_de": "Wertebezeichnung in Almaretto/Kip"
+    },
+    {
+     "name": "Insensitive / Normal / Sensitive / Very sensitive",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Rain-light-sensor sensitivity",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Regen-/Lichtsensor (laut Fahrzeugbeschreibung vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Fahrer bleibt nach § 17 Abs. 1 StVO für rechtzeitiges Einschalten des Lichts verantwortlich.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml",
+    "https://www.gesetze-im-internet.de/stvo_2013/__17.html"
+   ],
+   "notes_de": "Hex-Werte und Klartextwerte widersprechen sich zwischen Quellen (otakar: '02 = highest sensitivity') → BimmerCode-Standardmodus nutzen."
+  },
+  {
+   "id": "fem_body.soft_on_off_main_lights",
+   "ecu": "FEM_BODY",
+   "category": "lighting",
+   "title_de": "Soft-On/Soft-Off (Dimmen) von Fahrlicht",
+   "description_de": "Sanftes Auf-/Abdimmen der Hauptlichtfunktionen. In den Quellen nur als Wert 'Soft on' für Welcome-Light-Bestandteile belegt.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Soft on / Hard on",
+     "meaning_de": "nur für Welcome-Light-Bestandteile belegt"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "Unbekannt.",
+   "software_requirements_de": "Unbekannt.",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "Kein Parameter für Fahrlicht-Soft-On/Off gefunden → nicht codieren."
+  },
+  {
+   "id": "fem_body.comfort_open_remote",
+   "ecu": "FEM_BODY",
+   "category": "windows",
+   "title_de": "Komfortöffnen per Fernbedienung (Fenster/SHD)",
+   "description_de": "Gedrückthalten der Entriegeln-Taste öffnet Fenster (und ggf. Schiebedach, klappt Spiegel aus).",
+   "function_names": [
+    "KOMFORTOEFFNUNG_FB",
+    "KOMFORTOEFFNUNG"
+   ],
+   "cafd_block": "3053",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Komfortöffnen per Funkschlüssel"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    },
+    {
+     "name": "Active / Not active",
+     "meaning_de": "BimmerCode 'Convenient opening' bzw. '… with remote control'"
+    }
+   ],
+   "bimmercode_label": "Convenient opening / Convenient opening with remote control",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Elektrische Fensterheber (vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit",
+    "https://www.motor-talk.de/forum/start-des-ersten-codierens-einstiegsfragen-t7071093.html"
+   ],
+   "notes_de": "Bei EU-Fahrzeugen ggf. bereits aktiv – Ist-Wert prüfen. motor-talk-Quelle nur als Such-Snippet gelesen (Seite blockiert)."
+  },
+  {
+   "id": "fem_body.comfort_close_remote",
+   "ecu": "FEM_BODY",
+   "category": "windows",
+   "title_de": "Komfortschließen per Fernbedienung",
+   "description_de": "Gedrückthalten der Verriegeln-Taste schließt Fenster (und Schiebedach; klappt ggf. Spiegel an).",
+   "function_names": [
+    "KOMFORTSCHLIESSUNG_FB",
+    "KOMFORTSCHLIESSUNG"
+   ],
+   "cafd_block": "3053",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Komfortschließen per Funkschlüssel"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    }
+   ],
+   "bimmercode_label": "Convenient closing / Convenient closing with remote control",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Elektrische Fensterheber mit Einklemmschutz (Serie).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Fernbetätigtes Schließen kraftbetätigter Fenster unterliegt Anforderungen an den Einklemmschutz; eine konkrete Rechtsquelle wurde nicht geprüft → [UNBEKANNT]. Nur in Sichtweite benutzen.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://www.motor-talk.de/forum/start-des-ersten-codierens-einstiegsfragen-t7071093.html"
+   ],
+   "notes_de": "Gilt nicht für Cabrios (F20 nicht betroffen)."
+  },
+  {
+   "id": "fem_body.comfort_open_close_delay",
+   "ecu": "FEM_BODY",
+   "category": "windows",
+   "title_de": "Komfortöffnen/-schließen: Verzögerung",
+   "description_de": "Haltezeit der Fernbedienungstaste bis zum Start der Komfortfunktion.",
+   "function_names": [
+    "KOMFORT_OEFFNEN",
+    "KOMFORT_SCHLIESSEN"
+   ],
+   "cafd_block": "3053",
+   "values": [
+    {
+     "name": "KOMFORT_OEFFNEN = 19 (hex)",
+     "meaning_de": "2,5 s – Standard laut Botho/Kip"
+    },
+    {
+     "name": "KOMFORT_OEFFNEN = 14 (hex)",
+     "meaning_de": "2,0 s"
+    },
+    {
+     "name": "KOMFORT_SCHLIESSEN = 0F (hex)",
+     "meaning_de": "1,5 s – Standard"
+    },
+    {
+     "name": "KOMFORT_SCHLIESSEN = 0A / 00",
+     "meaning_de": "1,0 s / keine Verzögerung"
+    }
+   ],
+   "bimmercode_label": "Convenient opening delay / Convenient closing delay",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
+   ],
+   "notes_de": "Einheit 0,1 s. Zu kurze Verzögerung kann ungewolltes Öffnen auslösen."
+  },
+  {
+   "id": "fem_body.mirror_fold_comfort",
+   "ecu": "FEM_BODY",
+   "category": "comfort",
+   "title_de": "Spiegel beim Komfortschließen an-/ausklappen",
+   "description_de": "Außenspiegel klappen beim Komfortschließen an und beim Komfortöffnen wieder aus; Variante 'Fold/unfold automatically' bei jedem Ver-/Entriegeln.",
+   "function_names": [
+    "ASP_BEIKLAPPEN",
+    "ASP_BEIKLAPPEN_BEI_KOMFORTSCHLIESSEN",
+    "ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN"
+   ],
+   "cafd_block": "3110",
+   "values": [
+    {
+     "name": "ASP_BEIKLAPPEN = aktiv",
+     "meaning_de": "Anklappmotor verbaut"
+    },
+    {
+     "name": "ASP_BEIKLAPPEN_BEI_KOMFORTSCHLIESSEN = aktiv",
+     "meaning_de": "anklappen beim Komfortschließen"
+    },
+    {
+     "name": "ASP_AUSKLAPPEN_NACH_KOMFORTSCHLIESSEN = aktiv",
+     "meaning_de": "ausklappen beim Komfortöffnen"
+    }
+   ],
+   "bimmercode_label": "Fold mirrors with convenient closing / Unfold mirrors with convenient opening / Fold/unfold mirrors automatically",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Elektrisch anklappbare Außenspiegel – laut Fahrzeugbeschreibung NICHT angegeben. Spreadsheet F3x: 'does not work if you dont have foldable mirrors'.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://www.motor-talk.de/forum/start-des-ersten-codierens-einstiegsfragen-t7071093.html"
+   ],
+   "notes_de": "Hardware-blockiert, falls keine Anklappspiegel vorhanden (Spiegeltaster in der Tür prüfen). ASP_BEIKLAPPEN ohne Motor nicht setzen."
+  },
+  {
+   "id": "fem_body.mirror_fold_speed",
+   "ecu": "FEM_BODY",
+   "category": "comfort",
+   "title_de": "Spiegel: Geschwindigkeitsschwellen An-/Ausklappen",
+   "description_de": "Maximale Geschwindigkeit zum Anklappen und Geschwindigkeit für automatisches Ausklappen.",
+   "function_names": [
+    "ASP_MAX_GESCHWINDIGKEIT_BEIKLAPPEN",
+    "ASP_GESCHWINDIGKEIT_AUTO_AUSKLAPPEN"
+   ],
+   "cafd_block": "3110",
+   "values": [
+    {
+     "name": "ASP_MAX_GESCHWINDIGKEIT_BEIKLAPPEN = 14 (hex)",
+     "meaning_de": "20 km/h – Standard laut Botho"
+    },
+    {
+     "name": "ASP_GESCHWINDIGKEIT_AUTO_AUSKLAPPEN = 28 (hex)",
+     "meaning_de": "40 km/h – Standard"
+    },
+    {
+     "name": "5 … 50 km/h",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Mirror folding speed threshold / Mirror unfolding speed threshold",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Elektrisch anklappbare Außenspiegel.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": "Angeklappte Spiegel während der Fahrt: Sicht nach hinten eingeschränkt – hohe Anklappschwellen nicht empfehlen.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Hardware-abhängig."
+  },
+  {
+   "id": "fem_body.mirror_tilt_reverse",
+   "ecu": "FEM_BODY",
+   "category": "comfort",
+   "title_de": "Beifahrerspiegel absenken beim Rückwärtsgang (Bordsteinautomatik)",
+   "description_de": "Rechter Außenspiegel neigt sich beim Einlegen des Rückwärtsgangs; Neigungswert einstellbar.",
+   "function_names": [
+    "ASP_BORDSTEINAUTOMATIK_DELTA"
+   ],
+   "cafd_block": "3110",
+   "values": [
+    {
+     "name": "3B (hex)",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "46 / 5A / 1E (hex)",
+     "meaning_de": "Beispiele aus Botho/Kip/ekfxisid"
+    },
+    {
+     "name": "10 % … 100 %",
+     "meaning_de": "Auswahl in BimmerCode ('Automatic mirror tilt value')"
+    }
+   ],
+   "bimmercode_label": "Automatic mirror tilt / Automatic mirror tilt value",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "BimmerCode: Anklappspiegel erforderlich; Spreadsheet F3x: Spiegel-Memory erforderlich.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
+   ],
+   "notes_de": "Hardware-abhängig."
+  },
+  {
+   "id": "fem_body.window_door_open_front",
+   "ecu": "FEM_BODY",
+   "category": "windows",
+   "title_de": "Fensterheber bei geöffneter Tür weiter bedienbar (vorn)",
+   "description_de": "Standardmäßig stoppt/sperrt der Fensterheber beim Öffnen der Tür; deaktivieren erlaubt Weiterbedienung.",
+   "function_names": [
+    "FH_TUERAUF_STOP_MAUT"
+   ],
+   "cafd_block": "3050",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard – Unterbrechung bei offener Tür"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Fenster lassen sich bei offener Tür bedienen"
+    }
+   ],
+   "bimmercode_label": "Window lifter interruption when opening a door",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Einklemmschutz bleibt laut Quellen unberührt (nicht verifiziert)."
+  },
+  {
+   "id": "rem.window_door_open_rear",
+   "ecu": "REM",
+   "category": "windows",
+   "title_de": "Fensterheber bei geöffneter Tür weiter bedienbar (hinten)",
+   "description_de": "Wie vorne, für die hinteren Türen (REM).",
+   "function_names": [
+    "FH_TUERAUF_STOP_MAUT"
+   ],
+   "cafd_block": "3050",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Fenster hinten bei offener Tür bedienbar"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Nur 5-Türer mit elektrischen Fensterhebern hinten.",
+   "software_requirements_de": "REM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
+   ],
+   "notes_de": "Karosserievariante (3-/5-Türer) des Fahrzeugs nicht angegeben."
+  },
+  {
+   "id": "fem_body.auto_lock_speed",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Automatisch verriegeln nach Anfahren: Geschwindigkeitsschwelle",
+   "description_de": "Geschwindigkeit, ab der bei aktivierter Funktion 'Verriegeln nach Losfahren' verriegelt wird.",
+   "function_names": [
+    "CLM_SPEED_LIMIT_PIA_AUTO_LOCK"
+   ],
+   "cafd_block": "3040",
+   "values": [
+    {
+     "name": "wert_04",
+     "meaning_de": "ca. 16 km/h – Standard laut Botho"
+    },
+    {
+     "name": "wert_03",
+     "meaning_de": "ca. 8 km/h (Botho)"
+    },
+    {
+     "name": "0A (hex)",
+     "meaning_de": "10 km/h (ekfxisid/otakar – andere Kodierungsdarstellung)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. Die Funktion selbst wird im Fahrzeugmenü/PIA aktiviert (für HU_ENTRY wahrscheinlich, nicht verifiziert).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Werte-Darstellung je CAFD unterschiedlich (wert_xx vs. hex) → Auswahlliste in BimmerCode Expert Mode prüfen."
+  },
+  {
+   "id": "fem_body.unlock_on_ignition_off",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Entriegeln bei 'Zündung aus' (nach Auto-Lock)",
+   "description_de": "Nach automatischer Verriegelung werden beim Abstellen alle Türen entriegelt.",
+   "function_names": [
+    "CLM_UNLOCK_KL15OFF_AFTER_PIA_AUTO_LOCK"
+   ],
+   "cafd_block": "3040",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard laut Botho/Spreadsheet F3x"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "bleibt verriegelt"
+    }
+   ],
+   "bimmercode_label": "Unlock doors automatically",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. Wirkt nur, wenn 'Verriegeln nach Losfahren' aktiv ist.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
+   ],
+   "notes_de": "'Entriegeln bei Schlüssel abziehen' ist beim F20 (Start-Stop-Taster, kein Schlüsselschacht) nicht anwendbar."
+  },
+  {
+   "id": "fem_body.relock_timeout",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Wiederverriegelung, wenn nach Entriegeln keine Tür geöffnet wird",
+   "description_de": "Zeit bis zur automatischen Wiederverriegelung.",
+   "function_names": [
+    "CLM_TIME_PIA_LOCK_AT_TIMEOUT"
+   ],
+   "cafd_block": "3040",
+   "values": [
+    {
+     "name": "0C (hex)",
+     "meaning_de": "120 s – Standard laut Botho (Einheit 10 s)"
+    },
+    {
+     "name": "03 (hex)",
+     "meaning_de": "30 s"
+    },
+    {
+     "name": "12 (hex)",
+     "meaning_de": "180 s (otakar)"
+    },
+    {
+     "name": "10 s … 10 min",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Time until automatic lock",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.horn_lock_engine_running",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Hupsignal beim Verriegeln mit laufendem Motor",
+   "description_de": "Warnhupe, wenn bei laufendem Motor von außen verriegelt wird.",
+   "function_names": [
+    "CLM_HORN_AT_SECURE"
+   ],
+   "cafd_block": "3040",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    }
+   ],
+   "bimmercode_label": "Horn signal when locking the car with engine running",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Warnfunktion – Deaktivieren nicht empfohlen."
+  },
+  {
+   "id": "fem_body.bootlid_delay",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Heckklappe per Fernbedienung: Öffnungsverzögerung",
+   "description_de": "Verzögerung/Haltezeit beim Öffnen der Heckklappe mit der Fernbedienung.",
+   "function_names": [
+    "CLM_TIME_DELAY_BOOTLID",
+    "RC_TIME_DELAY_BOOTLID"
+   ],
+   "cafd_block": "3040, 30D0",
+   "values": [
+    {
+     "name": "CLM_TIME_DELAY_BOOTLID = wert_02",
+     "meaning_de": "0,3 s – Standard laut Botho"
+    },
+    {
+     "name": "CLM_TIME_DELAY_BOOTLID = wert_01",
+     "meaning_de": "0,1 s"
+    },
+    {
+     "name": "RC_TIME_DELAY_BOOTLID = 05 (hex)",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "0.5 s / 1 s / 5 s / 10 s / No delay",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Boot lid opening delay",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine (manuelle Heckklappe).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Welcher der beiden Parameter der BimmerCode-Option entspricht, ist nicht belegt."
+  },
+  {
+   "id": "fem_body.tailgate_open_flash",
+   "ecu": "FEM_BODY",
+   "category": "locking",
+   "title_de": "Blinkquittierung beim Öffnen der Heckklappe",
+   "description_de": "Anzahl der Blinkimpulse beim Öffnen der Heckklappe (Botho: einfach statt doppelt).",
+   "function_names": [
+    "HECKKLAPPE_REVERSIEREN_BLINKEN"
+   ],
+   "cafd_block": "3060",
+   "values": [
+    {
+     "name": "01",
+     "meaning_de": "Standard (doppelt laut Botho)"
+    },
+    {
+     "name": "00",
+     "meaning_de": "einfach"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Nur eine Quelle."
+  },
+  {
+   "id": "fzd.acoustic_lock_confirmation",
+   "ecu": "FZD",
+   "category": "locking",
+   "title_de": "Akustische Ver-/Entriegelungsquittierung",
+   "description_de": "Quittungston der Alarmanlage beim Ver-/Entriegeln inkl. Lautstärke, Dauer und Frequenz.",
+   "function_names": [
+    "Akustische Quittierung Schaerfen",
+    "Akustische Quittierung Entschaerfen",
+    "Buzzer level high",
+    "Buzzer level low",
+    "Buzzer duration",
+    "Buzzer frequency"
+   ],
+   "cafd_block": "3001, 3002",
+   "values": [
+    {
+     "name": "Akustische Quittierung Schaerfen = 00 / 01",
+     "meaning_de": "aus (Standard laut Botho) / an"
+    },
+    {
+     "name": "Buzzer duration = 05/0A/0F/14",
+     "meaning_de": "kurz / normal (Standard) / lang / sehr lang"
+    },
+    {
+     "name": "Active / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Acoustical lock/unlock confirmation / Confirmation sound duration / Confirmation sound volume",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Diebstahlwarnanlage (Alarmsirene) erforderlich (BimmerCode: 'car has to be equipped with an alarm system'); Steuergerät FZD__07 oder CANS2. Für dieses Fahrzeug nicht angegeben.",
+   "software_requirements_de": "FZD__07; ggf. zusätzlich iDrive-Checkbox (nur HU_NBT/NBT_EVO belegt).",
+   "effort": "medium",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml"
+   ],
+   "notes_de": "Hardware-blockiert ohne Alarmanlage. Parameternamen enthalten Leerzeichen (so in Botho.xml dokumentiert)."
+  },
+  {
+   "id": "fem_body.msa_default_off",
+   "ecu": "FEM_BODY",
+   "category": "drivetrain",
+   "title_de": "Auto Start-Stop (MSA) standardmäßig aus",
+   "description_de": "MSA ist nach jedem Motorstart deaktiviert (im ECO-PRO-Modus laut BimmerCode wieder aktiv).",
+   "function_names": [
+    "TCM_MSA_DEFAULT_OFF"
+   ],
+   "cafd_block": "3023",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard – MSA beim Start aktiv"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "MSA beim Start aus"
+    }
+   ],
+   "bimmercode_label": "Auto Start Stop function off by default",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "MSA ab Werk (beim 116i Schaltgetriebe Serie laut BMW-Pressetext).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. Auf G-Modellen liegt die Funktion im DME (DME_BAC2) – beim F20 laut Quellen im FEM.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Typprüfwerte (Verbrauch/CO2) wurden mit aktivem MSA ermittelt. Keine Rechtsquelle gefunden, die das Umcodieren verbietet; HU prüft es nicht. Einordnung: Grauzone (Typgenehmigungs-/Emissionsbezug) – [UNBEKANNT].",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit",
+    "https://newsroom.bmwgroup.com/global/the-new-bmw-1-series"
+   ],
+   "notes_de": "Alternative mit geringerem Eingriff: fem_body.msa_memory. Nicht beide gleichzeitig nötig."
+  },
+  {
+   "id": "fem_body.msa_memory",
+   "ecu": "FEM_BODY",
+   "category": "drivetrain",
+   "title_de": "Auto Start-Stop: letzten Zustand merken",
+   "description_de": "MSA-Zustand (an/aus) wird über den Motorneustart gespeichert.",
+   "function_names": [
+    "TCM_MSA_MEMORY"
+   ],
+   "cafd_block": "3023",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "letzten Zustand merken"
+    }
+   ],
+   "bimmercode_label": "Auto Start Stop function memory",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern. Spreadsheet F3x nennt abweichend 'aktiv → nicht aktiv' (vermutlich vertauscht).",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "high",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe fem_body.msa_default_off (Grauzone, keine Rechtsquelle gefunden).",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit"
+   ],
+   "notes_de": "Laut BimmerCode wird MSA im ECO-PRO-Modus trotzdem wieder aktiviert."
+  },
+  {
+   "id": "fem_body.msa_eco_pro",
+   "ecu": "FEM_BODY",
+   "category": "drivetrain",
+   "title_de": "Auto Start-Stop im ECO-PRO-Modus automatisch aktivieren",
+   "description_de": "Legt fest, ob MSA beim Wechsel in ECO PRO automatisch eingeschaltet wird.",
+   "function_names": [
+    "TCM_MSA_ECO_MODE"
+   ],
+   "cafd_block": "3023",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "kein automatisches Einschalten in ECO PRO"
+    }
+   ],
+   "bimmercode_label": "Auto Start Stop function in ECO mode",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Fahrerlebnisschalter (Serie).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe fem_body.msa_default_off.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.radio_off_driver_door",
+   "ecu": "FEM_BODY",
+   "category": "audio",
+   "title_de": "Radio/iDrive beim Öffnen der Fahrertür ausschalten",
+   "description_de": "Klemme-R-Logik: Infotainment schaltet nach Motor-Aus beim Öffnen der Fahrertür ab (bzw. bleibt an).",
+   "function_names": [
+    "TCM_LOGIC_R_OFF_DOOR"
+   ],
+   "cafd_block": "3020",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "aus beim Öffnen der Fahrertür"
+    }
+   ],
+   "bimmercode_label": "Shut off iDrive system when driver door is opened",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine (FEM-Logik, unabhängig von der Head-Unit-Variante).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/FDLCodes.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/otakar.xml"
+   ],
+   "notes_de": "Ruhestrom beachten."
+  },
+  {
+   "id": "fem_body.start_without_clutch",
+   "ecu": "FEM_BODY",
+   "category": "safety",
+   "title_de": "Motorstart ohne Kupplungspedal (Startsperre)",
+   "description_de": "Hebt die Startbedingung 'Kupplung getreten' beim Schaltgetriebe auf.",
+   "function_names": [
+    "TCM_STARTLOCK_CLUTCH"
+   ],
+   "cafd_block": "3020",
+   "values": [
+    {
+     "name": "01 (Standard, abgeleitet)",
+     "meaning_de": "Start nur mit getretener Kupplung"
+    },
+    {
+     "name": "00",
+     "meaning_de": "Start ohne Kupplung (Bundang_Thunder)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Schaltgetriebe (vorhanden).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Start mit eingelegtem Gang kann das Fahrzeug ungewollt bewegen. Nur dokumentieren, NICHT codieren.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://docs.google.com/spreadsheets/d/1TjoUmnkFYbzdcL8v2DF5fcMixHXSVWRexVV1g2ybG14/edit"
+   ],
+   "notes_de": "F87-Spreadsheet nennt beim M2 eine BimmerCode-Standardoption 'Start engine without clutch'; für den F20 nicht in der offiziellen Liste."
+  },
+  {
+   "id": "fem_body.seat_heating_temperatures",
+   "ecu": "FEM_BODY",
+   "category": "comfort",
+   "title_de": "Sitzheizung: Temperatur der Stufen 1–3 (vorn)",
+   "description_de": "Zieltemperatur je Sitzheizungsstufe für Sitzfläche und Lehne.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Front seats level 1: 30–34 °C",
+     "meaning_de": "BimmerCode"
+    },
+    {
+     "name": "Front seats level 2: 35–40 °C",
+     "meaning_de": "BimmerCode"
+    },
+    {
+     "name": "Front seats level 3: 41–46 °C",
+     "meaning_de": "BimmerCode"
+    },
+    {
+     "name": "Front backrests level 1/2/3: 30–35 / 36–41 / 42–47 °C",
+     "meaning_de": "BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Front seats temperature level 1/2/3 / Front backrests temperature level 1/2/3",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Sitzheizung vorn (vorhanden).",
+   "software_requirements_de": "FEM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "E-Sys-Parameternamen nicht belegt. Hohe Stufen: Verbrennungsrisiko bei längerer Nutzung beachten."
+  },
+  {
+   "id": "cfas.seat_heating_memory",
+   "ecu": "CFAS",
+   "category": "comfort",
+   "title_de": "Sitzheizung: Zustand speichern",
+   "description_de": "Merkt sich die Sitzheizungsstufe über den Neustart (15 min / 24 h / unbegrenzt).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "15 minutes / 24 hours / Do not save / Unlimited",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Seat heating/cooling setting memory",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Sitzmodul CFAS_PLX_1/CBFS_PLX_1 (elektrische Sitze mit Memory) – bei manuellen Sitzen nicht vorhanden.",
+   "software_requirements_de": "Für FEM-gesteuerte Sitzheizung keine Speicherfunktion dokumentiert.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "Sitzausstattung (elektrisch/Memory?) nicht angegeben; vermutlich manuell → [NICHT KOMPATIBEL]."
+  },
+  {
+   "id": "ihka.ac_on_with_auto",
+   "ecu": "IHKA",
+   "category": "climate",
+   "title_de": "Klimakompressor nicht automatisch mit AUTO einschalten",
+   "description_de": "Beim Drücken von AUTO schaltet die Klimaanlage (Kompressor) nicht automatisch ein.",
+   "function_names": [
+    "AC_NICHT_EIN_BEI_AUTO",
+    "AC_ON_WITH_AUTO"
+   ],
+   "cafd_block": "3002 (IHKA) / 3003 (IHKA_VA02, IHKA3)",
+   "values": [
+    {
+     "name": "AC_NICHT_EIN_BEI_AUTO = Aktiv",
+     "meaning_de": "A/C nicht mit AUTO (IHKA, ekfxisid F020/F030)"
+    },
+    {
+     "name": "AC_ON_WITH_AUTO = aktiv",
+     "meaning_de": "Standard – A/C mit AUTO (IHKA_VA02, Botho)"
+    },
+    {
+     "name": "AC_ON_WITH_AUTO = nicht_aktiv",
+     "meaning_de": "A/C nicht mit AUTO"
+    }
+   ],
+   "bimmercode_label": "Air Conditioning on in AUTO mode",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Klimaautomatik (IHKA). Bei manueller Klimaanlage (IHKR) nicht verfügbar.",
+   "software_requirements_de": "Parametername hängt von der IHKA-Variante ab (IHKA_CBF/VA01/VA02).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
+   ],
+   "notes_de": "Ob das Fahrzeug IHKA oder IHKR hat, ist offen."
+  },
+  {
+   "id": "ihka.ac_memory",
+   "ecu": "IHKA",
+   "category": "climate",
+   "title_de": "Klimaanlage: Ein/Aus-Zustand speichern",
+   "description_de": "Letzter A/C-Zustand bleibt nach Neustart erhalten.",
+   "function_names": [
+    "MEMORY_OFF",
+    "OFF_MEMORY"
+   ],
+   "cafd_block": "3002 (IHKA) / 3003 (IHKA_VA02)",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Zustand speichern (Botho: Standard aktiv bei IHKA_VA02)"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "nicht speichern"
+    }
+   ],
+   "bimmercode_label": "Air Conditioning setting memory",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Klimaautomatik (IHKA).",
+   "software_requirements_de": "Name je Variante: MEMORY_OFF (IHKA/IHKA_VA02) bzw. OFF_MEMORY (IHKA_CBF, andere Baureihen).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "ihka.recirc_memory",
+   "ecu": "IHKA",
+   "category": "climate",
+   "title_de": "Umluft-Zustand speichern",
+   "description_de": "Letzte Umluft-Einstellung bleibt nach Neustart erhalten.",
+   "function_names": [
+    "MEMORY_UMLUFT"
+   ],
+   "cafd_block": "3002 (IHKA) / 3003 (IHKA_VA02)",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard laut Botho (Umluft wird zurückgesetzt)"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Umluft speichern"
+    }
+   ],
+   "bimmercode_label": "Air circulation setting memory",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Klimaautomatik (IHKA).",
+   "software_requirements_de": "IHKA-Variante prüfen.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": "Dauer-Umluft kann Scheibenbeschlag fördern (Sicht) – bewusst nutzen.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "ihka.auto_recirculation",
+   "ecu": "IHKA",
+   "category": "climate",
+   "title_de": "Automatische Umluft (AUC) / Umluft-Automatik-Abschaltung",
+   "description_de": "Automatische Umluftsteuerung über Schadstoffsensor bzw. Verhalten der Umluft-Automatik.",
+   "function_names": [
+    "UMLUFT_AUTO_AUS",
+    "AC_ON_WITH_RECIRC"
+   ],
+   "cafd_block": "3003",
+   "values": [
+    {
+     "name": "UMLUFT_AUTO_AUS = aktiv",
+     "meaning_de": "Standard laut Botho (IHKA_VA02)"
+    },
+    {
+     "name": "UMLUFT_AUTO_AUS = nicht_aktiv",
+     "meaning_de": "Umluft bleibt (Botho)"
+    },
+    {
+     "name": "AC_ON_WITH_RECIRC = nicht_aktiv → aktiv",
+     "meaning_de": "laut Botho zusammen geändert"
+    }
+   ],
+   "bimmercode_label": "Automatic Air Recirculation",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "IHKA_VA02; AUC-Funktion setzt i. d. R. einen Schadstoffsensor voraus (nicht verifiziert).",
+   "software_requirements_de": "IHKA_VA02.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
+   ],
+   "notes_de": "Bedeutung der Parameter in den Quellen nur knapp beschrieben → vorsichtig."
+  },
+  {
+   "id": "ihkr.no_documented_options",
+   "ecu": "IHKR",
+   "category": "climate",
+   "title_de": "Manuelle Klimaanlage (IHKR): keine dokumentierten Optionen",
+   "description_de": "Für IHKR wurden weder in der BimmerCode-F20-Liste noch in den Cheat-Dateien Codieroptionen gefunden.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "IHKR.",
+   "software_requirements_de": "Unbekannt.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "BimmerCode listet Klimaoptionen nur für IHKA_CBF, IHKA_VA01, IHKA_VA02."
+  },
+  {
+   "id": "fem_body.wipe_after_wash",
+   "ecu": "FEM_BODY",
+   "category": "wipers",
+   "title_de": "Nachwischzyklen nach dem Waschen (vorn/hinten)",
+   "description_de": "Anzahl der Nachwischzyklen nach Scheibenwäsche vorne bzw. hinten.",
+   "function_names": [
+    "WW_ANZAHL_NACHWISCHZ_FRONT",
+    "WW_ANZAHL_NACHWISCHZ_HECK"
+   ],
+   "cafd_block": "3080",
+   "values": [
+    {
+     "name": "WW_ANZAHL_NACHWISCHZ_FRONT = 03",
+     "meaning_de": "3 Zyklen – Standard laut Botho"
+    },
+    {
+     "name": "WW_ANZAHL_NACHWISCHZ_HECK = 02",
+     "meaning_de": "2 Zyklen – Standard"
+    },
+    {
+     "name": "01 … 05",
+     "meaning_de": "1–5 Zyklen (BimmerCode)"
+    }
+   ],
+   "bimmercode_label": "Wipe cycles after front washing / Wipe cycles after rear washing",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.rear_wiper_reverse",
+   "ecu": "FEM_BODY",
+   "category": "wipers",
+   "title_de": "Heckwischer beim Rückwärtsgang",
+   "description_de": "Heckwischer wischt automatisch beim Einlegen des Rückwärtsgangs (bei laufendem Frontwischer).",
+   "function_names": [
+    "WW_HECKWISCHER_EIN_RUECKWGANG"
+   ],
+   "cafd_block": "3080",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "aus"
+    }
+   ],
+   "bimmercode_label": "Automatic rear wiper in reverse",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Heckwischer (Serie beim F20).",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": ""
+  },
+  {
+   "id": "fem_body.wiper_level_switch_back",
+   "ecu": "FEM_BODY",
+   "category": "wipers",
+   "title_de": "Wischerstufe im Stand automatisch zurückschalten",
+   "description_de": "Wischerstufe schaltet beim Anhalten automatisch eine Stufe zurück.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Active / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Wiper level switch back when stationary",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Keine.",
+   "software_requirements_de": "FEM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "Nur als BimmerCode-Option belegt. Die Wischer-Serviceposition ist keine Codierung (Bedienablauf laut Betriebsanleitung)."
+  },
+  {
+   "id": "fem_body.headlight_washer",
+   "ecu": "FEM_BODY",
+   "category": "wipers",
+   "title_de": "Scheinwerferreinigungsanlage (SRA): Aktivierung/Parameter",
+   "description_de": "Ein/Aus der SRA, Spritzimpulse, Sperrzeit, Waschvorgänge bis zur SRA-Auslösung.",
+   "function_names": [
+    "WW_SCHEINWERFERREINIGUNG",
+    "WW_ANZAHL_SPRITZIMPULSE_SRA",
+    "WW_SRA_SPERRZEIT",
+    "WW_ANZAHL_WASCHBET_ZUR_SRA"
+   ],
+   "cafd_block": "3080",
+   "values": [
+    {
+     "name": "WW_SCHEINWERFERREINIGUNG = aktiv / nicht_aktiv",
+     "meaning_de": "SRA an/aus"
+    },
+    {
+     "name": "WW_ANZAHL_SPRITZIMPULSE_SRA = 02",
+     "meaning_de": "2 Impulse – Standard"
+    },
+    {
+     "name": "WW_SRA_SPERRZEIT = 0A",
+     "meaning_de": "10 min – Standard"
+    },
+    {
+     "name": "WW_ANZAHL_WASCHBET_ZUR_SRA = 0A",
+     "meaning_de": "jede 10. Wäsche – Standard"
+    }
+   ],
+   "bimmercode_label": "Headlight washers / Number of washing operations for headlight cleaning / Headlight cleaning blocking time",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Scheinwerferreinigungsanlage – bei Halogen-Scheinwerfern üblicherweise nicht verbaut.",
+   "software_requirements_de": "Parametername/Wertebezeichnung können je nach I-Stufe/CAFD-Version abweichen (Quellen beziehen sich auf CAFD 00000794 FEM_BODY, Serie F020/F030). Vor dem Codieren Ist-Wert in BimmerCode auslesen und Backup sichern.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/packetpilot.xml"
+   ],
+   "notes_de": "Hardware-blockiert, falls keine SRA-Düsen vorhanden."
+  },
+  {
+   "id": "rem.pdc_auto_rolling_back",
+   "ecu": "REM",
+   "category": "pdc",
+   "title_de": "PDC automatisch aktivieren beim Zurückrollen",
+   "description_de": "PDC schaltet sich ein, wenn das Fahrzeug rückwärts rollt (auch ohne eingelegten Rückwärtsgang).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "Active / Not active",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Activate PDC when rolling backwards",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "PDC hinten (vorhanden); Steuergerät PMA_PDC oder REM_01.",
+   "software_requirements_de": "REM_01 (bei PDC ohne eigenes Steuergerät).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/"
+   ],
+   "notes_de": "Für Schaltwagen am Berg nützlich. Ob die Erkennung ohne Frontsensoren funktioniert, ist nicht belegt."
+  },
+  {
+   "id": "rem.pdc_switch_off_thresholds",
+   "ecu": "REM",
+   "category": "pdc",
+   "title_de": "PDC: Abschaltschwellen (Geschwindigkeit/Strecke)",
+   "description_de": "Geschwindigkeit bzw. gefahrene Strecke, ab der PDC und seine Warnungen abschalten.",
+   "function_names": [
+    "CUT_OFF_SPEED",
+    "CUT_OFF_SPEED_HYST"
+   ],
+   "cafd_block": "3201",
+   "values": [
+    {
+     "name": "CUT_OFF_SPEED = 0F (hex)",
+     "meaning_de": "15 km/h – Standard laut Spreadsheet F3x"
+    },
+    {
+     "name": "CUT_OFF_SPEED_HYST = 01",
+     "meaning_de": "Hysterese (Standard)"
+    },
+    {
+     "name": "PDC speed switch-off threshold: 5–50 km/h",
+     "meaning_de": "BimmerCode"
+    },
+    {
+     "name": "PDC distance switch-off threshold: 10–250 m",
+     "meaning_de": "BimmerCode"
+    }
+   ],
+   "bimmercode_label": "PDC speed switch-off threshold / PDC distance switch-off threshold / Speed switch-off threshold for visual and acoustic PDC warnings",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "PDC hinten.",
+   "software_requirements_de": "REM_01.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "Werte in hex (km/h)."
+  },
+  {
+   "id": "pdc.volume_and_mute",
+   "ecu": "REM",
+   "category": "pdc",
+   "title_de": "PDC-Lautstärke / Absenkung der Audioquelle",
+   "description_de": "Lautstärke des PDC-Signals bzw. Absenkung des Radios während PDC.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "PDC.",
+   "software_requirements_de": "Bei neueren Head-Units laut Betriebsanleitungen ein iDrive-Klangmenü-Punkt; für HU_ENTRY unbekannt.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [],
+   "notes_de": "Kein Codierparameter gefunden → nicht codieren; ggf. im Radio-Klangmenü nachsehen."
+  },
+  {
+   "id": "acsm.seat_belt_reminder",
+   "ecu": "ACSM",
+   "category": "safety",
+   "title_de": "Gurtwarnung (Gong/Anzeige) Fahrer/Beifahrer",
+   "description_de": "Akustische und optische Gurtwarnung, Vorwarnung beim Abschnallen, Gurtzustandsanzeige im Kombi.",
+   "function_names": [
+    "SeatBeltReminder_SBR_Fahrer",
+    "SeatBeltReminder_SBR_Beifahrer",
+    "SBR_PreWarning_Fahrer",
+    "SBR_PreWarning_Beifahrer",
+    "Gurtzustandsanzeige_Fahrer_GWF_GZA_FA",
+    "Gurtzustandsanzeige_Beifahrer_GWF_GZA_BF"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "aktiv / 01",
+     "meaning_de": "Standard"
+    },
+    {
+     "name": "nicht_aktiv / 00",
+     "meaning_de": "deaktiviert"
+    }
+   ],
+   "bimmercode_label": "Seat belt reminder driver seat / passenger seat / Seat belt indicator …",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "ACSM_4B/ACSM_4C.",
+   "software_requirements_de": "ACSM-Variante des Fahrzeugs prüfen (Quellen: ACSM_4B für F020/F030).",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Sicherheitsfunktion; Gurtpflicht nach § 21a StVO bleibt. Deaktivieren nicht empfohlen – nur dokumentiert.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "NICHT codieren."
+  },
+  {
+   "id": "acsm.seat_belt_reminder_duration",
+   "ecu": "ACSM",
+   "category": "safety",
+   "title_de": "Gurtwarnung: Dauer",
+   "description_de": "Dauer der akustischen Gurtwarnung.",
+   "function_names": [
+    "GWF_SBR_WARNDAUER"
+   ],
+   "cafd_block": "3001",
+   "values": [
+    {
+     "name": "64 (hex)",
+     "meaning_de": "100 s – Standard laut Botho"
+    },
+    {
+     "name": "0A / 05 (hex)",
+     "meaning_de": "10 s / 5 s (Beispiele)"
+    },
+    {
+     "name": "5 … 100 seconds",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Seat belt reminder duration",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "ACSM_4B/4C.",
+   "software_requirements_de": "ACSM-Variante prüfen.",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": "Siehe acsm.seat_belt_reminder.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+   ],
+   "notes_de": "Nur dokumentieren."
+  },
+  {
+   "id": "kombi.turn_signal_tick_volume",
+   "ecu": "KOMBI",
+   "category": "kombi",
+   "title_de": "Lautstärke des Blinkertickens",
+   "description_de": "Lautstärkekennlinie des Blinkergeräuschs im Kombi.",
+   "function_names": [
+    "BLINKER_VOLUME_CONTI"
+   ],
+   "cafd_block": "300B",
+   "values": [
+    {
+     "name": "E0, F0, FF, FF",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "A0, B0, C0, FF",
+     "meaning_de": "leiser"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Quelle bezieht sich auf KOMBI L7_MID; Kombi-Variante des Fahrzeugs (2012) unbekannt.",
+   "software_requirements_de": "KOMBI-Variante prüfen.",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Nur eine Quelle; Mehrbyte-Wert."
+  },
+  {
+   "id": "fem_body.battery_type",
+   "ecu": "FEM_BODY",
+   "category": "other",
+   "title_de": "Batterietyp/-kapazität",
+   "description_de": "Typ und Kapazität der 12-V-Batterie; nur nach Batterietausch ändern, danach Batterie registrieren (BimmerLink).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [
+    {
+     "name": "20 Ah … 105 Ah AGM",
+     "meaning_de": "Auswahl in BimmerCode"
+    }
+   ],
+   "bimmercode_label": "Battery type",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Nur bei geänderter Batterie.",
+   "software_requirements_de": "Registrierung separat (BimmerLink o. Ä.).",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://bimmerlink.app/"
+   ],
+   "notes_de": "Falscher Typ → falsche Ladestrategie."
+  },
+  {
+   "id": "icm.start_in_eco_pro",
+   "ecu": "ICM",
+   "category": "drivetrain",
+   "title_de": "Fahrmodus beim Start: ECO PRO",
+   "description_de": "Fahrzeug startet immer im ECO-PRO-Modus statt COMFORT.",
+   "function_names": [
+    "IcmKod_B_InitEco"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_verbaut / 00",
+     "meaning_de": "Standard – Start in COMFORT"
+    },
+    {
+     "name": "verbaut / 01",
+     "meaning_de": "Start in ECO PRO"
+    }
+   ],
+   "bimmercode_label": "Start in ECO mode",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Fahrerlebnisschalter (Serie laut BMW-Pressetext).",
+   "software_requirements_de": "ICMQL (BimmerCode-Bezeichnung).",
+   "effort": "low",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ruben_17non.xml"
+   ],
+   "notes_de": "ICM ist fahrdynamikrelevant → nur dokumentieren; vergleichsweise harmlos, da nur Startmodus."
+  },
+  {
+   "id": "icm.sport_plus",
+   "ecu": "ICM",
+   "category": "drivetrain",
+   "title_de": "SPORT+ Fahrmodus freischalten",
+   "description_de": "Fügt SPORT+ hinzu (u. a. andere DSC/DTC-Strategie). BimmerCode: zweiteilig ICM + KOMBI.",
+   "function_names": [
+    "IcmKod_B_S2TBA",
+    "IcmKod_B_Sportlenkung"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "verbaut",
+     "meaning_de": "laut Quellen Aktivierung (Quellen widersprechen sich, welcher Parameter nötig ist)"
+    },
+    {
+     "name": "Active",
+     "meaning_de": "BimmerCode 'SPORT+ driving mode (1 of 2)' (ICMQL) + '(2 of 2)' (KOMBI)"
+    }
+   ],
+   "bimmercode_label": "SPORT+ driving mode (1 of 2) / SPORT+ driving mode (2 of 2)",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Ab Werk beim F20 nur mit Sport Line + Variabler Sportlenkung (laut BMW-Pressematerial, Such-Snippet). IcmKod_B_Sportlenkung beschreibt Sportlenkung-Hardware.",
+   "software_requirements_de": "ICMQL + KOMBI; BimmerCode: 'Use a backup to revert'.",
+   "effort": "medium",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "documented",
+   "legal_note_de": "Eingriff in DSC/Fahrdynamik-Abstimmung: sicherheitskritisch; Abweichung vom Auslieferungszustand mit möglichen Folgen für Betriebserlaubnis/Versicherung. NUR DOKUMENTIEREN.",
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml",
+    "https://f30.bimmerpost.com/forums/showthread.php?p=18141876",
+    "https://bmw-icom-a2-wifi.blogspot.com/2017/11/how-to-code-non-sport-bmw-320i-to-sport.html",
+    "https://www.press.bmwgroup.com/united-kingdom/article/detail/T0112077EN_GB/the-new-bmw-1-series"
+   ],
+   "notes_de": "Forum: RPA-Fehler nach Codierung möglich. Nicht empfehlen."
+  },
+  {
+   "id": "icm.sport_configurable",
+   "ecu": "ICM",
+   "category": "drivetrain",
+   "title_de": "SPORT-Modus individuell konfigurierbar (iDrive)",
+   "description_de": "Menüpunkt 'SPORT konfigurieren' (Fahrwerk/Antrieb getrennt).",
+   "function_names": [
+    "Macro_fds"
+   ],
+   "cafd_block": "3000 (HU_CIC)",
+   "values": [
+    {
+     "name": "popup_only",
+     "meaning_de": "Standard (HU_CIC)"
+    },
+    {
+     "name": "popup_and_config",
+     "meaning_de": "Konfiguration im iDrive"
+    }
+   ],
+   "bimmercode_label": "SPORT driving mode configurable (1 of 2) / (2 of 2)",
+   "bimmercode_mode": "standard",
+   "hardware_requirements_de": "Head-Unit HU_NBT/NBT_EVO (BimmerCode) bzw. HU_CIC (Spreadsheet); Fahrzeug hat HU_ENTRY.",
+   "software_requirements_de": "ICMQL + Head-Unit.",
+   "effort": "medium",
+   "risk": "medium",
+   "benefit": "low",
+   "compatibility": "unlikely",
+   "evidence": "unknown",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmercode.app/cars/f20/",
+    "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml",
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/ruben_17non.xml"
+   ],
+   "notes_de": "BimmerCode-Standardoption setzt laut offizieller Liste HU_NBT/HU_NBT_EVO voraus; für Radio Professional (HU_ENTRY) kein Parameter belegt → mit BimmerCode-Standardmodus nicht verfügbar, Expert-Äquivalent unbekannt."
+  },
+  {
+   "id": "icm.driving_mode_memory",
+   "ecu": "ICM",
+   "category": "drivetrain",
+   "title_de": "Fahrmodus über Neustart merken",
+   "description_de": "Letzten Fahrmodus nach Motorneustart beibehalten. Belegt nur für F15 (ICMQL 300A).",
+   "function_names": [
+    "fesallowmode4lastfunction",
+    "fesallowmode2lastfunction",
+    "feslastfunctioninterval"
+   ],
+   "cafd_block": "300A (F15)",
+   "values": [
+    {
+     "name": "aktiv",
+     "meaning_de": "Modus darf gemerkt werden (F15)"
+    },
+    {
+     "name": "feslastfunctioninterval = FF",
+     "meaning_de": "kein Zurücksetzen (F15)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Unbekannt für F20.",
+   "software_requirements_de": "Für F20-ICM-Stände nicht belegt.",
+   "effort": "medium",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": "ICM = Fahrdynamik → nur dokumentieren.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
+   ],
+   "notes_de": "Nur F15-Quelle; Übertragbarkeit auf F20 (2012) unbekannt."
+  },
+  {
+   "id": "dme.throttle_map_per_mode",
+   "ecu": "DME",
+   "category": "drivetrain",
+   "title_de": "Fahrpedalkennlinie je Fahrmodus",
+   "description_de": "Laut BMW-Pressematerial verändert ECO PRO das Ansprechverhalten des Fahrpedals; SPORT schärft die Kennlinie. Keine Codieroption dokumentiert.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "–",
+   "software_requirements_de": "–",
+   "effort": "high",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": "Eingriffe in die Motorsteuerung sind emissions- und typgenehmigungsrelevant → NICHT codieren.",
+   "sources": [
+    "https://newsroom.bmwgroup.com/global/the-new-bmw-1-series"
+   ],
+   "notes_de": "Nur Beschreibung der Serienfunktion; Kennlinie ist keine Codieroption."
+  },
+  {
+   "id": "kombi.dsc_off_unbundling",
+   "ecu": "KOMBI",
+   "category": "safety",
+   "title_de": "DSC/DTC-Entflechtung im Kombi",
+   "description_de": "KOMBI-Parameter zur getrennten Anzeige/Logik von DSC OFF und DTC.",
+   "function_names": [
+    "DSC_OFF_ENTFLECHTUNG_ENABLE"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "nicht_aktiv",
+     "meaning_de": "Standard laut Botho"
+    },
+    {
+     "name": "aktiv",
+     "meaning_de": "Entflechtung"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Quelle: KOMBI L7_MID.",
+   "software_requirements_de": "–",
+   "effort": "low",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "experimental",
+   "legal_note_de": "DSC-bezogen → sicherheitskritisch, nur dokumentieren.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml"
+   ],
+   "notes_de": "Botho selbst: 'intérêt à valider' (Nutzen unklar)."
+  },
+  {
+   "id": "dsc.launch_control",
+   "ecu": "DSC",
+   "category": "drivetrain",
+   "title_de": "Launch Control",
+   "description_de": "Launch-Control-Funktion im DSC (mit EGS).",
+   "function_names": [
+    "C_Funktion_LaunchControl"
+   ],
+   "cafd_block": "3000",
+   "values": [
+    {
+     "name": "01",
+     "meaning_de": "aktiv (DSC_CT01, zusammen mit EGS)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "Automatikgetriebe (EGS) erforderlich – Fahrzeug hat Schaltgetriebe.",
+   "software_requirements_de": "DSC_CT01 + EGS.",
+   "effort": "medium",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "no",
+   "evidence": "incompatible",
+   "legal_note_de": "Fahrdynamik-/Antriebseingriff, nur dokumentieren.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml"
+   ],
+   "notes_de": "Für Handschalter nicht anwendbar."
+  },
+  {
+   "id": "dme.msa_in_dme",
+   "ecu": "DME",
+   "category": "drivetrain",
+   "title_de": "MSA-Speicher im DME (G-Baureihen)",
+   "description_de": "Bei G-Modellen liegt TCM_MSA_MEMORY im DME (DME_BAC2/DME_DDE8xx), nicht im FEM.",
+   "function_names": [
+    "TCM_MSA_MEMORY"
+   ],
+   "cafd_block": "3020 (DME_BAC2)",
+   "values": [
+    {
+     "name": "01 / On",
+     "meaning_de": "Merken (G-Modelle)"
+    }
+   ],
+   "bimmercode_label": null,
+   "bimmercode_mode": "expert",
+   "hardware_requirements_de": "G-Baureihe mit B-Motor.",
+   "software_requirements_de": "–",
+   "effort": "high",
+   "risk": "high",
+   "benefit": "low",
+   "compatibility": "no",
+   "evidence": "incompatible",
+   "legal_note_de": "DME-Codierung ist emissionsrelevant; Forum warnt vor Sperrung des DME bei neueren Softwareständen.",
+   "sources": [
+    "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
+    "https://f90.bimmerpost.com/forums/showthread.php?p=29809376"
+   ],
+   "notes_de": "Für F20/N13 gilt fem_body.msa_memory (FEM)."
+  },
+  {
+   "id": "dme.live_data",
+   "ecu": "DME",
+   "category": "drivetrain",
+   "title_de": "Motor-Live-Daten",
+   "description_de": "Live-Daten (Sensorwerte), Datenlogging und Fehlerspeicher sind keine Codierung, sondern Diagnosefunktionen der separaten App BimmerLink (gleicher Hersteller).",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "OBD-Adapter (wie für BimmerCode).",
+   "software_requirements_de": "BimmerLink-App (separat).",
+   "effort": "low",
+   "risk": "low",
+   "benefit": "medium",
+   "compatibility": "likely",
+   "evidence": "documented",
+   "legal_note_de": null,
+   "sources": [
+    "https://bimmerlink.app/"
+   ],
+   "notes_de": "Welche Messwerte für den N13 konkret angeboten werden, ist auf der Website nicht aufgeschlüsselt → [UNBEKANNT]."
+  },
+  {
+   "id": "eps.no_user_coding",
+   "ecu": "EPS",
+   "category": "safety",
+   "title_de": "Elektrische Lenkung (EPS): keine dokumentierten Komfortoptionen",
+   "description_de": "Für die EPS des F20 wurden keine Komfort-Codierungen gefunden; 'IcmKod_B_Sportlenkung' (ICM) setzt Variable Sportlenkung voraus.",
+   "function_names": [],
+   "cafd_block": null,
+   "values": [],
+   "bimmercode_label": null,
+   "bimmercode_mode": "unknown",
+   "hardware_requirements_de": "–",
+   "software_requirements_de": "–",
+   "effort": "high",
+   "risk": "safety_critical",
+   "benefit": "low",
+   "compatibility": "unknown",
+   "evidence": "unknown",
+   "legal_note_de": "Lenkung = sicherheitskritisch → nicht codieren.",
+   "sources": [],
+   "notes_de": "Nur dokumentiert."
+  }
+ ]
+}
