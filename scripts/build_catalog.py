@@ -19,7 +19,10 @@ from f20.coding.catalog import validate_entry  # noqa: E402
 SOURCES = {
     "hu_entry_kombi.json": ROOT / "docs/research/raw/04_hu_entry_kombi.json",
     "karosserie_komfort_antrieb.json": ROOT / "docs/research/raw/05_karosserie_komfort_antrieb.json",
+    "idrive_hu_entry_expert.json": ROOT / "docs/research/raw/06_idrive_hu_entry_expert.json",
+    "kombi_expert.json": ROOT / "docs/research/raw/07_kombi_expert.json",
 }
+SOURCES = {k: v for k, v in SOURCES.items() if v.exists()}
 
 
 def main() -> int:

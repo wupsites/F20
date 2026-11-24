@@ -40,13 +40,21 @@ def _u16(x: str) -> str:
 
 #: Bekannte GATT-UART-Profile. Nachweisstatus siehe ADAPTER_COMPATIBILITY.md.
 KNOWN_UART_PROFILES: list[UartProfile] = [
-    UartProfile("FFF0 (Vgate/vLinker iOS u. a.)", _u16("fff0"), _u16("fff1"), _u16("fff2"), "likely"),
-    UartProfile("FFE0 (HM-10-Stil)", _u16("ffe0"), _u16("ffe1"), _u16("ffe1"), "likely"),
+    # documented: OBDLink-CX-Supportseite, EdiabasLib ("WgSoft")
+    UartProfile("FFF0 (OBDLink CX, WgSoft u. a.)", _u16("fff0"), _u16("fff1"), _u16("fff2"), "documented"),
+    # documented: EdiabasLib (Deep OBD) – Write auf FFE2
+    UartProfile("FFE0 (Deep OBD)", _u16("ffe0"), _u16("ffe1"), _u16("ffe2"), "documented"),
+    # documented: EdiabasLib (Carly) – Notify und Write auf derselben Characteristic
+    UartProfile("FFE0 (Carly / HM-10-Stil)", _u16("ffe0"), _u16("ffe1"), _u16("ffe1"), "documented"),
+    # documented: EdiabasLib (vLinker) – Notify/Write auf derselben Characteristic; Quellen teils widersprüchlich
+    UartProfile("E7810A71 (vLinker)", "e7810a71-73ae-499d-8c15-faa9aef0c3f2",
+                "bef8d6c9-9c21-4c9e-b632-bd58c1009f9f", "bef8d6c9-9c21-4c9e-b632-bd58c1009f9f", "documented"),
+    # likely: ESPHome-Konfiguration mit (vermutlich) vLinker
     UartProfile("18F0 (diverse ELM-BLE)", _u16("18f0"), _u16("2af0"), _u16("2af1"), "likely"),
-    UartProfile("E7810A71 (Microchip/ISSC-ähnlich)", "e7810a71-73ae-499d-8c15-faa9aef0c3f2",
-                "bef8d6c9-9c21-4c9e-b632-bd58c1009f9f", "bef8d6c9-9c21-4c9e-b632-bd58c1009f9f", "likely"),
+    # documented: Microchip-Dokumentation
     UartProfile("Microchip Transparent UART", "49535343-fe7d-4ae5-8fa9-9fafd205e455",
-                "49535343-1e4d-4bd9-ba61-23c647249616", "49535343-8841-43f4-a8d4-ecbe34729bb3", "likely"),
+                "49535343-1e4d-4bd9-ba61-23c647249616", "49535343-8841-43f4-a8d4-ecbe34729bb3", "documented"),
+    # likely: generisches Nordic-UART-Profil (nicht für OBD-Adapter belegt)
     UartProfile("Nordic UART Service", "6e400001-b5a3-f393-e0a9-e50e24dcca9e",
                 "6e400003-b5a3-f393-e0a9-e50e24dcca9e", "6e400002-b5a3-f393-e0a9-e50e24dcca9e", "likely"),
 ]
