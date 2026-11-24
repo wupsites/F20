@@ -1,0 +1,1448 @@
+[
+  {
+    "id": "kombi.x_bc_digital_speed",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Digitale Geschwindigkeit im Bordcomputer",
+    "description_de": "Blendet die aktuelle Geschwindigkeit als Zahl in der BC-Liste des Kombi-Displays ein. Einzige gefundene Möglichkeit für eine Digitalanzeige im Basis-Kombi (kein HUD verbaut).",
+    "function_names": [
+      "BC_DIGITAL_V"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "keine Digitalanzeige (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Geschwindigkeit als Zahl im BC"
+      }
+    ],
+    "bimmercode_label": "Digital speed in board computer",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+    "software_requirements_de": "BimmerCode (Standard) oder Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "high",
+    "compatibility": "likely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv (vom Halter getestet und zurückgesetzt; Ergebnis des Tests bitte festhalten). Eine weitere Digitalanzeige wurde nicht gefunden. Die Testfunktion 10 (Tacho/Drehzahlmesser) im Kombi-Testmenü zeigt laut F30-Doku Tachowerte, ist aber kein Fahrbetrieb-Feature."
+  },
+  {
+    "id": "kombi.x_bc_empty_line",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Leerzeile im Bordcomputer",
+    "description_de": "Leerer Menüpunkt in der BC-Liste, damit das Display beim Durchblättern auch nichts anzeigen kann. Die Zuordnung BC_LEERZEILE ↔ BimmerCode-Option ist aus dem Namen abgeleitet.",
+    "function_names": [
+      "BC_LEERZEILE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "Leerzeile vorhanden (aktueller Wert)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "keine Leerzeile"
+      }
+    ],
+    "bimmercode_label": "Empty menu item in board computer",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+    "software_requirements_de": "BimmerCode (Standard)",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: aktiv. Bereits eingeschaltet, keine Aktion nötig."
+  },
+  {
+    "id": "kombi.x_bc_date",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Datum im Bordcomputer",
+    "description_de": "Zeigt das Datum als BC-Eintrag. Die F30-Doku nennt 'Date' in der BC-Reihenfolge.",
+    "function_names": [
+      "BC_DATUM"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "Datum im BC (aktueller Wert)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein Datum"
+      }
+    ],
+    "bimmercode_label": "Date in board computer",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode nur KOMBI L7_BASIS oder L7_MID (nicht L6 BO)",
+    "software_requirements_de": "BimmerCode (Standard)",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: aktiv. Erscheint das Datum tatsächlich im BC, ist das ein Hinweis auf eine KOMBI-Variante ab L7_BASIS (wichtig für Start-Logo, siehe kombi.x_start_logo)."
+  },
+  {
+    "id": "kombi.x_bc_autoreset",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Automatischer Reset der BC-Durchschnittswerte",
+    "description_de": "Legt fest, nach welcher Standzeit Durchschnittsverbrauch und -geschwindigkeit automatisch zurückgesetzt werden. Laut GitHub-Sammlung Rohwert in Stunden (hex), FF = nie.",
+    "function_names": [
+      "BC_AUTORESET_ZEIT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "04",
+        "meaning_de": "nach 4 h (aktueller Wert)"
+      },
+      {
+        "name": "08",
+        "meaning_de": "nach 8 h (BimmerCode-Option; Rohwert vermutet)"
+      },
+      {
+        "name": "nach jeder Fahrt",
+        "meaning_de": "BimmerCode-Option 'After every ride'; Rohwert unbekannt"
+      },
+      {
+        "name": "FF",
+        "meaning_de": "nie (laut GitHub-Sammlung)"
+      }
+    ],
+    "bimmercode_label": "Average values reset",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+    "software_requirements_de": "BimmerCode (Standard) bzw. Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "likely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: 4h (04). 'Never' ist sinnvoll, wenn Langzeit-Durchschnittswerte gewünscht sind."
+  },
+  {
+    "id": "kombi.x_bc_speed_correction",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Geschwindigkeitskorrektur (Vorlauf) der Anzeige",
+    "description_de": "Laut nicht verifizierter GitHub-Sammlung zeigt nicht_aktiv die reale Geschwindigkeit ohne Vorlauf. Ob nur der digitale BC-Wert oder auch der Zeiger betroffen ist, ist nicht belegt.",
+    "function_names": [
+      "BC_V_KORREKTUR"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "korrigierte (vorlaufende) Anzeige (aktueller Wert)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "laut Sammlung reale Geschwindigkeit"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "high",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": "Der Tacho darf nach UN-ECE R39 nie weniger als die tatsächliche Geschwindigkeit anzeigen. Nicht ändern.",
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: aktiv. Nicht empfohlen."
+  },
+  {
+    "id": "kombi.x_fds_menu_popup",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Fahrerlebnisschalter-Menü im Kombi",
+    "description_de": "FDS = Fahrdynamikschalter (Fahrerlebnisschalter). Der Name legt eine Menü-/Listenanzeige der Fahrmodi im Kombi beim Betätigen des Schalters nahe. Die Wirkung von menue_1/menue_2 ist nicht belegt.",
+    "function_names": [
+      "FDS_MENUE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "kein_menue",
+        "meaning_de": "kein Menü (aktueller Wert)"
+      },
+      {
+        "name": "menue_1",
+        "meaning_de": "Menüvariante 1 – Wirkung unbekannt (vom Halter getestet)"
+      },
+      {
+        "name": "menue_2",
+        "meaning_de": "Menüvariante 2 – Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Fahrerlebnisschalter (FDS_ENABLE, Block 3003)",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: kein_menue. Keine Quelle gefunden. Ergebnis des Tests mit menue_1 dokumentieren; nur zusammen mit dem Halter-Befund bewertbar."
+  },
+  {
+    "id": "kombi.x_background_image",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Hintergrundbild im Kombi-Display",
+    "description_de": "Name deutet auf ein Hintergrundbild im Display. Verwandte Parameter (HINTERGRUND_FARBE_TAG/NACHT, Block 3001) gelten laut Community-Tabelle nur für das Kombi 'high' (6WA).",
+    "function_names": [
+      "HINTERGRUNDBILD_ENABLE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "vermutlich Kombi mit erweitertem Umfang (6WA) – nicht belegt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv. Kein direkter Beleg für HINTERGRUNDBILD_ENABLE gefunden."
+  },
+  {
+    "id": "kombi.x_list_entertainment_display",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Listen-/Entertainment-Anzeige im Kombi",
+    "description_de": "Die Namen deuten auf Listen (Telefon/Medien) und Entertainment-Infos im Kombi-Display. Beide sind bereits aktiv. Belege gibt es nur für HUD-Listen (BimmerCode, nur KOMBI L6 BO mit HUD).",
+    "function_names": [
+      "LISTEN_ANZEIGE",
+      "ENTERTAINMENT_DISP"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "an (aktueller Wert beider Parameter)"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus – Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: LISTEN_ANZEIGE = aktiv, ENTERTAINMENT_DISP = aktiv. Keine Änderung nötig."
+  },
+  {
+    "id": "kombi.x_speed_limit_info",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Speed Limit Info (Verkehrszeichenerkennung)",
+    "description_de": "Anzeige der erkannten Höchstgeschwindigkeit im Kombi/BC. Laut BMW-Schulungsunterlage F30 ist Speed Limit Info (SA 8TH) eine Ausstattung, die das Kombi 'high' (6WA) erfordert; das Basis-Kombi wird nur ohne 8TH verbaut. Die Erkennung benötigt die Frontkamera (KAFAS).",
+    "function_names": [
+      "SPEED_LIMIT",
+      "VZA_ENABLE"
+    ],
+    "cafd_block": "3000/3003",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus (aktueller Wert SPEED_LIMIT)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Anzeige ein – ohne Kamera keine Daten"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Frontkamera (KAFAS), SA 8TH, laut F30-Doku Kombi 'high' (6WA); kartenbasierte Daten bräuchten Navigation",
+    "software_requirements_de": "—",
+    "effort": "high",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "no",
+    "evidence": "incompatible",
+    "legal_note_de": null,
+    "sources": [
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: SPEED_LIMIT = nicht_aktiv, VZA_ENABLE = nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Ohne Kamera und Navigation fehlt die Datenquelle. Nicht codieren."
+  },
+  {
+    "id": "kombi.x_speed_limit_warning",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Warnung bei Überschreiten eines Geschwindigkeitslimits",
+    "description_de": "Bedeutung unklar: entweder die Warnung zu Speed Limit Info (Kamera nötig) oder die vom Fahrer eingestellte Geschwindigkeitswarnung. Kein Beleg für den Parameter gefunden.",
+    "function_names": [
+      "WARNUNG_GESCHW_LIMIT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt (bei SLI-Bezug: Kamera)",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv. Erst prüfen, ob im iDrive bereits 'Geschwindigkeitswarnung' angeboten wird."
+  },
+  {
+    "id": "kombi.x_gps_clock",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Uhrzeit per GPS synchronisieren",
+    "description_de": "Für den BMW i3 ist im Kombi die BimmerCode-Option 'GPS clock synchronization' dokumentiert. Sie braucht ein GPS-Signal, das der Kombi von der Navigation bekommt. Radio Professional (HU_ENTRY ohne Navigation) liefert vermutlich keine GPS-Zeit.",
+    "function_names": [
+      "GPS_UHR"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "manuelle Uhr (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Uhr folgt GPS-Zeit"
+      }
+    ],
+    "bimmercode_label": "GPS clock synchronization",
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "GPS-Quelle (Navigation); beim F20 laut BimmerCode-Liste nicht als Standardoption geführt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/document/d/1WCF3FbD3U6G_0k4f107EkoiVbEX0SPbbmvcelDQSSGk/export?format=pdf",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv. Der Beleg gilt für den i3 mit Navigation, nicht für HU_ENTRY. Ein Test ist harmlos, aber vermutlich ohne Wirkung."
+  },
+  {
+    "id": "kombi.x_reverse_gear_chime",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Gong beim Einlegen des Rückwärtsgangs",
+    "description_de": "Laut GitHub-Sammlung schaltet R_GANG_AKUSTIK_ENABLE = nicht_aktiv den Gong beim Einlegen von R ab (Standard dort: aktiv). Ein F30-Cheat-Sheet auf bimmerpost (nur Snippet) nennt einen Rückwärtsgang-Gong.",
+    "function_names": [
+      "R_GANG_AKUSTIK_ENABLE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "kein Gong (aktueller Wert)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Gong beim Einlegen von R (laut Sammlung)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine bekannt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md",
+      "https://f30.bimmerpost.com/forums/showthread.php?p=16525413"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv. Ob beim Schaltgetriebe ein Gong ertönt, ist nicht belegt."
+  },
+  {
+    "id": "kombi.x_seat_left_monitoring",
+    "ecu": "KOMBI",
+    "category": "safety",
+    "title_de": "Sitzüberwachung links (nur Dokumentation)",
+    "description_de": "Bedeutung nicht belegt. Der Name deutet auf eine Sitz-/Gurtüberwachung des linken Sitzes (Fahrerseite bei Linkslenker). Die Gurtwarnung selbst liegt laut BimmerCode im ACSM.",
+    "function_names": [
+      "SITZ_L_UEBERWACHUNG"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "Wertebereich nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": "Sicherheitsfunktion – nicht ändern. Keine rechtliche Bewertung recherchiert.",
+    "sources": [
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Nur dokumentieren."
+  },
+  {
+    "id": "kombi.x_digital_consumption_range",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Maximalwert der Verbrauchsanzeige",
+    "description_de": "DIG_KVA_BEREICH (KVA = Kraftstoffverbrauchsanzeige) passt zur BimmerCode-Option 'Fuel consumption display maximum value' (20 oder 30 l/100 km). BimmerCode verlangt dafür KOMBI L7_MID. Das Basis-Kombi zeigt den Momentanverbrauch laut F30-Doku unten im Drehzahlmesser.",
+    "function_names": [
+      "DIG_KVA_BEREICH"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "20_l/100km",
+        "meaning_de": "Skalenende 20 l/100 km (aktueller Wert)"
+      },
+      {
+        "name": "30_l/100km",
+        "meaning_de": "Skalenende 30 l/100 km"
+      }
+    ],
+    "bimmercode_label": "Fuel consumption display maximum value",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L7_MID",
+    "software_requirements_de": "BimmerCode",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: 20_l/100km. 'DIG' spricht für eine digitale Anzeige; am Basis-Kombi mit analoger Verbrauchsanzeige vermutlich ohne sichtbare Wirkung."
+  },
+  {
+    "id": "kombi.x_range_yellow",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Reichweite gelb anzeigen",
+    "description_de": "Name deutet auf eine gelbe Darstellung der Reichweite (z. B. bei niedriger Reichweite). Kein Beleg gefunden.",
+    "function_names": [
+      "RW_GELB_ANZEIGE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "Wertebereich nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen."
+  },
+  {
+    "id": "kombi.x_dtc_off_display",
+    "ecu": "KOMBI",
+    "category": "safety",
+    "title_de": "DTC/DSC-OFF-Anzeige (nur Dokumentation)",
+    "description_de": "DTC steht bei BMW für Dynamische Traktionskontrolle (DSC-Modus). Der Parameter steuert vermutlich die Anzeige bzw. Meldung dieses Modus im Kombi. Kein Beleg gefunden.",
+    "function_names": [
+      "DTC_OFF_ENABLE"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "aktueller Wert"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": "Anzeige eines Fahrdynamik-Regelsystems – nicht ändern. Die HU wertet ESP-Störungsanzeigen aus (RL 2014/45/EU Anhang I Nr. 7.12).",
+    "sources": [
+      "https://gesetze.legal/eu/rl_2014_45_eu/anhang_i"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: aktiv. Nur dokumentieren."
+  },
+  {
+    "id": "kombi.x_check_control_misc",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Check-Control-Verhalten (Optimierung, Klemme 15)",
+    "description_de": "CC = Check-Control. Bedeutung von CC_OPTIMIERUNG_ENABLE und CC_15_EIN nicht belegt. Der Name CC_15_EIN deutet auf Meldungen bei Klemme 15 EIN.",
+    "function_names": [
+      "CC_OPTIMIERUNG_ENABLE",
+      "CC_15_EIN"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "Wertebereich nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Check-Control meldet auch sicherheitsrelevante Fehler; nicht ohne Beleg ändern."
+  },
+  {
+    "id": "kombi.x_rear_belt_status",
+    "ecu": "KOMBI",
+    "category": "safety",
+    "title_de": "Gurtstatus Fondsitze (nur Dokumentation)",
+    "description_de": "Name und Wert deuten auf die Anzeige des Gurtstatus für drei Fondsitze. Kein Beleg zur genauen Funktion gefunden.",
+    "function_names": [
+      "GURT_FOND_STATUS"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "3_sitze",
+        "meaning_de": "drei Fondsitze (aktueller Wert)"
+      },
+      {
+        "name": "unbekannt",
+        "meaning_de": "weitere Werte nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": "Sicherheitsfunktion – nicht ändern. Keine rechtliche Bewertung recherchiert.",
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: 3_sitze. Passt zur F20-Rückbank (3 Plätze). Nur dokumentieren."
+  },
+  {
+    "id": "kombi.x_range_display_limit",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Obergrenze der Reichweitenanzeige",
+    "description_de": "'Anschlag Reichweite' deutet auf den größten angezeigten Reichweitenwert (hier 800 km). Kein Beleg gefunden.",
+    "function_names": [
+      "BC_ANSCHLAG_REICHWEITE_KM"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "800_km",
+        "meaning_de": "aktueller Wert"
+      },
+      {
+        "name": "unbekannt",
+        "meaning_de": "weitere Werte nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: 800_km. Nur relevant, wenn die Reichweite bei vollem Tank wirklich über 800 km läge."
+  },
+  {
+    "id": "kombi.x_predrive_lamp_check",
+    "ecu": "KOMBI",
+    "category": "safety",
+    "title_de": "Pre-Drive-Check (Lampentest beim Start) – nur Dokumentation",
+    "description_de": "BMW-Schulungsunterlage (E6x): Beim Pre-Drive-Check leuchten die wichtigsten Kontroll- und Warnleuchten bei Klemme 15 EIN 4 s auf (Airbag bei Klemme R). Er prüft Kombi-intern und überwacht die Lebenssignale aller Check-Control-fähigen Steuergeräte. Bei einem Fehler bleibt die Leuchte an und Check-Control meldet. Die KL_PREDRIVE_*-Parameter bestimmen vermutlich, welche Leuchte (F1 Airbag, F2 Gurt, F13 ABS, F52 DSC …) daran teilnimmt.",
+    "function_names": [
+      "KL_PREDRIVE_F1_AIRBAG",
+      "KL_PREDRIVE_F2_GURT",
+      "KL_PREDRIVE_F13_ABS",
+      "KL_PREDRIVE_F52_DSC",
+      "PREDRIVE_START_MIT_OBD",
+      "PREDRIVE_ABB_MOT"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "aktueller Wert je Leuchte",
+        "meaning_de": "nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      },
+      {
+        "name": "PREDRIVE_START_MIT_OBD",
+        "meaning_de": "Bedeutung unbekannt (Name: Start mit OBD-Bezug)"
+      },
+      {
+        "name": "PREDRIVE_ABB_MOT",
+        "meaning_de": "Bedeutung unbekannt (Name: Abbruch bei Motor[start]?)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "documented",
+    "legal_note_de": "Nicht ändern. Die HU wertet u. a. 'Kontrollleuchten funktionieren nicht' (4.9.1), ABS-Warnvorrichtung (1.6), SRS-Störungsanzeige (7.1.6) und ESP-Störungsanzeige (7.12) aus (RL 2014/45/EU Anhang I).",
+    "sources": [
+      "https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST402%20Body%20Electronics%20III/09%20E6x%20Driver%20Information.pdf",
+      "https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST502%20E90%20Complete%20Vehicle/07_E90%20Driver%20Info%20Systems.pdf",
+      "https://gesetze.legal/eu/rl_2014_45_eu/anhang_i"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: je Leuchte nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Das Prinzip ist belegt (E6x/E90), die einzelnen F20-Parameter nicht. Technisch änderbar, weil vorhanden – nicht empfohlen. Unbekannt, ob eine abgewählte Leuchte echte Fehler weiter anzeigt."
+  },
+  {
+    "id": "kombi.x_ice_temperature_warning",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Temperaturwarnung (Glätte?)",
+    "description_de": "BMW-Handbücher anderer F-Modelle (F10) dokumentieren eine Außentemperaturwarnung bei +3 °C mit Signal und Kombi-Meldung. Ob CC_TEMPERATURWARNUNG diese Warnung ist, ist nicht belegt.",
+    "function_names": [
+      "CC_TEMPERATURWARNUNG"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aktueller Wert"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Außentemperaturfühler (Serie)",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.manualslib.com/manual/889993/Bmw-535i.html?page=75"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht_aktiv. Erst beobachten, ob das Auto bei +3 °C schon warnt; falls ja, steuert der Parameter etwas anderes."
+  },
+  {
+    "id": "kombi.x_low_fuel_range_warning",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Reichweiten-Warnungen 1 und 2 (Tankreserve)",
+    "description_de": "Zwei Warnstufen abhängig von der Restreichweite. BimmerCode bietet 'Low fuel warning 1' (10–50 km oder nicht aktiv) und 'Low fuel warning 2' (50–90 km oder nicht aktiv). Die aktuellen Werte (50 km / 90 km) passen genau zu diesen Bereichen; die Zuordnung ist daraus abgeleitet.",
+    "function_names": [
+      "CC_RW_WARNUNG",
+      "CC_RW_WARNUNG_2"
+    ],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "50_km",
+        "meaning_de": "Warnung 1 bei 50 km (aktueller Wert CC_RW_WARNUNG)"
+      },
+      {
+        "name": "90_km",
+        "meaning_de": "Warnung 2 bei 90 km (aktueller Wert CC_RW_WARNUNG_2)"
+      },
+      {
+        "name": "10_km … 50_km",
+        "meaning_de": "Bereich Warnung 1 laut BimmerCode"
+      },
+      {
+        "name": "50_km … 90_km",
+        "meaning_de": "Bereich Warnung 2 laut BimmerCode"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Warnstufe aus"
+      }
+    ],
+    "bimmercode_label": "Low fuel warning 1 / Low fuel warning 2",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+    "software_requirements_de": "BimmerCode (Standard)",
+    "effort": "low",
+    "risk": "medium",
+    "benefit": "medium",
+    "compatibility": "likely",
+    "evidence": "likely",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://www.2addicts.com/forums/showthread.php?p=18847146"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: CC_RW_WARNUNG = 50_km, CC_RW_WARNUNG_2 = 90_km. Späteres Warnen erhöht das Risiko, liegen zu bleiben. Ein F22-Nutzer (Snippet) beschreibt das zweistufige Prinzip."
+  },
+  {
+    "id": "kombi.x_equipment_flags",
+    "ecu": "KOMBI",
+    "category": "safety",
+    "title_de": "Ausstattungsflags FDS, LDM, DSC mit RPA (nur Dokumentation)",
+    "description_de": "Flags, die dem Kombi die verbaute Ausstattung mitteilen: FDS (Fahrerlebnisschalter), LDM (vermutlich Längsdynamikmanagement/Tempomat mit Bremsfunktion), DSC mit RPA (Reifenpannenanzeige). Die Bedeutung ist aus den Namen abgeleitet.",
+    "function_names": [
+      "FDS_ENABLE",
+      "LDM_VERBAUT",
+      "DSC_MIT_RPA"
+    ],
+    "cafd_block": "3003",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "aktuelle Werte nicht übermittelt; durch VO-Codierung gesetzt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "muss zur verbauten Hardware passen",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "safety_critical",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": "RPA und DSC sind sicherheitsrelevant – nicht ändern.",
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Falsche Flags können Warnungen (z. B. Reifenpanne) unterdrücken oder Fehlermeldungen erzeugen."
+  },
+  {
+    "id": "kombi.x_recuperation_display",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Anzeige Bremsenergie-Rückgewinnung",
+    "description_de": "Laut F30-Doku zeigt das Kombi 'high' (6WA) unter dem Drehzahlmesser die Energierückgewinnung im Schubbetrieb; für das Basis-Kombi wird nur der Momentanverbrauch genannt.",
+    "function_names": [
+      "REKU_ENABLE"
+    ],
+    "cafd_block": "3003",
+    "values": [
+      {
+        "name": "keine_anz",
+        "meaning_de": "keine Anzeige (aktueller Wert)"
+      },
+      {
+        "name": "unbekannt",
+        "meaning_de": "weitere Werte nicht übermittelt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "laut F30-Doku Kombi 'high' (6WA) für die Anzeige",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "likely",
+    "legal_note_de": null,
+    "sources": [
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: keine_anz. Für das Basis-Kombi kein Beleg; Test harmlos, aber Wirkung offen."
+  },
+  {
+    "id": "kombi.x_tank_reserve_threshold",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Reserveschwelle in Litern / volumenbasierte Reservewarnung",
+    "description_de": "Die Namen deuten auf eine Reservewarnung nach Tankinhalt (Liter) statt nach Reichweite. Die Wirkung ist nicht belegt.",
+    "function_names": [
+      "TNK_SCHWELLE_RESERVE",
+      "TNK_RESERVE_WARNUNG_ENABLE"
+    ],
+    "cafd_block": "3005",
+    "values": [
+      {
+        "name": "9_liter",
+        "meaning_de": "aktueller Wert TNK_SCHWELLE_RESERVE"
+      },
+      {
+        "name": "7_liter",
+        "meaning_de": "Alternative"
+      },
+      {
+        "name": "8_liter",
+        "meaning_de": "Alternative"
+      },
+      {
+        "name": "12_liter",
+        "meaning_de": "Alternative"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aktueller Wert TNK_RESERVE_WARNUNG_ENABLE"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: TNK_SCHWELLE_RESERVE = 9_liter, TNK_RESERVE_WARNUNG_ENABLE = nicht_aktiv. Für Reservewarnungen besser die dokumentierten Reichweitenwarnungen nutzen (kombi.x_low_fuel_range_warning). Eine niedrigere Schwelle (7 l) warnt später."
+  },
+  {
+    "id": "kombi.x_tank_calibration",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Tankkalibrierung / Reichweitenberechnung (nicht ändern)",
+    "description_de": "Beim BMW i3 REx wird TNK_VOLL_ANZEIGE zusammen mit TNK_LITER_*/TNK_OHM_* geändert, um die Tankanzeige an einen anderen Tank anzupassen – also ein Kalibrierparameter. TNK_RW_VERBRAUCH (6 l/100 km) ist dem Namen nach ein Verbrauchswert für die Reichweitenberechnung (nicht belegt).",
+    "function_names": [
+      "TNK_VOLL_ANZEIGE",
+      "TNK_RW_VERBRAUCH"
+    ],
+    "cafd_block": "3005",
+    "values": [
+      {
+        "name": "6l/100km",
+        "meaning_de": "aktueller Wert TNK_RW_VERBRAUCH"
+      },
+      {
+        "name": "TNK_VOLL_ANZEIGE",
+        "meaning_de": "aktueller Wert nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "high",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://docs.google.com/document/d/1WCF3FbD3U6G_0k4f107EkoiVbEX0SPbbmvcelDQSSGk/export?format=pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: TNK_RW_VERBRAUCH = 6l/100km, TNK_VOLL_ANZEIGE nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Falsche Werte können eine falsche Tank-/Reichweitenanzeige erzeugen (Liegenbleiben). Nicht ändern."
+  },
+  {
+    "id": "kombi.x_pia_profile_settings",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Personalisierung (PIA) von Kombi-Einstellungen",
+    "description_de": "Die KI_PIA_*-Parameter legen vermutlich fest, welche Kombi-Einstellungen pro Fahrzeugschlüssel/Profil gespeichert werden: Speed-Limit, Ankunft, Distanz (Navigation), Memo, Schaltpunktanzeige (SPA), analoge Reichweite/Verbrauchsanzeige, zuletzt gewählter BC-Eintrag. Die Deutung von 'PIA' als Personalisierung ist nicht belegt.",
+    "function_names": [
+      "KI_PIA_SPEED_LIMIT",
+      "KI_PIA_ANKUNFT",
+      "KI_PIA_DISTANZ",
+      "KI_PIA_MEMO",
+      "KI_PIA_SPA",
+      "KI_PIA_ANALOG_RW_KVA",
+      "KI_LETZTE_BC"
+    ],
+    "cafd_block": "3008",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aktueller Wert KI_PIA_MEMO"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "aktueller Wert KI_PIA_SPA"
+      },
+      {
+        "name": "weitere",
+        "meaning_de": "übrige Werte nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Ankunft/Distanz setzen Navigation voraus (nicht vorhanden)",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: KI_PIA_MEMO = nicht_aktiv, KI_PIA_SPA = aktiv, übrige nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Keine Änderung empfohlen; geringer Nutzen."
+  },
+  {
+    "id": "kombi.x_shift_point_indicator",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Schaltpunktanzeige (SPA) beim Schaltgetriebe",
+    "description_de": "BMW-Handbücher beschreiben eine Schaltpunktanzeige für Schaltgetriebe, die den sparsamsten Gang empfiehlt. Bei einem F11 von 2012 ließ sie sich laut Forum (nur Snippet) im iDrive abschalten. KI_PIA_SPA = aktiv spricht dafür, dass die SPA-Einstellung pro Profil gespeichert wird (abgeleitet).",
+    "function_names": [
+      "KI_PIA_SPA"
+    ],
+    "cafd_block": "3008",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "aktueller Wert"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "Wirkung unbekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "Schaltgetriebe (vorhanden)",
+    "software_requirements_de": "—",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.bmw-syndikat.de/bmwsyndikatforum/topic_p357635_Schaltpunktanzeige_deaktivieren_5er_BMW_-_F10___F11___F07_GT.html"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: aktiv. Zuerst im iDrive (Einstellungen → Kombi/Anzeige) nach einer SPA-Option suchen; dafür ist keine Codierung nötig."
+  },
+  {
+    "id": "kombi.x_cbs_hu_display",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Termin Fahrzeuguntersuchung (HU/'TÜV') in der Serviceanzeige",
+    "description_de": "Das Kombi ist laut BMW der CBS-Master. Zu den CBS-Umfängen gehören 'Statutory vehicle inspection' (HU) und 'Emissions test' (AU). Laut BMW-TIS (E60) ist die gesetzliche HU länderspezifisch: 'Coding or blanking out' plus Intervall; der Zieltermin wird aus der Erstzulassung berechnet. CBS_STATUS_HU = anzeige schaltet daher vermutlich den HU-Eintrag frei; sperre blendet ihn aus.",
+    "function_names": [
+      "CBS_STATUS_HU"
+    ],
+    "cafd_block": "3009",
+    "values": [
+      {
+        "name": "sperre",
+        "meaning_de": "HU-Eintrag ausgeblendet (aktueller Wert)"
+      },
+      {
+        "name": "anzeige",
+        "meaning_de": "HU-Eintrag in Servicebedarf/Kombi angezeigt (abgeleitet)"
+      },
+      {
+        "name": "erprobung",
+        "meaning_de": "vermutlich BMW-interner Testzustand – nicht verwenden"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine; Datum/Uhrzeit im Fahrzeug müssen stimmen",
+    "software_requirements_de": "BimmerCode-Expertenmodus; danach Termin setzen (iDrive Servicebedarf, falls HU_ENTRY das anbietet, sonst ISTA 'CBS-Korrektur')",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "medium",
+    "compatibility": "likely",
+    "evidence": "likely",
+    "legal_note_de": "Reine Erinnerung. Maßgeblich bleibt die HU-Frist nach § 29 StVZO (Prüfplakette/Fahrzeugschein).",
+    "sources": [
+      "https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST402%20Body%20Electronics%20III/09%20E6x%20Driver%20Information.pdf",
+      "https://workshop-manuals.com/bmw/5_series_e60/m5_s85_sal/2_repair_instructions/61__general_electrical_system/0__troubleshooting/4_ra__diagnosis_for_condition_based_service/page_2139/",
+      "https://workshop-manuals.com/bmw/1_series_e82/123d_n47s_coupe/1_service_information/00__maintenance_and_general_data/11_si__changed_emissions_test_indicator_bmw_condition_based_service/",
+      "https://carwiki.de/bmw-fahrzeuguntersuchung-servicebedarf/"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: sperre. Für F-Modelle nennt CarWiki (nur Snippet, Seite gesperrt) den HU-Termin unter 'Servicebedarf → Fahrzeuguntersuchung' mit manueller Datumseingabe. F20-spezifischer Beleg für CBS_STATUS_HU fehlt. Eine spätere VO-Codierung beim Händler setzt den Wert vermutlich zurück."
+  },
+  {
+    "id": "kombi.x_cbs_au_display",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Termin Abgasuntersuchung (AU) in der Serviceanzeige",
+    "description_de": "Wie CBS_STATUS_HU, aber für die AU. Laut BMW-SI (E82, 2006) lässt sich die AU-Anzeige per Diagnosesystem (CBS-Fahrzeugdaten korrigieren) ein- und ausschalten; der Standard hängt vom Markt ab. In Deutschland ist die AU seit 2010 Teil der HU, ein eigener AU-Termin ist daher überflüssig.",
+    "function_names": [
+      "CBS_STATUS_AU"
+    ],
+    "cafd_block": "3009",
+    "values": [
+      {
+        "name": "sperre",
+        "meaning_de": "AU-Eintrag ausgeblendet (aktueller Wert, für DE passend)"
+      },
+      {
+        "name": "anzeige",
+        "meaning_de": "AU-Eintrag angezeigt (abgeleitet)"
+      },
+      {
+        "name": "erprobung",
+        "meaning_de": "vermutlich Testzustand – nicht verwenden"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "keine",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "likely",
+    "evidence": "likely",
+    "legal_note_de": "In Deutschland ist die AU seit 2010 Bestandteil der HU.",
+    "sources": [
+      "https://workshop-manuals.com/bmw/1_series_e82/123d_n47s_coupe/1_service_information/00__maintenance_and_general_data/11_si__changed_emissions_test_indicator_bmw_condition_based_service/",
+      "https://workshop-manuals.com/bmw/5_series_e60/m5_s85_sal/2_repair_instructions/61__general_electrical_system/0__troubleshooting/4_ra__diagnosis_for_condition_based_service/page_2139/",
+      "https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST402%20Body%20Electronics%20III/09%20E6x%20Driver%20Information.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: sperre. Empfehlung: auf sperre lassen."
+  },
+  {
+    "id": "kombi.x_cbs_other_items",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Weitere CBS-Umfänge (Fahrzeug-Check, Übergabe, Einfahrkontrolle)",
+    "description_de": "'Vehicle Check' (Fahrzeug-Check) ist ein dokumentierter CBS-Umfang (E6x). UEBERGABE (vermutlich Übergabedurchsicht) und EINF_KONTR (vermutlich Einfahrkontrolle) sind aus den Namen abgeleitet.",
+    "function_names": [
+      "CBS_STATUS_FZGCHK_INTERN",
+      "CBS_STATUS_UEBERGABE",
+      "CBS_STATUS_EINF_KONTR"
+    ],
+    "cafd_block": "3009",
+    "values": [
+      {
+        "name": "sperre/anzeige/erprobung",
+        "meaning_de": "vermutlich gleiche Werteliste wie CBS_STATUS_HU; aktuelle Werte nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://ia801005.us.archive.org/11/items/BMWTechnicalTrainingDocuments/ST402%20Body%20Electronics%20III/09%20E6x%20Driver%20Information.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Nicht ändern; ein ausgeblendeter Fahrzeug-Check kann Wartung verschleiern."
+  },
+  {
+    "id": "kombi.x_welcome_goodbye_screen",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Begrüßungs-/Abschiedsbildschirm im Kombi",
+    "description_de": "Die Namen deuten auf Dauer/Verzögerung der Begrüßungs- und Abschiedsanzeige. Einheit und Wertebereich sind nicht belegt.",
+    "function_names": [
+      "GOODBYE_SCREEN",
+      "WELCOME_SCREEN_DELAY"
+    ],
+    "cafd_block": "300B",
+    "values": [
+      {
+        "name": "0E",
+        "meaning_de": "aktueller Wert GOODBYE_SCREEN (hex, dezimal 14; Einheit unbekannt)"
+      },
+      {
+        "name": "04",
+        "meaning_de": "aktueller Wert WELCOME_SCREEN_DELAY (hex; Einheit unbekannt)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: GOODBYE_SCREEN = 0E, WELCOME_SCREEN_DELAY = 04. Testbar, aber Wirkung offen; Werte notieren und in kleinen Schritten ändern."
+  },
+  {
+    "id": "kombi.x_warning_indication_timeout",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Zeitlimit für Warnhinweise",
+    "description_de": "Der Name deutet darauf, dass Warnhinweise nach einer Zeit automatisch ausgeblendet werden. Kein Beleg gefunden.",
+    "function_names": [
+      "WARNING_INDICATION_TIMEOUT_ENABLE"
+    ],
+    "cafd_block": "300B",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "aktueller Wert nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "medium",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Warnmeldungen nicht ohne Beleg verkürzen."
+  },
+  {
+    "id": "kombi.x_eco_pro_tips",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "ECO-PRO-Fahrtipps (Symbole) im Kombi",
+    "description_de": "Das BMW-Handbuch der 2er-Reihe (F22, II/15) nennt ECO-PRO-Tipps im Kombi: Gas wegnehmen, auf ECO-PRO-Geschwindigkeit verzögern, Steptronic M/S → D, Schaltempfehlung befolgen, beim Schaltgetriebe Leerlauf für den Motorstopp. Die EDA_SYMBOL_*-Namen passen dazu (LAST, GESCHW, G_PROG, GANG, KUPPLUNG); die Zuordnung ist abgeleitet. Laut F30-Doku zeigt das Kombi 'high' (6WA) die Fahrtipps.",
+    "function_names": [
+      "EDA_ENABLE",
+      "EDA_SYMBOL_KUPPLUNG",
+      "EDA_SYMBOL_GANG",
+      "EDA_SYMBOL_G_PROG",
+      "EDA_SYMBOL_GESCHW",
+      "EDA_SYMBOL_LAST"
+    ],
+    "cafd_block": "300C",
+    "values": [
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aus (aktueller Wert der EDA_SYMBOL_*; EDA_ENABLE bitte im Backup bestätigen)"
+      },
+      {
+        "name": "aktiv",
+        "meaning_de": "Symbol/Tipp eingeblendet (abgeleitet)"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "ECO PRO (Fahrerlebnisschalter); laut F30-Doku Kombi 'high' für die Tipps; G_PROG nur Steptronic",
+    "software_requirements_de": "BimmerCode-Expertenmodus; ggf. iDrive-Einstellung 'ECO PRO Info' (bei HU_ENTRY unbekannt)",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": null,
+    "sources": [
+      "https://www.manualslib.com/manual/979414/Bmw-2-Series.html?page=168",
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: EDA_SYMBOL_* = nicht_aktiv. Harmloser Test, wenn nur EDA_ENABLE plus die Symbole für Schaltgetriebe (GANG, KUPPLUNG, LAST, GESCHW) gesetzt werden. Ob das 2012er Basis-Kombi sie darstellt, ist offen."
+  },
+  {
+    "id": "kombi.x_eco_bonus_range",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "ECO-PRO-Bonusreichweite (digital/analog)",
+    "description_de": "Die ECO-PRO-Bonusreichweite ist laut F30-Doku ein BC-Eintrag (Mehrreichweite durch ECO-PRO-Fahrweise). Die digitale Variante ist aktiv. Was die analoge Variante darstellt, ist nicht belegt.",
+    "function_names": [
+      "ECO_RW_DIGITAL_ENABLE",
+      "ECO_RW_ANALOG_ENABLE"
+    ],
+    "cafd_block": "300C",
+    "values": [
+      {
+        "name": "aktiv",
+        "meaning_de": "aktueller Wert ECO_RW_DIGITAL_ENABLE"
+      },
+      {
+        "name": "nicht_aktiv",
+        "meaning_de": "aktueller Wert ECO_RW_ANALOG_ENABLE"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "ECO PRO",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "likely",
+    "legal_note_de": null,
+    "sources": [
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: ECO_RW_DIGITAL_ENABLE = aktiv, ECO_RW_ANALOG_ENABLE = nicht_aktiv."
+  },
+  {
+    "id": "kombi.x_fds_sport_plus",
+    "ecu": "KOMBI",
+    "category": "drivetrain",
+    "title_de": "SPORT+ im Kombi anzeigen",
+    "description_de": "BimmerCode bietet 'SPORT+ driving mode (2 of 2)' im KOMBI; Teil 1 liegt im ICMQL. Laut GitHub-Sammlung werden FDS_MENUE_TEXT_1…4 und FDS_MENUE_SIGNAL_1…4 von menue_4 auf menue_3 gesetzt (dort Block 3000, beim Halter Block 300C).",
+    "function_names": [
+      "FDS_MENUE_TEXT_1",
+      "FDS_MENUE_TEXT_2",
+      "FDS_MENUE_TEXT_3",
+      "FDS_MENUE_TEXT_4",
+      "FDS_MENUE_SIGNAL_1",
+      "FDS_MENUE_SIGNAL_2",
+      "FDS_MENUE_SIGNAL_3",
+      "FDS_MENUE_SIGNAL_4"
+    ],
+    "cafd_block": "300C",
+    "values": [
+      {
+        "name": "menue_4",
+        "meaning_de": "Standard laut Sammlung"
+      },
+      {
+        "name": "menue_3",
+        "meaning_de": "SPORT+-Anzeige laut Sammlung"
+      },
+      {
+        "name": "aktueller Wert",
+        "meaning_de": "nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": "SPORT+ driving mode (2 of 2)",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Fahrerlebnisschalter; ICMQL-Teil (1 of 2); laut BimmerCode KOMBI L6 BO, L7_BASIS oder L7_MID",
+    "software_requirements_de": "BimmerCode (Standard) für beide Teile",
+    "effort": "medium",
+    "risk": "high",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "documented",
+    "legal_note_de": "SPORT+ verändert die DSC-Abstimmung (fahrdynamisch relevant). Nur bewusst nutzen.",
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md"
+    ],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: FDS_MENUE_SIGNAL_x/FDS_MENUE_TEXT_x nicht übermittelt – im BimmerCode-Expertenmodus ablesen. Ob SPORT+ beim 116i (N13, Schaltgetriebe) im ICMQL angeboten wird, ist nicht geprüft."
+  },
+  {
+    "id": "kombi.x_fds_display_misc",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Fahrmodus-Anzeige: Farbe und Signalvariante",
+    "description_de": "FDS_GELB (Name: gelbe Darstellung) und FDS_SIGNAL_VARIANTE (Signalvariante) sind ohne Beleg.",
+    "function_names": [
+      "FDS_GELB",
+      "FDS_SIGNAL_VARIANTE"
+    ],
+    "cafd_block": "300C",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "aktuelle Werte nicht übermittelt – im BimmerCode-Expertenmodus ablesen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [],
+    "notes_de": "Parameter im CAFD des Fahrzeugs vorhanden, aktueller Wert: nicht übermittelt – im BimmerCode-Expertenmodus ablesen. FDS_SIGNAL_VARIANTE nicht ändern, solange unklar ist, ob es die Signalauswertung des Schalters betrifft."
+  },
+  {
+    "id": "kombi.x_cluster_dimming",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Kombi-Dimmung (Block 3007)",
+    "description_de": "Laut Community-Tabelle macht DIM_NACHT_EIN im Block 3007 (Wert 32 → FF) die Kombi-Anzeige nachts weiß statt orange und deaktiviert dabei die Nachtumschaltung des Navis. Welche Parameter der Block 3007 dieses Fahrzeugs enthält, wurde nicht übermittelt.",
+    "function_names": [],
+    "cafd_block": "3007",
+    "values": [
+      {
+        "name": "unbekannt",
+        "meaning_de": "Parameter und Werte des Blocks 3007 im Backup nachsehen"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "expert",
+    "hardware_requirements_de": "unbekannt",
+    "software_requirements_de": "BimmerCode-Expertenmodus",
+    "effort": "medium",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "experimental",
+    "legal_note_de": "Eine zu helle Anzeige nachts kann blenden; Dimmwerte nur maßvoll ändern.",
+    "sources": [
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+    ],
+    "notes_de": "Block im CAFD des Fahrzeugs vorhanden (KI_Dimmung), aktueller Wert: Parameterliste nicht übermittelt. Ob DIM_NACHT_EIN dort existiert, bitte prüfen."
+  },
+  {
+    "id": "kombi.x_needle_sweep",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Zeigertest/Needle Sweep beim Start",
+    "description_de": "Für die F-Serie wurde kein Codierparameter für einen Zeigerausschlag beim Start gefunden, auch nicht in der übermittelten Kandidatenliste. Das Testmenü des Kombis (F30-Doku: Testfunktion 10 Tacho/Drehzahlmesser, 02 Systemtest) ist kein Start-Sweep.",
+    "function_names": [],
+    "cafd_block": "—",
+    "values": [
+      {
+        "name": "—",
+        "meaning_de": "kein Parameter bekannt"
+      }
+    ],
+    "bimmercode_label": null,
+    "bimmercode_mode": "unknown",
+    "hardware_requirements_de": "—",
+    "software_requirements_de": "—",
+    "effort": "high",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unknown",
+    "evidence": "unknown",
+    "legal_note_de": null,
+    "sources": [
+      "https://archive.org/download/BMWTechnicalTrainingDocuments/ST1113%20F30%20Complete%20Vehicle/06_F30%20Displays%2C%20Indicators%20and%20Controls.pdf",
+      "https://bimmercode.app/cars/f20"
+    ],
+    "notes_de": "Kein passender Parameter im CAFD erkannt (Kandidatenliste). BimmerCode listet für den F20 keinen Needle Sweep."
+  },
+  {
+    "id": "kombi.x_start_logo",
+    "ecu": "KOMBI",
+    "category": "kombi",
+    "title_de": "Start-Logo / M-Performance-Logo im Kombi",
+    "description_de": "BimmerCode: 'Start logo' nur für KOMBI L7_BASIS oder L7_MID, 'M Performance logo' nur für L7_MID. Der zugehörige Parameter BMW_LOGO (Werte z. B. AG, MPM) steht nicht in der übermittelten Kandidatenliste.",
+    "function_names": [],
+    "cafd_block": "3000",
+    "values": [
+      {
+        "name": "—",
+        "meaning_de": "BMW_LOGO in der Kandidatenliste nicht enthalten"
+      }
+    ],
+    "bimmercode_label": "Start logo / M Performance logo",
+    "bimmercode_mode": "standard",
+    "hardware_requirements_de": "Laut BimmerCode KOMBI L7_BASIS/L7_MID (Start-Logo) bzw. L7_MID (M Performance)",
+    "software_requirements_de": "BimmerCode",
+    "effort": "low",
+    "risk": "low",
+    "benefit": "low",
+    "compatibility": "unlikely",
+    "evidence": "documented",
+    "legal_note_de": null,
+    "sources": [
+      "https://bimmercode.app/cars/f20",
+      "https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Instrument-Cluster.md",
+      "https://docs.google.com/spreadsheets/d/16O4RKIMekWFCs5jPW3T_7li0yIEvgZfFI0u3l0RmSwU/pubhtml"
+    ],
+    "notes_de": "Im Backup nach BMW_LOGO/MPM_ suchen. Fehlt der Parameter, ist das Logo nicht codierbar (andere Kombi-Hardware nötig)."
+  }
+]
