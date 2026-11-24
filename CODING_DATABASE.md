@@ -10,13 +10,13 @@
 
 | Bereich | Anzahl |
 |---|---|
-| 1. Empfehlenswert | 33 |
+| 1. Empfehlenswert | 37 |
 | 2. Möglich, aber rechtliche Grauzone oder mit Vorsicht | 15 |
-| 3. Unklar | 36 |
+| 3. Unklar | 31 |
 | 4. Informations- und Werkstattthemen (lesend / keine Komfortcodierung) | 6 |
 | 5. Nur Dokumentation | 15 |
 | 6. In Deutschland nicht zulässig | 8 |
-| 7. Nicht möglich bei diesem Fahrzeug (fehlende Hardware / HU_ENTRY) | 18 |
+| 7. Nicht möglich bei diesem Fahrzeug (fehlende Hardware / HU_ENTRY) | 19 |
 | **Gesamt** | **131** |
 
 Legende: **BC** = BimmerCode (Standard = normale Oberfläche, Expert = Expertenmodus). Risiko/Kompatibilität/Nachweis wie in RESEARCH.md definiert.
@@ -39,6 +39,9 @@ Diese Optionen sind in Quellen belegt, passen mit hoher Wahrscheinlichkeit zu de
 | [Welcome Light: Leuchtdauer](#fem_bodywelcome_light_duration) | FEM_BODY | `WL_TIMEOUT` (3060) | `14 (hex)` 20 s – Standard laut Botho.xml; `3C (hex)` 60 s; `5/10/15/20/30/45/60 seconds` Auswahl in BimmerCode | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Fensterheber bei geöffneter Tür weiter bedienbar (vorn)](#fem_bodywindow_door_open_front) | FEM_BODY | `FH_TUERAUF_STOP_MAUT` (3050) | `aktiv` Standard – Unterbrechung bei offener Tür; `nicht_aktiv` Fenster lassen sich bei offener Tür bedienen | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Nachwischzyklen nach dem Waschen (vorn/hinten)](#fem_bodywipe_after_wash) | FEM_BODY | `WW_ANZAHL_NACHWISCHZ_FRONT`, `WW_ANZAHL_NACHWISCHZ_HECK` (3080) | `WW_ANZAHL_NACHWISCHZ_FRONT = 03` 3 Zyklen – Standard laut Botho; `WW_ANZAHL_NACHWISCHZ_HECK = 02` 2 Zyklen – Standard; `01 … 05` 1–5 Zyklen (BimmerCode) | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
+| [Klimaanlage: Ein/Aus-Zustand speichern](#ihkaac_memory) | IHKA | `MEMORY_OFF`, `OFF_MEMORY` (3002 (IHKA) / 3003 (IHKA_VA02)) | `aktiv` Zustand speichern (Botho: Standard aktiv bei IHKA_VA02); `nicht_aktiv` nicht speichern | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
+| [Klimakompressor nicht automatisch mit AUTO einschalten](#ihkaac_on_with_auto) | IHKA | `AC_NICHT_EIN_BEI_AUTO`, `AC_ON_WITH_AUTO` (3002 (IHKA) / 3003 (IHKA_VA02, IHKA3)) | `AC_NICHT_EIN_BEI_AUTO = Aktiv` A/C nicht mit AUTO (IHKA, ekfxisid F020/F030); `AC_ON_WITH_AUTO = aktiv` Standard – A/C mit AUTO (IHKA_VA02, Botho); `AC_ON_WITH_AUTO = nicht_aktiv` A/C nicht mit AUTO | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
+| [Umluft-Zustand speichern](#ihkarecirc_memory) | IHKA | `MEMORY_UMLUFT` (3002 (IHKA) / 3003 (IHKA_VA02)) | `nicht_aktiv` Standard laut Botho (Umluft wird zurückgesetzt); `aktiv` Umluft speichern | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Automatischer Reset der Durchschnittswerte](#kombiaverage_values_reset) | KOMBI | `BC_AUTORESET_ZEIT` (3000) | `After 4 hours` Reset nach 4 h Standzeit (BimmerCode; laut Sammlung werte=04); `After 8 hours` Reset nach 8 h; `After every ride` Reset nach jeder Fahrt; `Never` kein automatischer Reset (laut Sammlung werte=FF) | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Leerer Menüpunkt im Bordcomputer](#kombiempty_menu_item) | KOMBI | – | `Active` leere Seite vorhanden; `Not active` keine leere Seite | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [PDC automatisch aktivieren beim Zurückrollen](#rempdc_auto_rolling_back) | REM | – | `Active / Not active` Auswahl in BimmerCode | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
@@ -54,6 +57,7 @@ Diese Optionen sind in Quellen belegt, passen mit hoher Wahrscheinlichkeit zu de
 | [Welcome Light: weitere Leuchten (Abblend-/Fernlicht, Standlicht, TFL, Blinker, Abbiegelicht, Sidemarker)](#fem_bodywelcome_light_components) | FEM_BODY | – (3063 (vermutlich, analog MAPPING_*_PART_OF_WL)) | `Hard on` hart einschalten; `Soft on` sanft einblenden; `Not active` nicht Teil des Welcome Lights | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Welcome Light nur bei Dunkelheit](#fem_bodywelcome_light_darkness_only) | FEM_BODY | – | `Active` nur bei Dunkelheit; `Not active` immer | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Wischerstufe im Stand automatisch zurückschalten](#fem_bodywiper_level_switch_back) | FEM_BODY | – | `Active / Not active` Auswahl in BimmerCode | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
+| [Automatische Umluft (AUC) / Umluft-Automatik-Abschaltung](#ihkaauto_recirculation) | IHKA | `UMLUFT_AUTO_AUS`, `AC_ON_WITH_RECIRC` (3003) | `UMLUFT_AUTO_AUS = aktiv` Standard laut Botho (IHKA_VA02); `UMLUFT_AUTO_AUS = nicht_aktiv` Umluft bleibt (Botho); `AC_ON_WITH_RECIRC = nicht_aktiv → aktiv` laut Botho zusammen geändert | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Reservewarnung 2 (temporär)](#kombilow_fuel_warning_2) | KOMBI | – | `50 kilometers` ab 50 km; `60 kilometers` ab 60 km; `70 kilometers` ab 70 km; `80 kilometers` ab 80 km | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [PDC: Abschaltschwellen (Geschwindigkeit/Strecke)](#rempdc_switch_off_thresholds) | REM | `CUT_OFF_SPEED`, `CUT_OFF_SPEED_HYST` (3201) | `CUT_OFF_SPEED = 0F (hex)` 15 km/h – Standard laut Spreadsheet F3x; `CUT_OFF_SPEED_HYST = 01` Hysterese (Standard); `PDC speed switch-off threshold: 5–50 km/h` BimmerCode; `PDC distance switch-off threshold: 10–250 m` BimmerCode | standard | gering | wahrscheinlich kompatibel | Dokumentiert |
 | [Automatisch verriegeln nach Anfahren: Geschwindigkeitsschwelle](#fem_bodyauto_lock_speed) | FEM_BODY | `CLM_SPEED_LIMIT_PIA_AUTO_LOCK` (3040) | `wert_04` ca. 16 km/h – Standard laut Botho; `wert_03` ca. 8 km/h (Botho); `0A (hex)` 10 km/h (ekfxisid/otakar – andere Kodierungsdarstellung) | expert | gering | wahrscheinlich kompatibel | Dokumentiert |
@@ -90,11 +94,7 @@ Kompatibilität unbekannt oder Verfahren experimentell. Vor einer Planung: Steue
 | Funktion | SG | Parameter (Block) | Werte | BC | Risiko | Kompat. | Nachweis |
 |---|---|---|---|---|---|---|---|
 | [Geschwindigkeitswarnung (Benutzereinstellung)](#kombispeed_warning) | KOMBI | – | – | unknown | gering | wahrscheinlich kompatibel | Technisch wahrscheinlich |
-| [Klimaanlage: Ein/Aus-Zustand speichern](#ihkaac_memory) | IHKA | `MEMORY_OFF`, `OFF_MEMORY` (3002 (IHKA) / 3003 (IHKA_VA02)) | `aktiv` Zustand speichern (Botho: Standard aktiv bei IHKA_VA02); `nicht_aktiv` nicht speichern | standard | gering | unbekannt | Dokumentiert |
-| [Klimakompressor nicht automatisch mit AUTO einschalten](#ihkaac_on_with_auto) | IHKA | `AC_NICHT_EIN_BEI_AUTO`, `AC_ON_WITH_AUTO` (3002 (IHKA) / 3003 (IHKA_VA02, IHKA3)) | `AC_NICHT_EIN_BEI_AUTO = Aktiv` A/C nicht mit AUTO (IHKA, ekfxisid F020/F030); `AC_ON_WITH_AUTO = aktiv` Standard – A/C mit AUTO (IHKA_VA02, Botho); `AC_ON_WITH_AUTO = nicht_aktiv` A/C nicht mit AUTO | standard | gering | unbekannt | Dokumentiert |
-| [Umluft-Zustand speichern](#ihkarecirc_memory) | IHKA | `MEMORY_UMLUFT` (3002 (IHKA) / 3003 (IHKA_VA02)) | `nicht_aktiv` Standard laut Botho (Umluft wird zurückgesetzt); `aktiv` Umluft speichern | standard | gering | unbekannt | Dokumentiert |
 | [Motoröltemperatur anzeigen](#kombioil_temperature) | KOMBI | – | – | unknown | gering | unbekannt | Dokumentiert |
-| [Automatische Umluft (AUC) / Umluft-Automatik-Abschaltung](#ihkaauto_recirculation) | IHKA | `UMLUFT_AUTO_AUS`, `AC_ON_WITH_RECIRC` (3003) | `UMLUFT_AUTO_AUS = aktiv` Standard laut Botho (IHKA_VA02); `UMLUFT_AUTO_AUS = nicht_aktiv` Umluft bleibt (Botho); `AC_ON_WITH_RECIRC = nicht_aktiv → aktiv` laut Botho zusammen geändert | standard | gering | unbekannt | Dokumentiert |
 | [Datum im Bordcomputer](#kombidate_in_bc) | KOMBI | – | `Active` Datum im BC; `Not active` kein Datum | standard | gering | unbekannt | Dokumentiert |
 | [Start-Logo im Kombiinstrument](#kombistart_logo) | KOMBI | `BMW_LOGO`, `MPM_ENABLE`, `MPM_LOGO` (3000) | `AG` Standardwert laut Community-Tabelle (vermutlich Standard-Logo; eine Sammlung behauptet 'Alpina' – widersprüchlich); `MPM` M-Performance-Logo | standard | gering | unbekannt | Dokumentiert |
 | [ECO-PRO-Anzeigen (Bonusreichweite) im Kombi](#kombieco_pro_display) | KOMBI | – | – | unknown | gering | unbekannt | Dokumentiert |
@@ -105,7 +105,6 @@ Kompatibilität unbekannt oder Verfahren experimentell. Vor einer Planung: Steue
 | [Komfortblinker: Profil-Standard (1x / 3x / 5x)](#fem_bodycomfort_turn_signal_default) | FEM_BODY | `PIA_DEFAULT_TIPPBLINKEN` (3064) | `00` 1 Zyklus; `01` 3 Zyklen (Standard laut Botho); `02` 5 Zyklen – laut Botho 'Don't work' | expert | gering | unbekannt | Experimentell |
 | [Heimleuchten über Funkschlüssel auslösen](#fem_bodyfollow_me_home_remote) | FEM_BODY | `FOLLOWMEHOME_VIA_FFB`, `RC_DEFAULT_IDG_3RD_BUTTON_SHORT` (3060, 30D0) | `nicht_aktiv` Standard; `aktiv` Auslösung per Fernbedienung; `RC_DEFAULT_IDG_3RD_BUTTON_SHORT = 04` Kurzdruck 3. Taste = Follow-me-home (Botho, zusammen mit Panic-Alarm-Konfiguration) | expert | gering | unbekannt | Experimentell |
 | [Einheitenwahl für Sportanzeigen (kW/PS, Nm/lb-ft)](#hu_entrysport_displays_unit) | HU_ENTRY | `EFF_DYN_SPORT_UNIT` (3000) | `nicht_aktiv` keine Einheitenwahl; `aktiv` Einheitenwahl im Einstellungsmenü | expert | gering | unbekannt | Experimentell |
-| [Manuelle Klimaanlage (IHKR): keine dokumentierten Optionen](#ihkrno_documented_options) | IHKR | – | – | unknown | gering | unbekannt | Unbekannt |
 | [MSA-Hinweis 'Auto Start-Stop aus' im Kombi ausblenden](#kombimsa_status_display) | KOMBI | `MSA_VERFUEGBARANZEIGE_ENABLE` (3000) | `aktiv` Standard laut Sammlung; `nicht_aktiv` Hinweis ausgeblendet | expert | gering | unbekannt | Experimentell |
 | [Zeigertest / 'Needle Sweep' beim Start](#kombineedle_sweep) | KOMBI | – | – | unknown | gering | unbekannt | Unbekannt |
 | [Gong beim Einlegen des Rückwärtsgangs](#kombireverse_gear_chime) | KOMBI | `R_GANG_AKUSTIK_ENABLE` (3000) | `aktiv` Gong aktiv (Standard laut Sammlung); `nicht_aktiv` kein Gong | expert | gering | unbekannt | Experimentell |
@@ -196,6 +195,7 @@ Technisch teils möglich, aber nach deutscher bzw. europäischer Rechtslage unzu
 | [SMS vollständig anzeigen](#hu_entryfull_text_messages) | HU_ENTRY | `PIM_Driving_Text` (3003) | `up_to_three_lines` max. drei Zeilen während der Fahrt; `whole_text` vollständiger Text | unknown | mittel | unwahrscheinlich | Unbekannt |
 | [Office- und Servicemeldungen während der Fahrt lesbar](#hu_entryspeedlock_office_service_messages) | HU_ENTRY | `SERVICES_MESSAGES_SPEEDLOCK_CONDITION`, `OFFICE_MESSAGES_SPEEDLOCK_CONDITION` (3000 HMI) | `none` keine Sperre während der Fahrt | unknown | mittel | unwahrscheinlich | Unbekannt |
 | [Apple CarPlay](#hu_entrycarplay) | HU_ENTRY | – | – | unknown | gering | nicht kompatibel | Nicht kompatibel |
+| [Manuelle Klimaanlage (IHKR): keine dokumentierten Optionen](#ihkrno_documented_options) | IHKR | – | – | unknown | gering | nicht kompatibel | Nicht kompatibel |
 
 ---
 
@@ -595,6 +595,71 @@ Wischerstufe schaltet beim Anhalten automatisch eine Stufe zurück.
 - **Kompatibilität (dein F20):** wahrscheinlich kompatibel · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
 - **Hinweise:** Nur als BimmerCode-Option belegt. Die Wischer-Serviceposition ist keine Codierung (Bedienablauf laut Betriebsanleitung).
 - **Quellen:** <https://bimmercode.app/cars/f20/>
+
+### Klimaanlage: Ein/Aus-Zustand speichern
+
+<a id="ihkaac_memory"></a>`ihka.ac_memory` · Bereich: 1 · SG **IHKA** · Kategorie Klima
+
+Letzter A/C-Zustand bleibt nach Neustart erhalten.
+
+- **BimmerCode:** Air Conditioning setting memory (standard)
+- **Parameter:** `MEMORY_OFF`, `OFF_MEMORY` (3002 (IHKA) / 3003 (IHKA_VA02))
+- **Werte:** `aktiv` = Zustand speichern (Botho: Standard aktiv bei IHKA_VA02); `nicht_aktiv` = nicht speichern
+- **Hardware:** Klimaautomatik (IHKA).
+- **Software:** Name je Variante: MEMORY_OFF (IHKA/IHKA_VA02) bzw. OFF_MEMORY (IHKA_CBF, andere Baureihen).
+- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
+- **Kompatibilität (dein F20):** wahrscheinlich kompatibel · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
+- **Hinweise:** [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]
+- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
+
+### Klimakompressor nicht automatisch mit AUTO einschalten
+
+<a id="ihkaac_on_with_auto"></a>`ihka.ac_on_with_auto` · Bereich: 1 · SG **IHKA** · Kategorie Klima
+
+Beim Drücken von AUTO schaltet die Klimaanlage (Kompressor) nicht automatisch ein.
+
+- **BimmerCode:** Air Conditioning on in AUTO mode (standard)
+- **Parameter:** `AC_NICHT_EIN_BEI_AUTO`, `AC_ON_WITH_AUTO` (3002 (IHKA) / 3003 (IHKA_VA02, IHKA3))
+- **Werte:** `AC_NICHT_EIN_BEI_AUTO = Aktiv` = A/C nicht mit AUTO (IHKA, ekfxisid F020/F030); `AC_ON_WITH_AUTO = aktiv` = Standard – A/C mit AUTO (IHKA_VA02, Botho); `AC_ON_WITH_AUTO = nicht_aktiv` = A/C nicht mit AUTO
+- **Hardware:** Klimaautomatik (IHKA). Bei manueller Klimaanlage (IHKR) nicht verfügbar.
+- **Software:** Parametername hängt von der IHKA-Variante ab (IHKA_CBF/VA01/VA02).
+- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
+- **Kompatibilität (dein F20):** wahrscheinlich kompatibel · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
+- **Hinweise:** Ob das Fahrzeug IHKA oder IHKR hat, ist offen. [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]
+- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
+
+### Automatische Umluft (AUC) / Umluft-Automatik-Abschaltung
+
+<a id="ihkaauto_recirculation"></a>`ihka.auto_recirculation` · Bereich: 1 · SG **IHKA** · Kategorie Klima
+
+Automatische Umluftsteuerung über Schadstoffsensor bzw. Verhalten der Umluft-Automatik.
+
+- **BimmerCode:** Automatic Air Recirculation (standard)
+- **Parameter:** `UMLUFT_AUTO_AUS`, `AC_ON_WITH_RECIRC` (3003)
+- **Werte:** `UMLUFT_AUTO_AUS = aktiv` = Standard laut Botho (IHKA_VA02); `UMLUFT_AUTO_AUS = nicht_aktiv` = Umluft bleibt (Botho); `AC_ON_WITH_RECIRC = nicht_aktiv → aktiv` = laut Botho zusammen geändert
+- **Hardware:** IHKA_VA02; AUC-Funktion setzt i. d. R. einen Schadstoffsensor voraus (nicht verifiziert).
+- **Software:** IHKA_VA02.
+- **Aufwand / Risiko / Nutzen:** gering / gering / gering
+- **Kompatibilität (dein F20):** wahrscheinlich kompatibel · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
+- **Hinweise:** Bedeutung der Parameter in den Quellen nur knapp beschrieben → vorsichtig. [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]
+- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml>
+
+### Umluft-Zustand speichern
+
+<a id="ihkarecirc_memory"></a>`ihka.recirc_memory` · Bereich: 1 · SG **IHKA** · Kategorie Klima
+
+Letzte Umluft-Einstellung bleibt nach Neustart erhalten.
+
+- **BimmerCode:** Air circulation setting memory (standard)
+- **Parameter:** `MEMORY_UMLUFT` (3002 (IHKA) / 3003 (IHKA_VA02))
+- **Werte:** `nicht_aktiv` = Standard laut Botho (Umluft wird zurückgesetzt); `aktiv` = Umluft speichern
+- **Hardware:** Klimaautomatik (IHKA).
+- **Software:** IHKA-Variante prüfen.
+- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
+- **Kompatibilität (dein F20):** wahrscheinlich kompatibel · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
+- **Recht:** Dauer-Umluft kann Scheibenbeschlag fördern (Sicht) – bewusst nutzen.
+- **Hinweise:** [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]
+- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
 
 ### Automatischer Reset der Durchschnittswerte
 
@@ -1222,83 +1287,6 @@ Für HU_CIC/HU_NBT dokumentiert: RDC_SAFETY (3001) aktiv zeigt Druck und Tempera
 - **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Unbekannt
 - **Hinweise:** Erst prüfen, ob das Auto RDC-Sensoren hat. Für HU_ENTRY kein Beleg.
 - **Quellen:** <https://docs.google.com/spreadsheets/d/1UreLsK1PwycTWeW6OL71HOoVpLtKtfwRMRSvlsiC8JY/edit> · <https://docs.google.com/spreadsheets/d/1G_C7954Z4094jLdbR0QjqXQYY6w6-rToothcTUPb5Fs/edit> · <https://raw.githubusercontent.com/Dauxdu/bmw-coding/HEAD/e-sys/02-Codings/Head-Unit/iDrive-Features.md> · <https://bimmercode.app/cars/f20>
-
-### Klimaanlage: Ein/Aus-Zustand speichern
-
-<a id="ihkaac_memory"></a>`ihka.ac_memory` · Bereich: 3 · SG **IHKA** · Kategorie Klima
-
-Letzter A/C-Zustand bleibt nach Neustart erhalten.
-
-- **BimmerCode:** Air Conditioning setting memory (standard)
-- **Parameter:** `MEMORY_OFF`, `OFF_MEMORY` (3002 (IHKA) / 3003 (IHKA_VA02))
-- **Werte:** `aktiv` = Zustand speichern (Botho: Standard aktiv bei IHKA_VA02); `nicht_aktiv` = nicht speichern
-- **Hardware:** Klimaautomatik (IHKA).
-- **Software:** Name je Variante: MEMORY_OFF (IHKA/IHKA_VA02) bzw. OFF_MEMORY (IHKA_CBF, andere Baureihen).
-- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
-- **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
-- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
-
-### Klimakompressor nicht automatisch mit AUTO einschalten
-
-<a id="ihkaac_on_with_auto"></a>`ihka.ac_on_with_auto` · Bereich: 3 · SG **IHKA** · Kategorie Klima
-
-Beim Drücken von AUTO schaltet die Klimaanlage (Kompressor) nicht automatisch ein.
-
-- **BimmerCode:** Air Conditioning on in AUTO mode (standard)
-- **Parameter:** `AC_NICHT_EIN_BEI_AUTO`, `AC_ON_WITH_AUTO` (3002 (IHKA) / 3003 (IHKA_VA02, IHKA3))
-- **Werte:** `AC_NICHT_EIN_BEI_AUTO = Aktiv` = A/C nicht mit AUTO (IHKA, ekfxisid F020/F030); `AC_ON_WITH_AUTO = aktiv` = Standard – A/C mit AUTO (IHKA_VA02, Botho); `AC_ON_WITH_AUTO = nicht_aktiv` = A/C nicht mit AUTO
-- **Hardware:** Klimaautomatik (IHKA). Bei manueller Klimaanlage (IHKR) nicht verfügbar.
-- **Software:** Parametername hängt von der IHKA-Variante ab (IHKA_CBF/VA01/VA02).
-- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
-- **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
-- **Hinweise:** Ob das Fahrzeug IHKA oder IHKR hat, ist offen.
-- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
-
-### Automatische Umluft (AUC) / Umluft-Automatik-Abschaltung
-
-<a id="ihkaauto_recirculation"></a>`ihka.auto_recirculation` · Bereich: 3 · SG **IHKA** · Kategorie Klima
-
-Automatische Umluftsteuerung über Schadstoffsensor bzw. Verhalten der Umluft-Automatik.
-
-- **BimmerCode:** Automatic Air Recirculation (standard)
-- **Parameter:** `UMLUFT_AUTO_AUS`, `AC_ON_WITH_RECIRC` (3003)
-- **Werte:** `UMLUFT_AUTO_AUS = aktiv` = Standard laut Botho (IHKA_VA02); `UMLUFT_AUTO_AUS = nicht_aktiv` = Umluft bleibt (Botho); `AC_ON_WITH_RECIRC = nicht_aktiv → aktiv` = laut Botho zusammen geändert
-- **Hardware:** IHKA_VA02; AUC-Funktion setzt i. d. R. einen Schadstoffsensor voraus (nicht verifiziert).
-- **Software:** IHKA_VA02.
-- **Aufwand / Risiko / Nutzen:** gering / gering / gering
-- **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
-- **Hinweise:** Bedeutung der Parameter in den Quellen nur knapp beschrieben → vorsichtig.
-- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml>
-
-### Umluft-Zustand speichern
-
-<a id="ihkarecirc_memory"></a>`ihka.recirc_memory` · Bereich: 3 · SG **IHKA** · Kategorie Klima
-
-Letzte Umluft-Einstellung bleibt nach Neustart erhalten.
-
-- **BimmerCode:** Air circulation setting memory (standard)
-- **Parameter:** `MEMORY_UMLUFT` (3002 (IHKA) / 3003 (IHKA_VA02))
-- **Werte:** `nicht_aktiv` = Standard laut Botho (Umluft wird zurückgesetzt); `aktiv` = Umluft speichern
-- **Hardware:** Klimaautomatik (IHKA).
-- **Software:** IHKA-Variante prüfen.
-- **Aufwand / Risiko / Nutzen:** gering / gering / mittel
-- **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Dokumentiert (nicht am Fahrzeug getestet)
-- **Recht:** Dauer-Umluft kann Scheibenbeschlag fördern (Sicht) – bewusst nutzen.
-- **Quellen:** <https://bimmercode.app/cars/f20/> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml> · <https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml>
-
-### Manuelle Klimaanlage (IHKR): keine dokumentierten Optionen
-
-<a id="ihkrno_documented_options"></a>`ihkr.no_documented_options` · Bereich: 3 · SG **IHKR** · Kategorie Klima
-
-Für IHKR wurden weder in der BimmerCode-F20-Liste noch in den Cheat-Dateien Codieroptionen gefunden.
-
-- **Parameter:** –
-- **Hardware:** IHKR.
-- **Software:** Unbekannt.
-- **Aufwand / Risiko / Nutzen:** gering / gering / gering
-- **Kompatibilität (dein F20):** unbekannt · **Nachweis:** Unbekannt
-- **Hinweise:** BimmerCode listet Klimaoptionen nur für IHKA_CBF, IHKA_VA01, IHKA_VA02.
-- **Quellen:** <https://bimmercode.app/cars/f20/>
 
 ### Datum im Bordcomputer
 
@@ -2223,6 +2211,20 @@ Die BimmerCode-Optionen 'Warning chime' (BMW/BMW i/Mini/Rolls-Royce) und 'Volume
 - **Kompatibilität (dein F20):** unwahrscheinlich · **Nachweis:** Unbekannt
 - **Hinweise:** Auch für geschwindigkeitsabhängige Lautstärke und Gong-/PDC-Lautstärke wurden für HU_ENTRY keine Parameter gefunden.
 - **Quellen:** <https://bimmercode.app/cars/f20>
+
+### Manuelle Klimaanlage (IHKR): keine dokumentierten Optionen
+
+<a id="ihkrno_documented_options"></a>`ihkr.no_documented_options` · Bereich: 7 · SG **IHKR** · Kategorie Klima
+
+Für IHKR wurden weder in der BimmerCode-F20-Liste noch in den Cheat-Dateien Codieroptionen gefunden.
+
+- **Parameter:** –
+- **Hardware:** IHKR.
+- **Software:** Unbekannt.
+- **Aufwand / Risiko / Nutzen:** gering / gering / gering
+- **Kompatibilität (dein F20):** nicht kompatibel · **Nachweis:** Nicht kompatibel
+- **Hinweise:** BimmerCode listet Klimaoptionen nur für IHKA_CBF, IHKA_VA01, IHKA_VA02. [2026-11-24: Fahrzeug hat nachweislich IHKA (Klimaautomatik), keine IHKR.]
+- **Quellen:** <https://bimmercode.app/cars/f20/>
 
 ### Hintergrundfarbe der Skalen (Orange/Grau)
 

@@ -2374,7 +2374,7 @@
    "effort": "low",
    "risk": "low",
    "benefit": "medium",
-   "compatibility": "unknown",
+   "compatibility": "likely",
    "evidence": "documented",
    "legal_note_de": null,
    "sources": [
@@ -2385,7 +2385,7 @@
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml",
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Kip_M3.xml"
    ],
-   "notes_de": "Ob das Fahrzeug IHKA oder IHKR hat, ist offen."
+   "notes_de": "Ob das Fahrzeug IHKA oder IHKR hat, ist offen. [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]"
   },
   {
    "id": "ihka.ac_memory",
@@ -2415,7 +2415,7 @@
    "effort": "low",
    "risk": "low",
    "benefit": "medium",
-   "compatibility": "unknown",
+   "compatibility": "likely",
    "evidence": "documented",
    "legal_note_de": null,
    "sources": [
@@ -2425,7 +2425,7 @@
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
    ],
-   "notes_de": ""
+   "notes_de": " [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]"
   },
   {
    "id": "ihka.recirc_memory",
@@ -2454,7 +2454,7 @@
    "effort": "low",
    "risk": "low",
    "benefit": "medium",
-   "compatibility": "unknown",
+   "compatibility": "likely",
    "evidence": "documented",
    "legal_note_de": "Dauer-Umluft kann Scheibenbeschlag fördern (Sicht) – bewusst nutzen.",
    "sources": [
@@ -2464,7 +2464,7 @@
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Bundang_Thunder.xml",
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Almaretto.xml"
    ],
-   "notes_de": ""
+   "notes_de": " [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]"
   },
   {
    "id": "ihka.auto_recirculation",
@@ -2498,7 +2498,7 @@
    "effort": "low",
    "risk": "low",
    "benefit": "low",
-   "compatibility": "unknown",
+   "compatibility": "likely",
    "evidence": "documented",
    "legal_note_de": null,
    "sources": [
@@ -2506,7 +2506,7 @@
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/Botho.xml",
     "https://github.com/packetpilot/bmw-f/blob/master/cheats/ekfxisid.xml"
    ],
-   "notes_de": "Bedeutung der Parameter in den Quellen nur knapp beschrieben → vorsichtig."
+   "notes_de": "Bedeutung der Parameter in den Quellen nur knapp beschrieben → vorsichtig. [2026-11-24: IHKA im Fahrzeug durch BimmerCode-Backup nachgewiesen (Adresse 0x78, CAFD_00000A3F_005_001_013) → Kompatibilität von 'unbekannt' auf 'wahrscheinlich' angehoben.]"
   },
   {
    "id": "ihkr.no_documented_options",
@@ -2524,13 +2524,13 @@
    "effort": "low",
    "risk": "low",
    "benefit": "low",
-   "compatibility": "unknown",
-   "evidence": "unknown",
+   "compatibility": "no",
+   "evidence": "incompatible",
    "legal_note_de": null,
    "sources": [
     "https://bimmercode.app/cars/f20/"
    ],
-   "notes_de": "BimmerCode listet Klimaoptionen nur für IHKA_CBF, IHKA_VA01, IHKA_VA02."
+   "notes_de": "BimmerCode listet Klimaoptionen nur für IHKA_CBF, IHKA_VA01, IHKA_VA02. [2026-11-24: Fahrzeug hat nachweislich IHKA (Klimaautomatik), keine IHKR.]"
   },
   {
    "id": "fem_body.wipe_after_wash",

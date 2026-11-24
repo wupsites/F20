@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from ..store import Store
-from .cod import CodBackup, CodFormatError, parse_cod
+from .cod import CodBackup, CodFormatError, clean_upload_name, parse_cod
 from .diff import diff_blocks, diff_bytes, hexdump
 from .forensic import analyze_bytes
 from .integrity import Vault, create_workcopy
@@ -37,13 +37,27 @@ class BackupService:
         return self._import_entry(self.vault.import_bytes(name, data))
 
     def _import_entry(self, entry) -> dict:
+        entry.original_name = clean_upload_name(entry.original_name)
+        alias = {"name": entry.original_name, "ts": _filename_ts(entry.original_name)}
+        existing = self.store.backup_by_sha(entry.sha256)
+        if existing:
+            # Byteidentischer Inhalt unter anderem Dateinamen/Zeitpunkt: als Alias vermerken,
+            # Metadaten des Erstimports NICHT überschreiben.
+            meta = existing["meta"]
+            aliases = meta.setdefault("aliases", [])
+            if alias not in aliases:
+                aliases.append(alias)
+                aliases.sort(key=lambda a: a["ts"] or 0)
+                self.store.update_backup_meta(existing["id"], vehicle_key=existing["vehicle_key"],
+                                              fmt=existing["format"], meta=meta)
+            return self.store.get_backup(existing["id"])
         data = Vault.read_verified(entry.path, entry.sha256)
         meta, fmt, vehicle_key = self._analyze(data, entry.original_name)
+        meta["aliases"] = [alias]
         bid = self.store.add_backup(sha256=entry.sha256, original_name=entry.original_name,
                                     source_path=entry.source_path, source_mtime=entry.source_mtime,
                                     size=entry.size, vault_path=str(entry.path), vehicle_key=vehicle_key,
                                     fmt=fmt, meta=meta)
-        self.store.update_backup_meta(bid, vehicle_key=vehicle_key, fmt=fmt, meta=meta)
         return self.store.get_backup(bid)
 
     def _analyze(self, data: bytes, name: str) -> tuple[dict, str, str | None]:
@@ -151,24 +165,30 @@ class BackupService:
 
     def timeline(self) -> list[dict]:
         """Änderungsverlauf je Fahrzeug/Steuergerät/CAFD-Version (chronologisch)."""
-        groups: dict[str, list[tuple[int, CodBackup]]] = {}
+        import datetime as _dt
+        groups: dict[str, list[tuple[int, int, str, CodBackup]]] = {}
         for b in self.store.list_backups():
             if b["format"] != "bimmercode-ios-cod":
                 continue
             _, cod = self.load_cod(b["id"])
-            groups.setdefault(f"{cod.vin}|{cod.scope_key}", []).append((b["id"], cod))
+            scope = cod.scope_key if cod.ecu_identifier else f"{_ecu_from_name(b['original_name'])}|E-Serie|"
+            for a in b["meta"].get("aliases") or [{"name": b["original_name"], "ts": cod.filename_ts}]:
+                groups.setdefault(f"{cod.vin}|{scope}", []).append((a["ts"] or 0, b["id"], a["name"], cod))
         out = []
         for key, items in sorted(groups.items()):
-            items.sort(key=lambda x: x[1].filename_ts or 0)
+            items.sort(key=lambda x: x[0])
             steps = []
-            for (pid, prev), (cid, cur) in zip(items, items[1:]):
+            for (pts, pid, pname, prev), (cts, cid, cname, cur) in zip(items, items[1:]):
                 d = diff_blocks(prev.blocks, cur.blocks)
-                user = {k: v for k, v in d["blocks"].items()}
-                steps.append({"from": pid, "to": cid, "from_date": prev.created_at_iso, "to_date": cur.created_at_iso,
-                              "changed_blocks": sorted(user), "changed_bytes": d["changed_bytes"],
-                              "changed_bits": d["changed_bits"], "detail": user})
+                steps.append({"from": pid, "to": cid, "from_name": pname, "to_name": cname,
+                              "from_date": _dt.datetime.fromtimestamp(pts, _dt.timezone.utc).isoformat() if pts else None,
+                              "to_date": _dt.datetime.fromtimestamp(cts, _dt.timezone.utc).isoformat() if cts else None,
+                              "identical": d["identical"], "changed_blocks": sorted(d["blocks"]),
+                              "changed_bytes": d["changed_bytes"], "changed_bits": d["changed_bits"],
+                              "detail": d["blocks"]})
             vin, _, scope = key.partition("|")
-            out.append({"vehicle": vin, "scope": scope, "backups": [i for i, _ in items], "steps": steps})
+            out.append({"vehicle": vin, "scope": scope, "backups": [i[1] for i in items],
+                        "events": [{"ts": i[0], "backup": i[1], "name": i[2]} for i in items], "steps": steps})
         return out
 
     # ------------------------------------------------------------ Lernmodus
@@ -259,6 +279,18 @@ class BackupService:
         path = create_workcopy(b["vault_path"], b["sha256"], b["original_name"])
         wid = self.store.add_workcopy(backup_id, str(path), note)
         return {"id": wid, "path": str(path), "backup_id": backup_id}
+
+
+def _ecu_from_name(name: str) -> str:
+    from .cod import FN_RE
+    m = FN_RE.search(name)
+    return m.group("ecu") if m else "?"
+
+
+def _filename_ts(name: str) -> int | None:
+    from .cod import FN_RE
+    m = FN_RE.search(name)
+    return int(m.group("ts")) if m else None
 
 
 def _mask_name(name: str, vin: str | None) -> str:

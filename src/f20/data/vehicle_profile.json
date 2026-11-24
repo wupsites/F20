@@ -1,30 +1,184 @@
 {
   "_meta": {
     "description": "Fahrzeugprofil. Jede Angabe trägt Quelle und Nachweisstatus. 'user_stated' = Angabe des Besitzers, noch nicht durch Backup/Diagnose bestätigt. Die FIN wird NICHT hier gespeichert (öffentliches Repository), sondern lokal in $F20_HOME/vehicle.local.json.",
-    "updated": "2026-11-24"
+    "updated": "2026-11-24 (Backup-Analyse)"
   },
   "fields": [
-    {"key": "manufacturer", "label_de": "Hersteller", "value": "BMW", "source": "user_stated", "evidence": "documented"},
-    {"key": "model", "label_de": "Modell", "value": "116i", "source": "user_stated", "evidence": "unknown"},
-    {"key": "series", "label_de": "Baureihe", "value": "F20 (5-Türer)", "source": "user_stated", "evidence": "unknown", "note_de": "F20 = 5-Türer, F21 = 3-Türer. Türanzahl am Fahrzeug bestätigen."},
-    {"key": "production_date", "label_de": "Produktionsdatum", "value": "2012-01-24", "source": "user_stated", "evidence": "unknown", "note_de": "Bestätigbar über Zeitkriterium im Fahrzeugauftrag (DID 0x3F06 am ZGW) bzw. FA-String '#0112'."},
-    {"key": "engine", "label_de": "Motor", "value": "N13B16 (1,6 l, 100 kW / 136 PS)", "source": "user_stated", "evidence": "unknown"},
-    {"key": "dme", "label_de": "Motorsteuerung", "value": "Bosch MEVD17.2.5", "source": "research", "evidence": "likely", "note_de": "Laut SGBD-Dokumentation für N13; Verbau per SVK an Adresse 0x12 bestätigen."},
-    {"key": "gearbox", "label_de": "Getriebe", "value": "Schaltgetriebe (kein EGS)", "source": "user_stated", "evidence": "unknown"},
-    {"key": "head_unit", "label_de": "Headunit", "value": "HU_ENTRY (Radio Professional)", "source": "user_stated", "evidence": "unknown"},
-    {"key": "hu_identifier", "label_de": "Steuergerätekennung (BimmerCode)", "value": "0F1820", "source": "previous_analysis", "evidence": "unknown", "note_de": "Format passt zum SGBD-Index (DID 0xF150). Zuordnung zum SG über codingECU.address im Backup klären."},
-    {"key": "hu_cafd", "label_de": "CAFD (laut bisheriger Analyse)", "value": "CAFD_000000F9_007_007_001", "source": "previous_analysis", "evidence": "unknown", "note_de": "000000F9 ist laut OpenCAFDMap-Daten eine Headunit-CAFD (Gruppen HMI, EXBOX, AUDIO_TUNER_TRAFFIC)."},
-    {"key": "display", "label_de": "Display", "value": "Original-BMW-Display (6,5 Zoll bei Radio Professional)", "source": "user_stated", "evidence": "unknown"},
-    {"key": "steering_wheel", "label_de": "Lenkrad", "value": "Multifunktionslenkrad", "source": "user_stated", "evidence": "unknown"},
-    {"key": "seat_heating", "label_de": "Sitzheizung", "value": "vorne", "source": "user_stated", "evidence": "unknown"},
-    {"key": "pdc", "label_de": "Einparkhilfe", "value": "PDC hinten (im REM integriert)", "source": "user_stated", "evidence": "unknown"},
-    {"key": "fog_lights", "label_de": "Nebelscheinwerfer", "value": "vorhanden", "source": "user_stated", "evidence": "unknown"},
-    {"key": "rain_sensor", "label_de": "Regen-/Lichtsensor", "value": "vorhanden", "source": "user_stated", "evidence": "unknown"},
-    {"key": "visibility_package", "label_de": "Sichtpaket", "value": "vorhanden", "source": "user_stated", "evidence": "unknown"},
-    {"key": "bluetooth_media", "label_de": "Bluetooth-Multimedia", "value": "nicht vorhanden (Annahme)", "source": "user_stated", "evidence": "unknown", "note_de": "Wird später separat untersucht (Combox / 6NH / 6NS)."},
-    {"key": "climate", "label_de": "Klimaanlage", "value": "unbekannt (IHKA oder IHKR)", "source": "open_question", "evidence": "unknown"},
-    {"key": "headlights", "label_de": "Scheinwerfer", "value": "unbekannt (vermutlich Halogen)", "source": "open_question", "evidence": "unknown"},
-    {"key": "mirrors_fold", "label_de": "Spiegel elektrisch anklappbar", "value": "nicht angegeben", "source": "open_question", "evidence": "unknown"},
-    {"key": "alarm", "label_de": "Diebstahlwarnanlage", "value": "nicht angegeben", "source": "open_question", "evidence": "unknown"}
+    {
+      "key": "manufacturer",
+      "label_de": "Hersteller",
+      "value": "BMW",
+      "source": "user_stated",
+      "evidence": "documented"
+    },
+    {
+      "key": "model",
+      "label_de": "Modell",
+      "value": "116i",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "series",
+      "label_de": "Baureihe",
+      "value": "F20 (5-Türer)",
+      "source": "user_stated",
+      "evidence": "unknown",
+      "note_de": "F20 = 5-Türer, F21 = 3-Türer. Türanzahl am Fahrzeug bestätigen."
+    },
+    {
+      "key": "production_date",
+      "label_de": "Produktionsdatum",
+      "value": "2012-01-24",
+      "source": "user_stated",
+      "evidence": "unknown",
+      "note_de": "Bestätigbar über Zeitkriterium im Fahrzeugauftrag (DID 0x3F06 am ZGW) bzw. FA-String '#0112'."
+    },
+    {
+      "key": "engine",
+      "label_de": "Motor",
+      "value": "N13B16 (1,6 l, 100 kW / 136 PS)",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "dme",
+      "label_de": "Motorsteuerung",
+      "value": "Bosch MEVD17.2.5",
+      "source": "research",
+      "evidence": "likely",
+      "note_de": "Laut SGBD-Dokumentation für N13; Verbau per SVK an Adresse 0x12 bestätigen."
+    },
+    {
+      "key": "gearbox",
+      "label_de": "Getriebe",
+      "value": "Schaltgetriebe (kein EGS)",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "head_unit",
+      "label_de": "Headunit",
+      "value": "HU_ENTRY (Radio Professional)",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "hu_identifier",
+      "label_de": "Steuergerätekennung (BimmerCode)",
+      "value": "0F1820 = HU_ENTRY (Diagnoseadresse 0x63)",
+      "source": "backup",
+      "evidence": "verified",
+      "note_de": "Nachgewiesen: codingECU.address 0x63 im BimmerCode-Backup."
+    },
+    {
+      "key": "hu_cafd",
+      "label_de": "CAFD (laut bisheriger Analyse)",
+      "value": "CAFD_000000F9_007_007_001",
+      "source": "backup",
+      "evidence": "verified",
+      "note_de": "Nachgewiesen im Backup (CAFDIdentifier 000000F9070701)."
+    },
+    {
+      "key": "display",
+      "label_de": "Display",
+      "value": "Original-BMW-Display (6,5 Zoll bei Radio Professional)",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "steering_wheel",
+      "label_de": "Lenkrad",
+      "value": "Multifunktionslenkrad",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "seat_heating",
+      "label_de": "Sitzheizung",
+      "value": "vorne",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "pdc",
+      "label_de": "Einparkhilfe",
+      "value": "PDC hinten (im REM integriert)",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "fog_lights",
+      "label_de": "Nebelscheinwerfer",
+      "value": "vorhanden",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "rain_sensor",
+      "label_de": "Regen-/Lichtsensor",
+      "value": "vorhanden",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "visibility_package",
+      "label_de": "Sichtpaket",
+      "value": "vorhanden",
+      "source": "user_stated",
+      "evidence": "unknown"
+    },
+    {
+      "key": "bluetooth_media",
+      "label_de": "Bluetooth-Multimedia",
+      "value": "nicht vorhanden (Annahme)",
+      "source": "user_stated",
+      "evidence": "unknown",
+      "note_de": "Wird später separat untersucht (Combox / 6NH / 6NS)."
+    },
+    {
+      "key": "climate",
+      "label_de": "Klimaanlage",
+      "value": "Klimaautomatik IHKA (Adresse 0x78, CAFD_00000A3F_005_001_013)",
+      "source": "backup",
+      "evidence": "verified",
+      "note_de": "IHKA-Backup vorhanden → Klimaautomatik verbaut; Klima-Gedächtnis-Optionen damit relevant."
+    },
+    {
+      "key": "headlights",
+      "label_de": "Scheinwerfer",
+      "value": "unbekannt (vermutlich Halogen)",
+      "source": "open_question",
+      "evidence": "unknown"
+    },
+    {
+      "key": "mirrors_fold",
+      "label_de": "Spiegel elektrisch anklappbar",
+      "value": "nicht angegeben",
+      "source": "open_question",
+      "evidence": "unknown"
+    },
+    {
+      "key": "alarm",
+      "label_de": "Diebstahlwarnanlage",
+      "value": "nicht angegeben",
+      "source": "open_question",
+      "evidence": "unknown"
+    },
+    {
+      "key": "icm_identifier",
+      "label_de": "Kennung 0F1650",
+      "value": "0F1650 = ICM (Diagnoseadresse 0x1C, CAFD_0000067B_002_003_139)",
+      "source": "backup",
+      "evidence": "verified",
+      "note_de": "Integrated Chassis Management – sicherheitsrelevant."
+    },
+    {
+      "key": "ecu_inventory_backups",
+      "label_de": "Steuergeräte mit Backup",
+      "value": "FEM_BODY 0F16B0, REM 0F16C0, KOMBI 0F1630, ICM 0F1650, IHKA 0F17C0, HU_ENTRY 0F1820, ACSM 0F16E0",
+      "source": "backup",
+      "evidence": "verified"
+    }
   ]
 }

@@ -32,7 +32,13 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-FN_RE = re.compile(r"^(?P<ecu>[0-9A-F]+)-(?P<vin>[A-Z0-9]{17})-(?P<ts>\d{9,})(?:-(?P<tag>[^.]*))?\.cod$", re.I)
+FN_RE = re.compile(r"(?P<ecu>[0-9A-Z_]+)-(?P<vin>[A-Z0-9]{17})-(?P<ts>\d{9,})(?:-(?P<tag>[^.]*))?\.cod$", re.I)
+UPLOAD_PREFIX_RE = re.compile(r"^[0-9a-f]{8}-(?=.+-[A-Z0-9]{17}-\d{9,})", re.I)
+
+
+def clean_upload_name(name: str) -> str:
+    """Entfernt ein vom Upload-System vorangestelltes Hash-Präfix (z. B. 'd2139e4c-')."""
+    return UPLOAD_PREFIX_RE.sub("", name)
 ANDROID_FN_RE = re.compile(r"^(?P<vin>[A-Z0-9]{17})_(?P<ecu>[A-Z0-9_]+)\.dat$", re.I)
 JAVA_SERIAL_MAGIC = b"\xac\xed\x00\x05"
 
@@ -210,7 +216,7 @@ def parse_cod(data: bytes, filename: str = "") -> CodBackup:
         if isinstance(b, dict) and "blockAddress" in b and isinstance(b.get("data"), (bytes, bytearray)):
             blocks[f"{int(b['blockAddress']):04X}"] = bytes(b["data"])
     addr = ecu.get("address") if isinstance(ecu, dict) else None
-    m = FN_RE.match(filename.rsplit("/", 1)[-1]) if filename else None
+    m = FN_RE.search(clean_upload_name(filename.rsplit("/", 1)[-1])) if filename else None
 
     def _scalar_extra(d: dict, prefix: str) -> dict:
         out = {}
